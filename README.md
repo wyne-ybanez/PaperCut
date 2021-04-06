@@ -80,10 +80,10 @@ queries I may have answered.
 
 #### Admin
 
-* As an admin of Papercuts I want all of the above options but I would also be able to access and delete all the reviews 
+* As an admin I want all of the above options but I would also be able to access and delete all the reviews 
 from other users.
-* As an admin of Papercuts I want to be able to create and delete review categories.
-* As an admin of Papercuts I want to be able to view how many users are registered on the website and delete users if 
+* As an admin I want to be able to create and delete review categories.
+* As an admin I want to be able to view how many users are registered on the website and delete users if 
 necessary.
 
 ### **The Scope Plane**
@@ -102,6 +102,8 @@ necessary.
 * Registered Admin reviews management.
 
 ### **The Structure Plane**
+
+#### User stories
 
 User Story:
 > As a user, I immediately want to know the purpose as to why the site was made.
@@ -142,8 +144,8 @@ The following main pages will be implemented:
 * Reviews Page - reviews.html
 * Create Review Page - create-review.html
 * Contact Us Page - contact.html
-* Sign Out - sign-out.html
-* Error 404 - 404.html
+* Sign Out - sign-out.html (redirects users to home page)
+* Error 404 - 404.html (error 404 handling)
 
 User Story:
 > As a user, I want the website to me responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
@@ -246,50 +248,121 @@ request directly to the website creator. The user will receive a response depend
 successfull sent or has failed through flash messages. The contact form will have validators implemented to ensure the 
 correct data inputs have been used.
 
+#### Admin User Stories
+
+User Story:
+> As an admin I want all of the above options but I would also be able to access and delete all the reviews 
+from other users.
+
+Criteria:
+* The admin will have the power to edit or delete reviews when necessary e.g. when a user's post does not follow 
+community guidelines.
+
+Implementation:
+
+An administrator's dashboard will be implemented in the website. This will be available to the admin when they log in.
+The dashboard will have all of the user's functionality and will also have free reign on editting or deleting a user's 
+posts.
+
+User Story:
+> As an admin of Papercuts I want to be able to create, edit and delete review categories.
+
+Criteria:
+* The admin will have the ability to create, edit or delete book categories and the contents within each category.
+
+Implementation:
+
+The administrator's dashboard will have the functionality to add, edit or delete categories via add-category.html, 
+edit-category.html and delete-category.html.
+
+User Story:
+> As an admin of Papercuts I want to be able to view how many users are registered on the website and delete users
+if necessary.
+
+Criteria:
+* The Admin Dashboard displays the number of users registered on the website. 
+* The Admin has the power to delete a user when necessary e.g. if user breaks community guidelines
+
+Implementation:
+
+The administrator's dashboard will have the functionality to view a user's profile details and posts when researching their
+account. The admin will can see and use the same buttons the user interacts with to edit or delete their post.
+
+### **The Skeleton Plane**
+#### Wireframes
+
+#### Database Design (MongoDb)
+
+**Collection: categories**<br>
+
+
+**Collection: reviews/posts**<br>
+
+
+**Collection: users**<br>
+
+
+#### Security
+
+(env.py file)
+
+### **The Surface Plane**
+### Design
+
+#### Colour Scheme
+
+
+#### Typography
+
+
 #### Imagery
 
 
-#### Differences to Design
-
+## Differences to Design
 
 ****
 ## Features
 
+
 ### Existing Features
+
 
 ### Features Left to Implement
 
 ****
-
 ## Technologies
 
 ****
 ## Testing
 
 ### Test Strategy
-
 #### **Summary**
+Testing is required on all features and user stories documented in this README. 
+All clickable links must redirect to the correct pages. All forms linked to MongoDB
+must be tested to ensure they insert all given fields into the correct collections.
 
+HTML Code must pass through the [W3C HTML Validator](https://validator.w3.org/#validate_by_uri).
+
+CSS Code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+
+JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
+
+Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
 #### **High Level Test Cases**
-
+![Test Cases]()
 
 #### **Access Requirements**
 
-
 #### **Regression Testing**
-
 
 #### **Assumptions and Dependencies**
 
-
 #### **Out of Scope**
-
 
 ### Test Results
 
-### Issues and Resolutions to issues found during testing
-
+Full test results can be found [here](TESTING.md)
 
 ****
 ## Deployment
@@ -298,10 +371,21 @@ correct data inputs have been used.
 
 
 ### Deployment to Heroku
+**Create application:**
 
+**Set up connection to Github Repository:**
+
+**Set environment variables:**
+
+**Enable automatic deployment:**
 
 ### Run Locally
 
+**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) 
+file configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. 
+These details are private and not disclosed in this repository for security purposes.**
+
+### Fork Project 
 
 ****
 ## Credits
@@ -309,5 +393,3 @@ correct data inputs have been used.
 ### Code
 
 ### Acknowledgements
-
-****
