@@ -44,12 +44,12 @@ own book reviews. The live website can be viewed [here](link).
 
 ### **The Strategy Plane**
 
-The user doesn't know what book they would like to read. Perhaps they know the genre they might like to read but 
+- The user doesn't know what book they would like to read. Perhaps they know the genre they might like to read but 
 they woudln't know exactly where to start. Alternatively, they might have just read a fantastic book and would like 
 to share their opinions. Papercut is the site that will allow them to engage with other readers and 
 share their personal reviews. 
 
-This website aims to allow the reader to quickly find book recommendations and create reviews on books they have 
+- This website aims to allow the reader to quickly find book recommendations and create reviews on books they have 
 read, reviews which can be seen by other users to help them make a decision on whether to read/purchase a certain 
 book. All reviews are recorded and can be editted or deleted by their respective authors. The users can also add relavant 
 information such as author names and links to cover page. There will be a voting feature so users can upvote their liked 
@@ -57,49 +57,49 @@ books.
 
 #### Site Goals
 
-* To bring together like-minded readers and allow them to express their views on a novel they enjoy or dislike.
-* To help readers make a decision on what book they should read next.
-* The website could conceivably look to earn income through affiliate links for these book.
+- To bring together like-minded readers and allow them to express their views on a novel they enjoy or dislike.
+- To help readers make a decision on what book they should read next.
+- The website could conceivably look to earn income through affiliate links for these book.
 
 #### User stories
 
-* As a user, I immediately want to know the purpose as to why the site was made.
-* As a user, I would like if the website were easy to navigate and that I never felt lost no matter where I was 
+- As a user, I immediately want to know the purpose as to why the site was made.
+- As a user, I would like if the website were easy to navigate and that I never felt lost no matter where I was 
 when exploring the website
-* As a user, I want the website to me responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
+- As a user, I want the website to me responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
 it's content to be clear and be position accordingly.
-* As a user, I want to be able to return to the main site without having to use the browser buttons so 
+- As a user, I want to be able to return to the main site without having to use the browser buttons so 
 that I can easily return to the website if I navigate to a page that doesn't exist.
-* As a user, I want to be able to register an account to the website so I can post book reviews. I also want to
+- As a user, I want to be able to register an account to the website so I can post book reviews. I also want to
 be able to edit and delete the reviews I created.
-* As a user, I want to be able to edit and delete the profile I created.
-* As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
-* As a user, I want to be able to like a review posted by another user.
-* As a user, I want to be able to contact the site's owner so I can provide my feedback on the website or to have any 
+- As a user, I want to be able to edit and delete the profile I created.
+- As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
+- As a user, I want to be able to like a review posted by another user.
+- As a user, I want to be able to contact the site's owner so I can provide my feedback on the website or to have any 
 queries I may have answered.
 
 #### Admin
 
-* As an admin I want all of the above options but I would also be able to access and delete all the reviews 
+- As an admin I want all of the above options but I would also be able to access and delete all the reviews 
 from other users.
-* As an admin I want to be able to create and delete review categories.
-* As an admin I want to be able to view how many users are registered on the website and delete users if 
+- As an admin I want to be able to create and delete review categories.
+- As an admin I want to be able to view how many users are registered on the website and delete users if 
 necessary.
 
 ### **The Scope Plane**
 
 **Features planned:**
 
-* Responsive design.
-* Website title and information on the site purpose.
-* Navigation Menu (Site Wide).
-* MongoDB databases to store reviews information and user logins.
-* Login functionality.
-* Logout functionality.
-* CRUD functionality
-* Book Titles and Genres displayed and searchable to all users.
-* Registered user review creation and management.
-* Registered Admin reviews management.
+- Responsive design.
+- Website title and information on the site purpose.
+- Navigation Menu (Site Wide).
+- MongoDB databases to store reviews information and user logins.
+- Login functionality.
+- Logout functionality.
+- CRUD functionality
+- Book Titles and Genres displayed and searchable to all users.
+- Registered user review creation and management.
+- Registered Admin reviews management.
 
 ### **The Structure Plane**
 
@@ -109,8 +109,8 @@ User Story:
 > As a user, I immediately want to know the purpose as to why the site was made.
 
 Criteria:
-* Site heading and Logo to be displayed on the main navigation bar on all pages.
-* Home Page to display all necessary information and images to the user on the purpose of the site.
+- Site heading and Logo to be displayed on the main navigation bar on all pages.
+- Home Page to display all necessary information and images to the user on the purpose of the site.
 
 Implementation:
 
@@ -124,8 +124,8 @@ User Story:
 when exploring the website
 
 Criteria:
-* Navigation menu to be displayed on all pages regardless of device or screen height/width.
-* All navigation links redirect to the appropriate pages.
+- Navigation menu to be displayed on all pages regardless of device or screen height/width.
+- All navigation links redirect to the appropriate pages.
 
 Implementation:
 
@@ -135,24 +135,24 @@ options.
 
 The following main pages will be implemented:
 
-* Home page - index.html
-* Sign Up Page - register.html
-* Sign In Page - login.html
-* Member Profile Page - profile.html
-    * Edit Review Page ( Edit button accessible from users profile ) - edit-review.html
-    * Delete Review Page ( Delete Button accessible from users profile ) - delete-review.html
-* Reviews Page - reviews.html
-* Create Review Page - create-review.html
-* Contact Us Page - contact.html
-* Sign Out - sign-out.html (redirects users to home page)
-* Error 404 - 404.html (error 404 handling)
+- Home page - index.html
+- Sign Up Page - register.html
+- Sign In Page - login.html
+- Member Profile Page - profile.html
+    - Edit Review Page ( Edit button accessible from users profile ) - edit-review.html
+    - Delete Review Page ( Delete Button accessible from users profile ) - delete-review.html
+- Reviews Page - reviews.html
+- Create Review Page - create-review.html
+- Contact Us Page - contact.html
+- Sign Out - sign-out.html (redirects users to home page)
+- Error 404 - 404.html (error 404 handling)
 
 User Story:
 > As a user, I want the website to me responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
 it's content to be clear and be position accordingly.
 
 Criteria:
-* Website content should be positioned appropriately. Horizontal scroll should not be present on smaller devices.
+- Website content should be positioned appropriately. Horizontal scroll should not be present on smaller devices.
 
 Implementation:
 
@@ -165,7 +165,7 @@ User Story:
 that I can easily return to the website if I navigate to a page that doesn't exist.
 
 Criteria:
-* If a user redirects to the wrong page, an error will display that contains a link to go back to the main website.
+- If a user redirects to the wrong page, an error will display that contains a link to go back to the main website.
 
 Implementation:
 
@@ -176,11 +176,11 @@ User Story:
 to be able to edit and delete the reviews I created.
 
 Criteria:
-* Sign up - Login and Logout functionality will be available.
-* Users will be able to create, update and delete their own profiles.
-* Users will be able to create, update and delete their own reviews.
-* Users will have a profile page displaying their details, profile image and the reviews they have created.
-* Only the creator and Admin have the ability to update or delete the creator's review.
+- Sign up - Login and Logout functionality will be available.
+- Users will be able to create, update and delete their own profiles.
+- Users will be able to create, update and delete their own reviews.
+- Users will have a profile page displaying their details, profile image and the reviews they have created.
+- Only the creator and Admin have the ability to update or delete the creator's review.
 
 Implementation:
 
@@ -196,8 +196,8 @@ User Story:
 > As a user, I want to be able to edit and delete the profile I created.
 
 Criteria:
-* The user will be able to update their personal information as well as their profile image.
-* If the user wishes, they can delete their profile and delete the reviews associated with it.
+- The user will be able to update their personal information as well as their profile image.
+- If the user wishes, they can delete their profile and delete the reviews associated with it.
 
 Implementation:
 
@@ -209,9 +209,9 @@ User Story:
 > As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
 
 Criteria:
-* The user should be able to research and read the reviews of other users as well as their own. 
-* A search box will assist the user with finding certain reviews based on categories or titles.
-* Search results will be sorted in descending order based on the number of likes/favorites.
+- The user should be able to research and read the reviews of other users as well as their own. 
+- A search box will assist the user with finding certain reviews based on categories or titles.
+- Search results will be sorted in descending order based on the number of likes/favorites.
 
 Implementation:
 
@@ -223,9 +223,9 @@ User Story:
 > As a user, I want to be able to like a review posted by another user.
 
 Criteria:
-* Posts should have display the amount of community likes for a post  
-* Posts should have display the amount of community favorites for a post
-* Users should be able to interact with these icons by clicking to like or favorite a post.
+- Posts should have display the amount of community likes for a post  
+- Posts should have display the amount of community favorites for a post
+- Users should be able to interact with these icons by clicking to like or favorite a post.
 
 Implementation:
 
@@ -237,9 +237,9 @@ User Story:
 my queries answered.
 
 Criteria:
-* Contact page should be added with a contact form. This form should only submit with valid data inputs.
-* Contact form should not submit with invalid data inputs.
-* User should be alerted of success/failure status of form submission.
+- Contact page should be added with a contact form. This form should only submit with valid data inputs.
+- Contact form should not submit with invalid data inputs.
+- User should be alerted of success/failure status of form submission.
 
 Implementation:
 
@@ -255,7 +255,7 @@ User Story:
 from other users.
 
 Criteria:
-* The admin will have the power to edit or delete reviews when necessary e.g. when a user's post does not follow 
+- The admin will have the power to edit or delete reviews when necessary e.g. when a user's post does not follow 
 community guidelines.
 
 Implementation:
@@ -268,7 +268,7 @@ User Story:
 > As an admin of Papercuts I want to be able to create, edit and delete review categories.
 
 Criteria:
-* The admin will have the ability to create, edit or delete book categories and the contents within each category.
+- The admin will have the ability to create, edit or delete book categories and the contents within each category.
 
 Implementation:
 
@@ -280,8 +280,8 @@ User Story:
 if necessary.
 
 Criteria:
-* The Admin Dashboard displays the number of users registered on the website. 
-* The Admin has the power to delete a user when necessary e.g. if user breaks community guidelines
+- The Admin Dashboard displays the number of users registered on the website. 
+- The Admin has the power to delete a user when necessary e.g. if user breaks community guidelines
 
 Implementation:
 
