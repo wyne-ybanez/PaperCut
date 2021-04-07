@@ -21,7 +21,7 @@ own book reviews. The live website can be viewed [here](link).
             * [Typography](#Typography)
             * [Imagery](#Imagery)
     * [Differences to Design](#Differences-to-Design)
-- [Features](#Features)
+* [Features](#Features)
     * [Existing Features](#Existing-Features)
     * [Future Features](#Features-Left-to-Implement)
 * [Technologies](#Technologies)
@@ -350,17 +350,6 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
 #### **High Level Test Cases**
-![Test Cases]()
-
-#### **Access Requirements**
-
-#### **Regression Testing**
-
-#### **Assumptions and Dependencies**
-
-#### **Out of Scope**
-
-### Test Results
 
 Full test results can be found [here](TESTING.md)
 
@@ -369,15 +358,71 @@ Full test results can be found [here](TESTING.md)
 
 ### Project Creation
 
+- Project started using Github and Gitpod.
+
+1. First I signed into Github and created a new repository. There will be a drop down menu when looking to use a template
+    so I chose to use Code Institute's Template. Alternatively, you can navigate [here](https://github.com/Code-Institute-Org/gitpod-full-template)
+    and there will be an option button called "Use this template".
+
+2. I then clicked the use this template button. Where I was directed to create a new repository name and create a new 
+    repository which I could open using Gitpod.
+
+3. It creates a Gitpod workspace of which I could start developing the project.
+
+### Version Control 
+
+In the terminal, I utilised the following commands in the following order:
+
+- git add . (git add <em>filename</em>) - command to add all files or a specific file 
+- git commit -m <em>commit message</em> - command to commit the changes locally with a message to describe the changes briefly
+- git push - command to push changes to remote Github repository
 
 ### Deployment to Heroku
 **Create application:**
 
+1. I signed into Heroku 
+2. I created a new app by clicking the "new" button.
+3. Select the new app 
+4. Create an app project name 
+5. Selected Europe as the region
+
 **Set up connection to Github Repository:**
+
+1. A requirements.txt needs to be created, this can be done through the following terminal command
+    >  pip3 freeze --local > requirements.txt
+
+2. Then a Procfile for Heroku is needs to be created, here is the terminal command used
+    >  echo web: python app.py > Procfile
+
+3. Ensure there the Procfile begins with a capital letter 'P' and that there are no unecessary spaces 
+
+4. Click the deploy tab and select Github - connect to Github
+
+5. There will be an empty input field where you can type the name of your repository. Write the repo name there and 
+    click search
+
+6. Once the repository has been found, click the connect button
 
 **Set environment variables:**
 
-**Enable automatic deployment:**
+- Click the settings button at the top of the page
+- There will be an option titled 'Reveal Config Vars' - click on this 
+- Here, you can add your config variable keys from your `env.py` file
+
+<strong>Example:</strong>
+
+- key: IP, value: 0.0.0.0
+- key: PORT, value: 5000
+- key: MONGO_DBNAME, value: (<em>Database name you wish to connect to</em>)
+- key: MONGO_URI, value: (<em>Mongo URI - This can be found in MongoDB by going to clusters > connect > connect to your application and substituting the password and dbname that you set up in the link</em>).
+- key: SECRET_KEY, value: (<em>Custom Secret Key</em>).
+
+**Enable Automatic Deployment & Manual Deployment:**
+
+- Ensure your Procfile and requirements.txt are in your repository as Heroku will not be able to deploy without these
+- Click the Deploy tab
+- Click Enable Automatic deploys in 'Automatic Deploys' section
+- Choose the branch you would like to deploy and click "Deploy Branch"
 
 ### Run Locally
 
