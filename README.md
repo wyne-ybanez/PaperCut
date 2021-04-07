@@ -1,4 +1,4 @@
-# Papercuts - Book Review Project
+# Papercuts - Book Review Blog Project
 
 "Papercuts" is a place user can view and vote on book reviews created by readers. The user can also create and post their 
 own book reviews. The live website can be viewed [here](link).
