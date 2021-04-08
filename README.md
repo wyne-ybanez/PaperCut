@@ -291,6 +291,30 @@ account. The admin will can see and use the same buttons the user interacts with
 ### **The Skeleton Plane**
 #### Wireframes
 
+- Main/Home Page: <br>
+![Home](readme_Img/wireframes/Main_Page.png)<br>
+
+- Register: <br>
+![Register](readme_Img/wireframes/Register.png)
+
+- Log In: <br>
+![LogIn](readme_Img/wireframes/Log_In.png) 
+
+- Profile: <br>
+![Profile](readme_Img/wireframes/Profile.png)
+
+- Update Profile: <br>
+![Update_Profile](readme_Img/wireframes/Update_Profile.png)
+
+- Latest Posts: <br>
+![Latest_Posts](readme_Img/wireframes/Latest_Posts.png)
+
+- Add Post: <br>
+![Add_Post](readme_Img/wireframes/Add_Post.png)
+
+- Admin: <br>
+![Admin](readme_Img/wireframes/Admin.png)
+
 #### Database Design (MongoDb)
 
 **Collection: categories**<br>
