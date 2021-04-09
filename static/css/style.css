@@ -20,6 +20,29 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+.fa-bars {
+    color: #000;
+}
+
 nav.nav-extended .nav-wrapper {
     padding: 0 200px;
+}
+
+nav ul a {
+    font-size: 1.3rem;
+}
+
+nav .brand-logo {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* Mobile Phone media queries */
+@media only screen 
+and (min-width: 375px)
+and (max-width: 667px) {
+
+    nav.nav-extended .nav-wrapper {
+        padding: 0px;
+    }
 }
