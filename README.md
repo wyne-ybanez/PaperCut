@@ -461,4 +461,6 @@ These details are private and not disclosed in this repository for security purp
 
 ### Code
 
+- CSS preload animation fix: https://css-tricks.com/transitions-only-after-page-load/
+
 ### Acknowledgements

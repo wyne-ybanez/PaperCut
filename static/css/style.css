@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Syne', sans-serif;
+}
+
+/* Code to stop css transitions occuring while page loads: https://css-tricks.com/transitions-only-after-page-load/ */
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+nav.nav-extended .nav-wrapper {
+    padding: 0 200px;
+}
