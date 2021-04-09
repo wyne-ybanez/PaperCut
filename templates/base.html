@@ -21,36 +21,43 @@
 <body>
 
     <header>
-        <!-- Top Navbar -->
+        <!-- Side Navbar - Web -->
         <div class="navbar-fixed">
-        <nav class="nav-extended navbar transparent">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('get_posts') }}" class="brand-logo black-text">PAPERCUTS</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
-                    <li><a href="#" class="black-text">Home</a></li>
-					<li><a href="#" class="black-text">Profile</a></li>
-					<li><a href="{{ url_for('get_posts') }}" class="black-text">Posts</a></li> 
-                    <li><a href="#" class="black-text">Add Posts</a></li> 
-					<li><a href="#" class="black-text">Log Out</a></li>
-					<li><a href="#" class="black-text">Log In</a></li>
-					<li><a href="#" class="black-text">Register</a></li>
-                </ul>
-            </div>
-        </nav>
+            <nav class="nav-extended navbar transparent">
+                <div class="nav-wrapper">
+                        <a href="{{ url_for('get_posts') }}" class="brand-logo black-text text-shadow">PAPERCUTS</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars fa-2x text-shadow"></i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
+                            <li><a href="#" data-target="slide-out" class="sidenav-trigger web"><i class="fas fa-bars fa-2x text-shadow"></i></a></li>
+                        </ul>
+                </div>
+            </nav>  
         </div>
 
-        <!-- Mobile Side Nav -->
-        <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align black-text">PAPERCUTS</h4></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="{{ url_for('get_posts') }}">Posts</a></li>
-                <li><a href="#">Add Posts</a></li>
-                <li><a href="#">Log Out</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Register</a></li>
-        </ul>
+                <ul id="slide-out" class="sidenav">
+                    <li><h4 class="center-align black-text">PAPERCUTS</h4></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="{{ url_for('get_posts') }}">Posts</a></li>
+                    <li><a href="#">Add Posts</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+
+                 <!-- Mobile Side Nav -->
+                <ul class="sidenav" id="mobile-demo">
+                    <li>
+                        <h4 class="center-align black-text">PAPERCUTS</h4>
+                    </li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="{{ url_for('get_posts') }}">Posts</a></li>
+                    <li><a href="#">Add Posts</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
 
     </header>
 

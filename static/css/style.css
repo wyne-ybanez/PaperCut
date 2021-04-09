@@ -37,7 +37,11 @@ body {
 }
 
 .scrolled {
-    background:#fbc02d; 
+    background-color:#fbc02d; 
+}
+
+nav a.sidenav-trigger.web{
+    display: block;
 }
 
 nav.nav-extended .nav-wrapper {
@@ -66,6 +70,14 @@ nav .brand-logo {
 @media only screen 
 and (min-width: 375px)
 and (max-width: 667px) {
+
+.phone {
+    display: none;
+} 
+
+nav a.sidenav-trigger{
+    display: block;
+}
 
 nav.nav-extended .nav-wrapper {
     padding: 0px;
