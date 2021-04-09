@@ -42,7 +42,16 @@ nav .brand-logo {
 and (min-width: 375px)
 and (max-width: 667px) {
 
-    nav.nav-extended .nav-wrapper {
-        padding: 0px;
-    }
+nav.nav-extended .nav-wrapper {
+    padding: 0px;
+}
+
+nav .brand-logo {
+    font-size: 2.2rem;
+}
+
+ul h4 {
+    font-weight: 700;
+}
+
 }
