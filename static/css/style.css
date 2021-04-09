@@ -52,14 +52,15 @@ nav ul a {
     font-size: 1.3rem;
 }
 
-nav .brand-logo {
+nav .brand-logo,
+.brand-logo {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .sidenav li>a {
     font-size: 20px;
-    padding: 30px 32px;
+    /* padding: 30px 32px; */
 }
 
 .sidenav.right-aligned {
