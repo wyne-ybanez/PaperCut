@@ -6,11 +6,9 @@ $(document).ready(function () {
         var startY = $('.navbar').height() * 2; 
 
         if($(window).scrollTop() > startY){
-            $('.navbar').addClass("scrolled");
-            $('.navbar').removeClass("transparent");
+            $('.fa-bars').addClass("scrolled");
         }else{
-            $('.navbar').addClass("transparent");
-            $('.navbar').removeClass("scrolled");
+            $('.fa-bars').removeClass("scrolled");
         }
     }
 

@@ -37,7 +37,8 @@ body {
 }
 
 .scrolled {
-    background-color:#fbc02d; 
+    color:#f9a825 ;
+    transition-duration: 0.5s;
 }
 
 nav a.sidenav-trigger.web{
@@ -46,10 +47,6 @@ nav a.sidenav-trigger.web{
 
 nav.nav-extended .nav-wrapper {
     padding: 0 200px;
-}
-
-nav ul a {
-    font-size: 1.3rem;
 }
 
 nav .brand-logo,
@@ -64,7 +61,7 @@ nav .brand-logo,
 }
 
 .sidenav.right-aligned {
-    background:#fbc02d;
+    background:#f9a825 ;
 }
 
 /* Mobile Phone media queries */

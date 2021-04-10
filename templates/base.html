@@ -24,14 +24,13 @@
         <div class="navbar-fixed">
             <nav class="nav-extended navbar transparent">
                 <div class="nav-wrapper">
-                        <a href="{{ url_for('get_posts') }}" class="brand-logo black-text text-shadow">PAPERCUTS</a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars fa-2x text-shadow"></i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
                             <li><a href="#" data-target="slide-out" class="sidenav-trigger web"><i class="fas fa-bars fa-2x text-shadow"></i></a></li>
                         </ul>
                 </div>
             </nav>  
-        </div>
+        </div>  
 
                 <ul id="slide-out" class="sidenav">
                     <li><h4 class="center-align black-text brand-logo text-shadow">PAPERCUTS</h4></li>
@@ -60,6 +59,7 @@
 
     </header>
 
+        <!-- Extra Flask HTML -->
         {% block content %}
         {% endblock %}
 
