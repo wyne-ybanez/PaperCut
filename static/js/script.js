@@ -1,7 +1,9 @@
 $(document).ready(function () {
     $(".sidenav").sidenav({edge: "right"});
+    $('textarea#post-content').characterCounter(); // Character counter
+    $('select').formSelect();                      // Form select
 
-    // Transparent Scroll Effect of Navbar from - Editted: https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll
+    // Scroll effect interactivity - Editted: https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll
     function checkScroll(){
         var startY = $('.navbar').height() * 2; 
 
@@ -16,5 +18,5 @@ $(document).ready(function () {
         $(window).on("scroll load resize", function(){
             checkScroll();
         });
-    }
+    }    
 });
