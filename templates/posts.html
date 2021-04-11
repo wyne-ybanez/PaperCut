@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="row">
+    <div class="col s12 m4">
+      <div class="card">
         {% for post in posts %}
-            {{ post.post_title }}<br>
-            {{ post.book }}<br>
-            {{ post.category_name }}<br>
-            {{ post.review }}<br>
-            {{ post.date }}<br>
+            <div class="card-image">
+            <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
+            <span class="card-title white-text">{{ post.category_name }}</span>
+            <a href="add_post.html" class="btn-floating halfway-fab waves-effect waves-light orange">
+                <i class="fas fa-plus"></i>
+            </a>
+            </div>
+            <div class="card-content">
+                <p class="post-title"><strong>{{ post.post_title }}</strong></p>
+                <p><em>Book:</em> {{ post.book }}</p>
+                <br>
+                <p><em>Review:</em></p>
+                <p>{{ post.review }}</p>
+                <br>
+                <p><em>Author:</em> {{ post.created_by }}</p>
+                <p><em>Date:</em> {{ post.date }}</p>
+            </div>
         {% endfor %}
+      </div>
+    </div>
+  </div> 
 
 {% endblock %}

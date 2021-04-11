@@ -73,7 +73,16 @@ nav .brand-logo,
     background:#f9a825 ;
 }
 
-/* Mobile Phone media queries */
+/*====== Card Posts ======*/
+.card .card-image .card-title {
+    font-weight: 700;
+}
+
+.post-title {
+    font-size: 35px;
+}
+
+/*====== Mobile Phone media queries ======*/
 @media only screen 
 and (min-width: 375px)
 and (max-width: 667px) {
