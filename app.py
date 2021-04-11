@@ -71,9 +71,11 @@ def login():
                         request.form.get('username')))
             else:
                 flash('Incorrect Username and/or Password')
+                return redirect(url_for("login"))
 
         else:
             flash('Incorrect Username and/or Password')
+            return redirect(url_for("login"))
 
     return render_template('login.html')
 
