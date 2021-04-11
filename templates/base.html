@@ -22,7 +22,7 @@
     <header>
         <!-- Side Navbar - Web -->
         <div class="navbar-fixed">
-            <nav class="nav-extended navbar transparent">
+            <nav class="nav-extended navbar transparent no-shadows">
                 <div class="nav-wrapper">
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars fa-2x text-shadow"></i></a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
@@ -39,7 +39,7 @@
                     <li><a href="{{ url_for('get_posts') }}">Posts</a></li>
                     <li><a href="#">Add Posts</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
 
@@ -53,7 +53,7 @@
                     <li><a href="{{ url_for('get_posts') }}">Posts</a></li>
                     <li><a href="#">Add Posts</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
 

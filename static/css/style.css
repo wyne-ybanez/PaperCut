@@ -18,6 +18,11 @@ body {
     -o-transition: none !important;
 }
 
+/* Removes shadows: https://stackoverflow.com/questions/51750706/how-to-turn-off-materializes-default-shadows-for-navbar/51751637 */
+.no-shadows {
+    box-shadow: none!important;
+}
+
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
