@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Log In</h3>
-
     <div class="row">
-        <h1 class="col s12 m6">
-            <a href="{{ url_for('get_posts') }}" class="brand-logo black-text text-shadow">PAPERCUTS</a>
-        </h1>
+        <div class="col s12 m6">
+            <h1 class="center-align"><a href="{{ url_for('get_posts') }}" class="brand-logo black-text text-shadow">PAPERCUTS</a></h1>
+            <h3 class="center-align">Log In</h3>
+        </div>   
         <form class="col s12 m6" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
                 <!-- username -->
