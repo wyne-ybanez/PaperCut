@@ -111,7 +111,8 @@ def logout():
 
 @app.route('/add_post')
 def add_post():
-    return render_template('add_post.html')
+    genres = mongo.db.genres.find().sort('genre_name',1)
+    return render_template('add_post.html', genres=genres)
 
 
 if __name__ == '__main__':

@@ -8,11 +8,11 @@
             <div class="row">
                 <!-- Genre -->
                 <div class="input-field col s12">
-                    <select id="genre" name="genre">
-                        <option value="" disabled selected>Genre</option>
-                        <option value="Fantasy" id="Fantasy" name="Fantasy">Option 1</option>
-                        <option value="Adventure" id="Adventure" name="Adventure">Option 2</option> 
-                        <option value="Romance" id="Romance" name="Romance">Option 3</option>
+                    <i class="fas fa-folder-open prefix orange-text"></i>
+                    <select id="genre_name" name="genre_name" class="validate" required>
+                        {% for genre in genres %}
+                            <option value="{{ genre.genre_name}}">{{ genre.genre_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <!-- Title -->
