@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Syne', sans-serif;
-    height: 200vh;
 }
 
 /* Code to stop css transitions occuring while page loads: https://css-tricks.com/transitions-only-after-page-load/ */
@@ -83,12 +82,31 @@ nav .brand-logo,
     margin: 30px 10px;
 }
 
-.post-title {
-    font-size: 35px;
-}
-
 .btn-floating.halfway-fab.plus {
     right: 70px;
+}
+
+.post-title {
+    font-size: 35px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-review {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+
+.review {
+    font-size: 20px;
+}
+
+.book {
+    font-size: 25px;
 }
 
 /*====== Mobile Phone media queries ======*/

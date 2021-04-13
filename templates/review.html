@@ -7,7 +7,6 @@
     <div class="col s12">
         <div class="card">
           <div class="card-image">
-            <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
             <span class="card-title white-text">{{ post.genre }}</span>
             <a href="{{ url_for('add_post') }}" class="btn-floating halfway-fab waves-effect waves-light orange">
               <i class="fas fa-plus"></i>
@@ -15,13 +14,14 @@
           </div>
           <div class="card-content">
             <div class="container">
-              <p><em>Book:</em> {{ post.book }}</p>
+              <p style="font-size: 20px;"><em>Book:</em></p>
+              <p class="book"><em>{{ post.book }}</em></p>
               <br>
-              <p><em>Review:</em></p>
-              <p>{{ post.review }}</p>
+              <p style="font-size: 20px;"><em>Review:</em></p>
+              <p class="review"><strong>{{ post.review }}</strong></p>
               <br>
-              <p><em>Author:</em> {{ post.created_by }}</p>
-              <p><em>Date:</em> {{ post.date }}</p>
+              <p class="right-align"><em>Author:</em> {{ post.created_by }}</p>
+              <p class="right-align"><em>Date:</em> {{ post.date }}</p>
             </div>
           </div>
         </div>

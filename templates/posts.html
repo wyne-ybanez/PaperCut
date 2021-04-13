@@ -22,7 +22,41 @@
               <p><em>Book:</em> {{ post.book }}</p>
               <br>
               <p><em>Review:</em></p>
-              <p>{{ post.review }}</p>
+              <p class="card-review">{{ post.review }}</p>
+              <a href="{{ url_for('show_review', post_id=post._id) }}" class="center-align just orange-text">Read more</a>
+              <br>
+              <br>
+              <p><em>Author:</em> {{ post.created_by }}</p>
+              <p><em>Date:</em> {{ post.date }}</p>
+            </div>
+          <div class="card-action">
+            <a href="{{ url_for('show_review', post_id=post._id) }}" class="center-align just orange-text">Read Review!</a>
+          </div>
+        </div>
+     
+    </div>
+
+    <div class="col s12 m5">
+  
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
+            <span class="card-title white-text">{{ post.genre }}</span>
+              <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
+                <i class="fas fa-plus"></i>
+              </a>     
+              <a href="{{ url_for('show_review', post_id=post._id) }}" class="btn-floating halfway-fab waves-effect waves-light orange">
+                <i class="fas fa-search"></i>
+              </a>
+          </div>
+          <div class="card-content">
+              <p class="post-title"><strong>{{ post.post_title }}</strong></p>
+              <p><em>Book:</em> {{ post.book }}</p>
+              <br>
+              <p><em>Review:</em></p>
+              <p class="card-review">{{ post.review }}</p>
+              <a href="{{ url_for('show_review', post_id=post._id) }}" class="center-align just orange-text">Read more</a>
+              <br>
               <br>
               <p><em>Author:</em> {{ post.created_by }}</p>
               <p><em>Date:</em> {{ post.date }}</p>
@@ -33,6 +67,7 @@
         </div>
       {% endfor %}
     </div>
+
   </div> 
 
 {% endblock %}
