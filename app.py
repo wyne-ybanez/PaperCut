@@ -113,6 +113,10 @@ def logout():
 
 @app.route('/add_post', methods=['GET','POST'])
 def add_post():
+    ''' 
+    Adds a post 
+    Sends Data to DB
+    '''
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
@@ -129,6 +133,12 @@ def add_post():
 
     genres = mongo.db.genres.find().sort('genre_name',1)
     return render_template('add_post.html', genres=genres)
+
+
+@app.route('/show_review/<post_id>')
+def show_review(post_id):
+    post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
+    return render_template('review.html', post=post)
 
 
 if __name__ == '__main__':

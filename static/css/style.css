@@ -80,10 +80,15 @@ nav .brand-logo,
 
 .card {
     box-shadow: 0px 8px 15px rgb(0 0 0 / 30%);
+    margin: 30px 10px;
 }
 
 .post-title {
     font-size: 35px;
+}
+
+.btn-floating.halfway-fab.plus {
+    right: 70px;
 }
 
 /*====== Mobile Phone media queries ======*/

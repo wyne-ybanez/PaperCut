@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">{{ post.post_title }}</h3>
+
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
+            <span class="card-title white-text">{{ post.genre }}</span>
+            <a href="{{ url_for('add_post') }}" class="btn-floating halfway-fab waves-effect waves-light orange">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="card-content">
+            <div class="container">
+              <p><em>Book:</em> {{ post.book }}</p>
+              <br>
+              <p><em>Review:</em></p>
+              <p>{{ post.review }}</p>
+              <br>
+              <p><em>Author:</em> {{ post.created_by }}</p>
+              <p><em>Date:</em> {{ post.date }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> 
+
+
+{% endblock %}
