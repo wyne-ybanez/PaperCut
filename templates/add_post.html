@@ -3,35 +3,39 @@
 
     <h3 class="center-align">Add Post</h3>
 
-    <div class="row">
-        <form class="col s12">
+    <div class="row card-panel grey lighten-4">
+        <form class="col s12" method="POST" action="">
             <div class="row">
                 <!-- Genre -->
                 <div class="input-field col s12">
-                    <select>
+                    <select id="genre" name="genre">
                         <option value="" disabled selected>Genre</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option> 
-                        <option value="3">Option 3</option>
+                        <option value="Fantasy" id="Fantasy" name="Fantasy">Option 1</option>
+                        <option value="Adventure" id="Adventure" name="Adventure">Option 2</option> 
+                        <option value="Romance" id="Romance" name="Romance">Option 3</option>
                     </select>
                 </div>
                 <!-- Title -->
                 <div class="input-field col s12">
                     <i class="fas fa-heading prefix orange-text"></i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Title</label>
+                    <input id="Review_title" name="Review_title" type="text" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="Review_title">Title</label>
                 </div>
                 <!-- Book -->
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix orange-text"></i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Book</label>
+                    <input id="Book" name="Book" type="text" minlength="5" maxlength="20"
+                        type="text" class="validate" required>
+                    <label for="Book">Book</label>
                 </div>
                 <!-- Book Review -->
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix orange-text"></i>
-                    <textarea id="post-content" class="materialize-textarea" data-length="1500"></textarea>
-                    <label for="post-content">Book Review</label>
+                    <textarea id="review" name="review" class="materialize-textarea" minlength="5"
+                        maxlength="1500" data-length="1500" required>
+                    </textarea>
+                    <label for="review">Book Review</label>
                 </div>
             </div>
         </form>
