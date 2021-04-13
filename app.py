@@ -5,6 +5,8 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
+import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -109,8 +111,22 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/add_post')
+@app.route('/add_post', methods=['GET','POST'])
 def add_post():
+    today = datetime.date.today()
+    if request.method == 'POST':
+        post = {
+            'genre_name': request.form.get('genre_name'),
+            'post_title': request.form.get('post_title'),
+            'book': request.form.get('book'),
+            'review': request.form.get('review'),
+            'date': today.strftime('%d %B, %Y'),
+            'created_by': session['user']
+        }
+        mongo.db.posts.insert_one(post)
+        flash('Post Successfully Added')
+        return redirect(url_for('get_posts'))
+
     genres = mongo.db.genres.find().sort('genre_name',1)
     return render_template('add_post.html', genres=genres)
 

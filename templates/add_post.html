@@ -4,7 +4,7 @@
     <h3 class="center-align">Add Post</h3>
 
     <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
             <div class="row">
                 <!-- Genre -->
                 <div class="input-field col s12">
@@ -18,25 +18,32 @@
                 <!-- Title -->
                 <div class="input-field col s12">
                     <i class="fas fa-heading prefix orange-text"></i>
-                    <input id="Review_title" name="Review_title" type="text" minlength="5" maxlength="50"
+                    <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
                         type="text" class="validate" required>
-                    <label for="Review_title">Title</label>
+                    <label for="post_title">Title</label>
                 </div>
                 <!-- Book -->
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix orange-text"></i>
-                    <input id="Book" name="Book" type="text" minlength="5" maxlength="20"
+                    <input id="book" name="book" type="text" minlength="5" maxlength="200"
                         type="text" class="validate" required>
-                    <label for="Book">Book</label>
+                    <label for="book">Book</label>
                 </div>
                 <!-- Book Review -->
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix orange-text"></i>
                     <textarea id="review" name="review" class="materialize-textarea" minlength="5"
-                        maxlength="1500" data-length="1500" required>
+                        maxlength="3000" data-length="1500" required>
                     </textarea>
                     <label for="review">Book Review</label>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large orange text-shadow">
+                        Add Post <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>  
             </div>
         </form>
     </div>
