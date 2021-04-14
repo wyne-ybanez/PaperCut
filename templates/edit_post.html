@@ -10,9 +10,14 @@
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix orange-text"></i>
                     <select id="genre_name" name="genre_name" class="validate" required>
-                        <option value="" disabled selected>Choose Genre</option>
+                        <option value="" disabled>Choose Genre</option>
                             {% for genre in genres %}
-                                <option value="{{ genre.genre_name}}">{{ genre.genre_name }}</option>
+                                <!-- Ensuring preselected genre is default -->
+                                {% if genre.genre_name == post.genre_name %}
+                                    <option value="{{ genre.genre_name}}" selected>{{ genre.genre_name }}</option>
+                                {% else %}
+                                    <option value="{{ genre.genre_name}}" selected>{{ genre.genre_name }}</option>
+                                {% endif %}
                             {% endfor %}
                     </select>
                     <label for="genre_name">Genre</label>
@@ -23,7 +28,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-heading prefix orange-text"></i>
                     <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
-                        type="text" class="validate" required>
+                        value="{{ post.post_title }}" class="validate" required>
                     <label for="post_title">Title</label>
                 </div>
             </div>
@@ -32,7 +37,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix orange-text"></i>
                     <input id="book" name="book" type="text" minlength="5" maxlength="200"
-                        type="text" class="validate" required>
+                        value="{{ post.book }}" class="validate" required>
                     <label for="book">Book</label>
                 </div>
             </div>
@@ -41,15 +46,19 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix orange-text"></i>
                     <textarea id="review" name="review" class="materialize-textarea" minlength="5"
-                        maxlength="3000" data-length="1500" required>
-                    </textarea>
+                        maxlength="3000" data-length="1500" required>{{- post.review -}}</textarea>
                     <label for="review">Book Review</label>
                 </div>
             </div>
             <div class="row">
+            <!-- Cancel edits -->
                 <div class="col s12 center-align">
+                    <a href="{{ url_for('get_posts') }}" class="btn-large orange text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a> 
+            <!-- Submit edits -->
                     <button type="submit" class="btn-large orange text-shadow">
-                        Update Post <i class="fas fa-plus-square right"></i>
+                        Update <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>  
             </div>
