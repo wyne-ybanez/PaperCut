@@ -146,6 +146,23 @@ def show_post(post_id):
 
 @app.route('/edit_post/<post_id>', methods=['GET','POST'])
 def edit_post(post_id):
+    ''' 
+    Edits Post 
+    Updates Database Info
+    '''
+    edit_date = datetime.date.today()
+    if request.method == 'POST':
+        edit = {
+            'genre_name': request.form.get('genre_name'),
+            'post_title': request.form.get('post_title'),
+            'book': request.form.get('book'),
+            'review': request.form.get('review'),
+            'edit_date': edit_date.strftime('%d %B, %Y'),
+            'created_by': session['user']
+        }
+        mongo.db.posts.update({'_id': ObjectId(post_id)}, edit)
+        flash('Post Successfully Updated')
+        
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
     return render_template('edit_post.html', post=post, genres=genres)
