@@ -114,6 +114,10 @@ nav .brand-logo,
     font-size: 25px;
 }
 
+.just {
+    font-weight: 500;
+}
+
 /*====== Mobile Phone media queries ======*/
 @media only screen 
 and (min-width: 375px)
