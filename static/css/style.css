@@ -86,6 +86,7 @@ nav .brand-logo,
     right: 70px;
 }
 
+/* truncate text: https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/ */
 .post-title {
     font-size: 35px;
     width: 250px;

@@ -10,26 +10,34 @@
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix orange-text"></i>
                     <select id="genre_name" name="genre_name" class="validate" required>
-                        {% for genre in genres %}
-                            <option value="{{ genre.genre_name}}">{{ genre.genre_name }}</option>
-                        {% endfor %}
+                        <option value="" disabled selected>Choose Genre</option>
+                            {% for genre in genres %}
+                                <option value="{{ genre.genre_name}}">{{ genre.genre_name }}</option>
+                            {% endfor %}
                     </select>
+                    <label for="genre_name">Genre</label>
                 </div>
+            </div>
                 <!-- Title -->
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-heading prefix orange-text"></i>
                     <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
                         type="text" class="validate" required>
                     <label for="post_title">Title</label>
                 </div>
+            </div>
                 <!-- Book -->
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix orange-text"></i>
                     <input id="book" name="book" type="text" minlength="5" maxlength="200"
                         type="text" class="validate" required>
                     <label for="book">Book</label>
                 </div>
+            </div>
                 <!-- Book Review -->
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix orange-text"></i>
                     <textarea id="review" name="review" class="materialize-textarea" minlength="5"
