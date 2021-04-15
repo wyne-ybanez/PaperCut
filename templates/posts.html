@@ -7,9 +7,24 @@
     <div id="post-card" class="col s12 m6">
       {% for post in posts %}
         <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
+
+          <!-- Genre Image -->
           <div class="card-image">
-            <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
+            {% if post.genre_name == 'Nature' %}
+              <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature genre image">
+            {% elif post.genre_name =='Thriller' %}
+              <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="thriller genre image">
+            {% elif post.genre_name =='Comedy' %}
+              <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="comedy genre image">
+            {% elif post.genre_name =='Adventure' %}
+              <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="comedy genre image">
+            {% elif post.genre_name =='Fantasy' %}
+              <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="comedy genre image">
+            {% endif %}
+
             <span class="card-title white-text">{{ post.genre_name }}</span>
+
+              <!-- Card Buttons  -->
               <!-- Add Post  -->
               <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
                 <i class="fas fa-plus"></i>
@@ -25,6 +40,8 @@
                 </a>
               {% endif %}
           </div>
+
+          <!-- Card Description -->
           <div class="card-content">
               <p class="post-title"><strong>{{ post.post_title }}</strong></p>
               <p><em>Book:</em> {{ post.book }}</p>
