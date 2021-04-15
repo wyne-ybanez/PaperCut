@@ -175,6 +175,12 @@ def delete_post(post_id):
     return redirect(url_for("get_posts"))
 
 
+@app.route("/dashboard")
+def dashboard():
+    genres = list(mongo.db.genres.find().sort("genre_name", 1))
+    return render_template("dashboard.html", genres=genres)
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

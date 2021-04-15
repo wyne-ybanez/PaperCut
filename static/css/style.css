@@ -146,6 +146,13 @@ nav .brand-logo,
     font-weight: 500;
 }
 
+/*====== Add Post ======*/
+
+#review {
+    height: 8rem !important;
+    overflow-y:visible;
+}
+
 /*====== Mobile Phone media queries ======*/
 @media only screen 
 and (min-width: 375px)
