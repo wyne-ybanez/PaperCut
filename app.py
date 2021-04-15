@@ -144,7 +144,7 @@ def show_post(post_id):
     return render_template('review.html', post=post)
 
 
-@app.route('/edit_post/<post_id>', methods=['GET','POST'])
+@app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
     ''' 
     Edits Post 
@@ -157,15 +157,22 @@ def edit_post(post_id):
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
-            'edit_date': edit_date.strftime('%d %B, %Y'),
-            'created_by': session['user']
+            'created_by': session['user'],
+            'edit_date': edit_date.strftime('%d %B, %Y')
         }
         mongo.db.posts.update({'_id': ObjectId(post_id)}, edit)
         flash('Post Successfully Updated')
-        
+
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
     return render_template('edit_post.html', post=post, genres=genres)
+
+
+@app.route('/delete_post/<post_id>')
+def delete_post(post_id):
+    mongo.db.posts.remove({'_id': ObjectId(post_id)})
+    flash('Post Deleted')
+    return redirect(url_for("get_posts"))
 
 
 if __name__ == '__main__':

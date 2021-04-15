@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col s12 m5">
       {% for post in posts %}
-        <div class="card hoverable grey lighten-4">
+        <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
           <div class="card-image">
             <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature book image">
             <span class="card-title white-text">{{ post.genre }}</span>
@@ -35,13 +35,19 @@
               <br>
               <br>
               <p><em>Author:</em> {{ post.created_by }}</p>
-              <p><em>Date:</em> {{ post.date }}</p>
+              <!-- Display dates and edit dates -->
+              {% if post.date %}
+                <p><em>Date:</em> {{ post.date }}</p>
+              {% elif post.edit_date %}
+                <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
+              {% endif %}
             </div>
           <!-- Read Review -->
           <div class="card-action">
-            <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read Review!</a>
+            <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read</a>
             {% if session.user|lower == post.created_by|lower %}
-              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit Review!</a>
+              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
+              <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
             {% endif %} 
           </div>
         </div>
