@@ -74,6 +74,13 @@ nav .brand-logo,
     background:#f9a825 ;
 }
 
+/*====== Body ======*/
+
+.page-heading {
+    font-weight: 700;
+    font-size: 50px
+}
+
 /*====== Card Posts ======*/
 
 #post-card {
