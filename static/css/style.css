@@ -3,10 +3,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Syne', sans-serif;
+    overflow-x: hidden;
 }
 
 /* Code to stop css transitions occuring while page loads: https://css-tricks.com/transitions-only-after-page-load/ */
@@ -73,6 +75,14 @@ nav .brand-logo,
 }
 
 /*====== Card Posts ======*/
+
+#post-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 .card .card-image .card-title {
     font-weight: 700;
 }
@@ -99,6 +109,10 @@ nav .brand-logo,
     text-overflow: ellipsis;
 }
 
+.review-title {
+    font-weight: 700;
+}
+
 .card-review {
     width: 250px;
     white-space: nowrap;
@@ -112,6 +126,12 @@ nav .brand-logo,
 
 .book {
     font-size: 25px;
+    font-weight: 700;
+}
+
+.card-genre {
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .just {

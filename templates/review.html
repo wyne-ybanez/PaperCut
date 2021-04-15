@@ -1,28 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">{{ post.post_title }}</h3>
+<h3 class="center-align review-title">{{ post.post_title }}</h3>
 
 <div class="row">
     <div class="col s12">
         <div class="card">
           <div class="card-image">
-            <span class="card-title white-text">{{ post.genre }}</span>
-            <a href="{{ url_for('add_post') }}" class="btn-floating halfway-fab waves-effect waves-light orange">
+            <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
               <i class="fas fa-plus"></i>
             </a>
+            <!-- Creator/Admin actions -->
+            {% if session.user|lower == post.created_by|lower %}
+              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab waves-effect waves-light orange">
+              <i class="fas fa-pen"></i>
+              </a>
+              <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn-floating halfway-fab waves-effect waves-light orange">
+                <i class="fas fa-times-circle"></i>
+              </a>
+            {% endif %}
           </div>
           <div class="card-content">
             <div class="container">
               <p style="font-size: 20px;"><em>Book:</em></p>
-              <p class="book"><em>{{ post.book }}</em></p>
+              <p class="book">{{ post.book }}</p>
+              <br>
+              <p style="font-size: 20px;"><em>Genre:</em></p>
+              <p class="card-genre black-text">{{ post.genre_name }}</p>
               <br>
               <p style="font-size: 20px;"><em>Review:</em></p>
               <p class="review"><strong>{{- post.review -}}</strong></p>
               <br>
               <p class="right-align"><em>Author:</em> {{ post.created_by }}</p>
-              <p class="right-align"><em>Date:</em> {{ post.date }}</p>
-              <p class="right-align"><em>Last update:</em> {{ post.edit_date }}</p>
+              <!-- Show Date of creation & Edit date -->
+              {% if post.date %}
+                <p class="right-align"><em>Date:</em> {{ post.date }}</p>
+              {% elif post.edit_date %}
+                <p class="right-align"><em>Last update:</em> {{ post.edit_date }}</p>
+              {% endif %}
             </div>
           </div>
         </div>
