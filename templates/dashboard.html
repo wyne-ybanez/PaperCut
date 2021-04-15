@@ -4,19 +4,25 @@
     <h3 class="center-align page-heading">Dashboard</h3>
 
     <div class="row">
-        {% for genre in genres %}
-            <div class="col s12 m3">
-                <div class="card text-shadow center-align">
-                    <div class="card-content black-text">
-                        <span class="card-title">{{ genre.genre_name }}</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="btn orange">Edit</a>
-                        <a href="#" class="btn orange">Delete</a>
-                    </div>
-                </div>
+        <!-- Users -->
+        <div class="col s12 m6">
+            <p class="card-title stats">No. of Users:</p>
+            <div>
+                <p class="stats card-panel center-align">{{ total_users }}</p>
             </div>
-        {% endfor %}
+        </div>
+        <!-- Genres -->
+        <div class="col s12 m6">
+            <p class="card-title stats">Genres:</p>
+            <div>
+                {% for genre in genres %}
+                    <p class="stats card-panel">{{ genre.genre_name }} <!-- Buttons -->
+                        <!-- <a href="#" class="right-align just orange white-text">Edit</a>
+                        <a href="#" class="right-align just orange white-text">Delete</a> -->
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
 {% endblock %}

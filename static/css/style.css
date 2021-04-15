@@ -77,7 +77,7 @@ nav .brand-logo,
 /*====== Body ======*/
 
 .page-heading {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 70px;
     text-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
 }
@@ -146,12 +146,24 @@ nav .brand-logo,
     font-weight: 500;
 }
 
-/*====== Add Post ======*/
+/*====== Textarea ======*/
 
 #review {
     height: 8rem !important;
     overflow-y:visible;
 }
+
+/*====== Dashboard ======*/
+
+.card-title.stats {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.stats {
+    font-size: 25px;
+}
+
 
 /*====== Mobile Phone media queries ======*/
 @media only screen 

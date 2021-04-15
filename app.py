@@ -172,13 +172,15 @@ def edit_post(post_id):
 def delete_post(post_id):
     mongo.db.posts.remove({'_id': ObjectId(post_id)})
     flash('Post Deleted')
-    return redirect(url_for("get_posts"))
+    return redirect(url_for('get_posts'))
 
 
-@app.route("/dashboard")
+@app.route('/dashboard')
 def dashboard():
-    genres = list(mongo.db.genres.find().sort("genre_name", 1))
-    return render_template("dashboard.html", genres=genres)
+    total_users = mongo.db.users.count_documents({})
+    print(total_users)
+    genres = list(mongo.db.genres.find().sort('genre_name', 1))
+    return render_template('dashboard.html', genres=genres, total_users=total_users)
 
 
 if __name__ == '__main__':
