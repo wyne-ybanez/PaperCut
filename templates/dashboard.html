@@ -7,35 +7,33 @@
         <h1 class="center-align page-heading">Dashboard</h1>
     </div>
 
-        <!-- Users and Post totals -->
-        <div class="col s12 m6">
-            <h2 class="card-title stats-title">Statistics:</h2>
-                <p class="total">Total users: {{ total_users }}</p> 
-                <p class="total">Total Posts: {{ total_posts }}</p>
+    <!-- Users and Post totals -->
+    <div class="col s12 m6">
+        <h2 class="card-title stats-title">Statistics:</h2>
+        <p class="total">Total users: {{ total_users }}</p>
+        <p class="total">Total Posts: {{ total_posts }}</p>
+    </div>
+    <!-- Genres -->
+    <div class="col s12 m6">
+        <h2 class="card-title stats-center">Genres:</h2>
+        <ul>
+            {% for genre in genres %}
+            <li class="genre-list">
+                <p>{{ genre.genre_name }}</p>
+                <!-- Buttons -->
+                <div>
+                    <span><a href="{{ url_for('edit_genre', genre_id=genre._id) }}"
+                            class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
+                    <span><a href="{{ url_for('delete_genre', genre_id=genre._id) }}"
+                            class="card btn halfway-fab waves-effect waves-light orange">Delete</a></span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <!-- Add New Genre -->
+        <div class="center-align">
+            <a href="{{ url_for('add_genre') }}" class="btn center-algin waves-effect waves-light">Add genre</a>
         </div>
-
-        <!-- Genres -->
-        <div class="col s12 m6">
-            <h2 class="card-title stats-center">Genres:</h2>
-            <ul>
-                {% for genre in genres %}
-                    <li class="genre-list">
-                        <p>{{ genre.genre_name }}</p>
-                        <!-- Buttons -->
-                        <div>
-                            <span><a href="{{ url_for('edit_genre', genre_id=genre._id) }}" class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
-                            <span><a href="{{ url_for('delete_genre', genre_id=genre._id) }}" class="card btn halfway-fab waves-effect waves-light orange">Delete</a></span>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <!-- Add New Genre -->
-            <div class="center-align">
-                <a href="{{ url_for('add_genre') }}" class="btn center-algin waves-effect waves-light">Add genre</a>
-            </div>
-
-        </div>
+    </div>
 </div>
-
 {% endblock %}

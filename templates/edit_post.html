@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align page-heading">Edit Post</h3>
+    <h1 class="center-align page-heading">Edit Post</h1>
 
     <div class="row card-panel grey lighten-4">
         <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
@@ -53,14 +53,33 @@
             <div class="row">
             <!-- Cancel edits -->
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('get_posts') }}" class="btn-large orange text-shadow">
+                    <a href="{{ url_for('get_posts') }}" class="btn-large orange waves-effect waves-light text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a> 
             <!-- Submit edits -->
-                    <button type="submit" class="btn-large orange text-shadow">
+                    <a href="#edit_post" class="btn-large modal-trigger teal waves-effect waves-light text-shadow">
                         Update <i class="fas fa-plus-square right"></i>
-                    </button>
+                    </a>
                 </div>  
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="edit_post" class="modal teal white-text">
+                <div class="modal-content">
+                    <h4><i class="fas fa-exclamation-circle left"></i>
+                        Are you certain you would like to apply the changes?
+                    </h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                        orange white-text text-shadow">Cancel 
+                        <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="modal-close waves-effect teal center-align white-text 
+                        waves-green btn">Update
+                        <i class="fas fa-check-circle right"></i>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

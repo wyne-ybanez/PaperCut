@@ -1,7 +1,11 @@
 $(document).ready(function () {
-    $(".sidenav").sidenav({edge: "right"});
+    $('.sidenav').sidenav({edge: 'right'});
     $('textarea#post-content').characterCounter(); // Character counter
-    $("select").formSelect();                      // Form select
+    $('select').formSelect(); // Form select
+    $('.modal').modal(); // Initialize Modals 
+    // $('#edit_genre').modal(open);  
+    // $('#update').modal(open);
+
 
     // Scroll effect interactivity - Editted: https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll
     // function checkScroll(){

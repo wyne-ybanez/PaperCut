@@ -19,16 +19,35 @@
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large teal text-shadow">
-                        Edit Genre <i class="fas fa-edit right"></i>
-                    </button>
-                    <a href="{{ url_for('dashboard') }}" class="btn-large orange text-shadow">
+                    <a href="{{ url_for('dashboard') }}" class="btn-large waves-effect waves-light orange text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <a href="#edit_genre" class="btn-large teal modal-trigger waves-effect waves-light text-shadow">
+                        Edit Genre <i class="fas fa-edit right"></i>
                     </a>
                 </div>  
             </div>
 
+            <!-- Modal Structure -->
+            <div id="edit_genre" class="modal teal white-text">
+                <div class="modal-content">
+                    <h4><i class="fas fa-exclamation-circle left"></i>
+                        Are you certain you would like to apply the changes?
+                    </h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('dashboard') }}" class="btn modal-close waves-effect center-align 
+                        orange white-text text-shadow">Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit"
+                        class="modal-close waves-effect teal center-align white-text waves-green btn">Update
+                        <i class="fas fa-check-circle right"></i>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
+
+    
 
 {% endblock %}

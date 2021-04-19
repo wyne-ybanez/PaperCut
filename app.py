@@ -184,11 +184,6 @@ def edit_post(post_id):
         mongo.db.posts.update({'_id': ObjectId(post_id)}, edit)
         flash('Post Successfully Updated')
 
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-        return redirect(url_for
-                        ("profile", username=username))
-
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
     return render_template('edit_post.html', post=post, genres=genres)
