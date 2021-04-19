@@ -190,6 +190,19 @@ def dashboard():
     return render_template('dashboard.html', genres=genres, total_users=total_users, total_posts=total_posts)
 
 
+@app.route("/add_genre", methods=["GET", "POST"])
+def add_genre():
+    if request.method == "POST":
+        genre = {
+            "genre_name": request.form.get("genre_name")
+        }
+        mongo.db.genres.insert_one(genre)
+        flash("New Genre Added")
+        return redirect(url_for("dashboard"))
+
+    return render_template("add_genre.html")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

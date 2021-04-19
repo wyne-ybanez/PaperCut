@@ -1,28 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align page-heading">Dashboard</h3>
+<div class="row">
 
-    <div class="row">
-        <!-- Users -->
+    <div class="col s12">
+        <h1 class="center-align page-heading">Dashboard</h1>
+    </div>
+
+        <!-- Users and Post totals -->
         <div class="col s12 m6">
-            <p class="card-title stats">Total Users: </p>
-            <p style="font-size: 35px;" class="center-align total">{{ total_users }}</p>
-        <!-- Posts -->
-            <p class="card-title stats">Total Posts: </p>
-            <p style="font-size: 35px;" class="center-align total">{{ total_posts }}</p>
+            <h2 class="card-title stats-title">Statistics:</h2>
+                <p class="total">Total users: {{ total_users }}</p> 
+                <p class="total">Total Posts: {{ total_posts }}</p>
         </div>
+
         <!-- Genres -->
         <div class="col s12 m6">
-            <p class="card-title stats">Genres:</p>
-            {% for genre in genres %}
-            <div class="stats">{{ genre.genre_name }} -
-                <!-- Buttons -->
-                <a href="#" class="card right-align btn halfway-fab waves-effect waves-light teal">Edit</a>
-                <a href="#" class="card right-align btn halfway-fab waves-effect waves-light red">Delete</a>
+            <h2 class="card-title stats-center">Genres:</h2>
+            <ul>
+                {% for genre in genres %}
+                    <li class="genre-list">
+                        <p>{{ genre.genre_name }}</p>
+                        <!-- Buttons -->
+                        <div>
+                            <span><a href="#" class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
+                            <span><a href="#" class="card btn halfway-fab orange waves-effect waves-light red">Delete</a></span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Add New Genre -->
+            <div class="center-align">
+                <a href="{{ url_for('add_genre') }}" class="btn center-algin waves-effect waves-light">Add genre</a>
             </div>
-            {% endfor %}
+
         </div>
-    </div>
+</div>
 
 {% endblock %}
