@@ -147,8 +147,8 @@ def show_post(post_id):
 @app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
     ''' 
-    Edits Post 
-    Updates Database Info
+    Edits post 
+    Updates database Info
     '''
     edit_date = datetime.date.today()
     if request.method == 'POST':
@@ -177,10 +177,17 @@ def delete_post(post_id):
 
 @app.route('/dashboard')
 def dashboard():
+    '''
+    Displays no. of users
+    Displays no. of posts
+    Action buttons for genre manipulation
+    '''
     total_users = mongo.db.users.count_documents({})
+    total_posts = mongo.db.posts.count_documents({})
     print(total_users)
+    print(total_posts)
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    return render_template('dashboard.html', genres=genres, total_users=total_users)
+    return render_template('dashboard.html', genres=genres, total_users=total_users, total_posts=total_posts)
 
 
 if __name__ == '__main__':
