@@ -62,6 +62,8 @@ def login():
     '''
     Check if username exists in db
     Check if hashed password matches with username
+    Flash messages to indicate whether or not the login 
+    attempt is successful or has failed
     '''
     if request.method == 'POST':
         existing_user = mongo.db.users.find_one(
@@ -115,8 +117,9 @@ def logout():
 @app.route('/add_post', methods=['GET','POST'])
 def add_post():
     ''' 
-    Adds a post 
-    Sends Data to DB
+    Allows user to add a post. A flash message
+    is shown if the post is successful. Inserts data
+    into database. Redirects user to home page
     '''
     today = datetime.date.today()
     if request.method == 'POST':
@@ -148,8 +151,10 @@ def show_post(post_id):
 @app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
     ''' 
-    Edits post 
-    Updates database Info
+    Allows post owner to edit their own post. 
+    Flash message is displayed once the post has 
+    been editted successfully. 
+    Redirect the user to their profile after edit.
     '''
     edit_date = datetime.date.today()
     if request.method == 'POST':
@@ -163,6 +168,11 @@ def edit_post(post_id):
         }
         mongo.db.posts.update({'_id': ObjectId(post_id)}, edit)
         flash('Post Successfully Updated')
+
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        return redirect(url_for
+                        ("profile", username=username, genres=genres))
 
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
@@ -179,9 +189,9 @@ def delete_post(post_id):
 @app.route('/dashboard')
 def dashboard():
     '''
-    Displays no. of users
-    Displays no. of posts
-    Action buttons for genre manipulation
+    Displays no. of users.
+    Displays no. of posts.
+    Action buttons for genre manipulation.
     '''
     total_users = mongo.db.users.count_documents({})
     total_posts = mongo.db.posts.count_documents({})
@@ -192,6 +202,12 @@ def dashboard():
 
 @app.route('/add_genre', methods=['GET', 'POST'])
 def add_genre():
+    '''
+    Allows admin to add a new genre.
+    Genre name will derive from the form.
+    Flash message used to indicate successful change.
+    Redirects admin to the dashboard.
+    '''
     if request.method == 'POST':
         genre = {
             'genre_name': request.form.get('genre_name')
@@ -205,6 +221,13 @@ def add_genre():
 
 @app.route('/edit_genre/<genre_id>', methods=['GET', 'POST'])
 def edit_genre(genre_id):
+    '''
+    Allows admin to edit an existing genre.
+    Genre name will derive from the form which
+    will update the data in the db.
+    Flash message used to indicate successful change.
+    Redirects admin to the dashboard.
+    '''
     if request.method == 'POST':
         submit = {
             'genre_name': request.form.get('genre_name')
@@ -215,6 +238,18 @@ def edit_genre(genre_id):
 
     genre = mongo.db.genres.find_one({'_id': ObjectId(genre_id)})
     return render_template('edit_genre.html', genre=genre)
+
+
+@app.route('/delete_genre/<genre_id>')
+def delete_genre(genre_id):
+    '''
+    Deletes genre from website. Removes genre from database.
+    Flash message to indicate successful deletion.
+    Redirects admin to dashboard.
+    '''
+    mongo.db.genres.remove({'_id': ObjectId(genre_id)})
+    flash('Genre Successfully Deleted')
+    return redirect(url_for('dashboard'))
 
 
 if __name__ == '__main__':
