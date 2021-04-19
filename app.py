@@ -46,7 +46,8 @@ def register():
     
         register = {
             'username': request.form.get('username').lower(),
-            'password': generate_password_hash(request.form.get('password'))
+            'password': generate_password_hash(request.form.get('password')),
+            'admin': 'false'
         }
         mongo.db.users.insert_one(register)
 
@@ -184,23 +185,36 @@ def dashboard():
     '''
     total_users = mongo.db.users.count_documents({})
     total_posts = mongo.db.posts.count_documents({})
-    print(total_users)
-    print(total_posts)
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    return render_template('dashboard.html', genres=genres, total_users=total_users, total_posts=total_posts)
+    return render_template('dashboard.html', genres=genres,
+                           total_users=total_users, total_posts=total_posts)
 
 
-@app.route("/add_genre", methods=["GET", "POST"])
+@app.route('/add_genre', methods=['GET', 'POST'])
 def add_genre():
-    if request.method == "POST":
+    if request.method == 'POST':
         genre = {
-            "genre_name": request.form.get("genre_name")
+            'genre_name': request.form.get('genre_name')
         }
         mongo.db.genres.insert_one(genre)
-        flash("New Genre Added")
-        return redirect(url_for("dashboard"))
+        flash('New Genre Added')
+        return redirect(url_for('dashboard'))
 
     return render_template("add_genre.html")
+
+
+@app.route('/edit_genre/<genre_id>', methods=['GET', 'POST'])
+def edit_genre(genre_id):
+    if request.method == 'POST':
+        submit = {
+            'genre_name': request.form.get('genre_name')
+        }
+        mongo.db.genres.update({'_id': ObjectId(genre_id)}, submit)
+        flash('Genre Successfully Added')
+        return redirect(url_for('dashboard'))
+
+    genre = mongo.db.genres.find_one({'_id': ObjectId(genre_id)})
+    return render_template('edit_genre.html', genre=genre)
 
 
 if __name__ == '__main__':

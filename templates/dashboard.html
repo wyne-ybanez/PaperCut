@@ -23,7 +23,7 @@
                         <p>{{ genre.genre_name }}</p>
                         <!-- Buttons -->
                         <div>
-                            <span><a href="#" class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
+                            <span><a href="{{ url_for('edit_genre', genre_id=genre._id) }}" class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
                             <span><a href="#" class="card btn halfway-fab orange waves-effect waves-light red">Delete</a></span>
                         </div>
                     </li>
