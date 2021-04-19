@@ -6,22 +6,20 @@
     <div class="row">
         <!-- Users -->
         <div class="col s12 m6">
-            <p class="card-title stats">No. of Users:</p>
-            <div>
-                <p class="stats card-panel center-align">{{ total_users }}</p>
-            </div>
+            <p class="card-title stats">No. of Users: </p>
+            <p style="font-size: 35px;" class="center-align">{{ total_users }}</p>
         </div>
+        
         <!-- Genres -->
         <div class="col s12 m6">
             <p class="card-title stats">Genres:</p>
-            <div>
-                {% for genre in genres %}
-                    <p class="stats card-panel">{{ genre.genre_name }} <!-- Buttons -->
-                        <!-- <a href="#" class="right-align just orange white-text">Edit</a>
-                        <a href="#" class="right-align just orange white-text">Delete</a> -->
-                    </p>
-                {% endfor %}
-            </div>
+                    {% for genre in genres %}
+                        <div class="collection stats">{{ genre.genre_name }} - 
+                            <!-- Buttons -->
+                                <a href="#" class="card right-align btn halfway-fab waves-effect waves-light teal">Edit</a>
+                                <a href="#" class="card right-align btn halfway-fab waves-effect waves-light red">Delete</a>
+                        </div>
+                    {% endfor %}
         </div>
     </div>
 
