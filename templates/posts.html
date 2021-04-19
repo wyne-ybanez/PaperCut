@@ -4,71 +4,102 @@
 <h1 class="center-align page-heading">Latest Posts</h1>
 
 <div class="row">
-    <div id="post-card" class="col s12 m6">
-      {% for post in posts %}
-        <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
+  <form action="{{ url_for('search') }}" method="post" class="col s12">
+    <div class="row valign-wrapper center-align">
+      <div class="input-field col s12 m8">
+        <i class="fas fa-search prefix orange-text"></i>
+        <input type="text" name="query" id="query" minlength="3" class="validate" required>
+        <label for="query">Search Posts</label>
+      </div>
 
-          <!-- Genre Image -->
-          <div class="card-image">
-            {% if post.genre_name == 'Nature' %}
-              <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature genre image">
-            {% elif post.genre_name =='Thriller' %}
-              <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="thriller genre image">
-            {% elif post.genre_name =='Comedy' %}
-              <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="comedy genre image">
-            {% elif post.genre_name =='Adventure' %}
-              <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="comedy genre image">
-            {% elif post.genre_name =='Fantasy' %}
-              <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="comedy genre image">
-            {% endif %}
-
-            <span class="card-title white-text">{{ post.genre_name }}</span>
-
-              <!-- Card Buttons  -->
-              <!-- Add Post  -->
-              <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
-                <i class="fas fa-plus"></i>
-              </a>     
-              <!-- Read Post -->
-              <a href="{{ url_for('show_post', post_id=post._id) }}" class="btn-floating halfway-fab waves-effect waves-light orange">
-                <i class="fas fa-search"></i>
-              </a>
-              <!-- Edit Post -->
-              {% if session.user|lower == post.created_by|lower %}
-                <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab waves-effect waves-light orange">
-                  <i class="fas fa-pen"></i>
-                </a>
-              {% endif %}
-          </div>
-
-          <!-- Card Description -->
-          <div class="card-content">
-              <p class="post-title"><strong>{{ post.post_title }}</strong></p>
-              <p><em>Book:</em> {{ post.book }}</p>
-              <br>
-              <p><em>Review:</em></p>
-              <p class="card-review">{{ post.review }}</p>
-              <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read more</a>
-              <br>
-              <br>
-              <p><em>Author:</em> {{ post.created_by }}</p>
-              <!-- Display dates and edit dates -->
-              {% if post.date %}
-                <p><em>Date:</em> {{ post.date }}</p>
-              {% elif post.edit_date %}
-                <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
-              {% endif %}
-            </div>
-          <!-- Read Review -->
-          <div class="card-action">
-            <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read</a>
-            {% if session.user|lower == post.created_by|lower %}
-              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
-              <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
-            {% endif %} 
-          </div>
-        </div>
-      {% endfor %}
+      <div class="col s12 m4">
+        <a href="{{ url_for('get_posts') }}"
+          class="orange btn card halfway-fab waves-effect waves-light text-shadow">Reset</a>
+        <button type="submit" class="teal btn card halfway-fab waves-effect waves-light text-shadow">
+          <i class="fas fa-search left"></i> Search
+        </button>
+      </div>
     </div>
+  </form>
+</div>
+
+{% if posts|length > 0 %}
+
+<div class="row">
+  <div id="post-card" class="col s12 m6">
+    {% for post in posts %}
+    <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
+
+      <!-- Genre Image -->
+      <div class="card-image">
+        {% if post.genre_name == 'Nature' %}
+        <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature genre image">
+        {% elif post.genre_name =='Thriller' %}
+        <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="thriller genre image">
+        {% elif post.genre_name =='Comedy' %}
+        <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="comedy genre image">
+        {% elif post.genre_name =='Adventure' %}
+        <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="comedy genre image">
+        {% elif post.genre_name =='Fantasy' %}
+        <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="comedy genre image">
+        {% endif %}
+
+        <span class="card-title white-text">{{ post.genre_name }}</span>
+
+        <!-- Card Buttons  -->
+        <!-- Add Post  -->
+        <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
+          <i class="fas fa-plus"></i>
+        </a>
+        <!-- Read Post -->
+        <a href="{{ url_for('show_post', post_id=post._id) }}"
+          class="btn-floating halfway-fab waves-effect waves-light orange">
+          <i class="fas fa-search"></i>
+        </a>
+        <!-- Edit Post -->
+        {% if session.user|lower == post.created_by|lower %}
+        <a href="{{ url_for('edit_post', post_id=post._id) }}"
+          class="btn-floating pen halfway-fab waves-effect waves-light orange">
+          <i class="fas fa-pen"></i>
+        </a>
+        {% endif %}
+      </div>
+
+      <!-- Card Description -->
+      <div class="card-content">
+        <p class="post-title"><strong>{{ post.post_title }}</strong></p>
+        <p><em>Book:</em> {{ post.book }}</p>
+        <br>
+        <p><em>Review:</em></p>
+        <p class="card-review">{{ post.review }}</p>
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read more</a>
+        <br>
+        <br>
+        <p><em>Author:</em> {{ post.created_by }}</p>
+        <!-- Display dates and edit dates -->
+        {% if post.date %}
+        <p><em>Date:</em> {{ post.date }}</p>
+        {% elif post.edit_date %}
+        <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
+        {% endif %}
+      </div>
+      <!-- Read Review -->
+      <div class="card-action">
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read</a>
+        <!-- Edit and Delete -->
+        {% if session.user|lower == post.created_by|lower %}
+        <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
+        {% endif%}
+        {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
+        <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+      <h3 class="center-align red-text">No Results Found</h3>
+  {% endif %}
 
 {% endblock %}

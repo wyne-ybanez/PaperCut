@@ -23,17 +23,32 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_posts")
 def get_posts():
+    '''
+    Displays all posts onto page
+    '''
     posts = list(mongo.db.posts.find())
     return render_template("posts.html", posts=posts)
 
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    '''
+    Allows user to search for specific posts.
+    Perform search on any text-based index for 
+    posts collection 
+    '''
+    query = request.form.get('query')
+    posts = list(mongo.db.posts.find({'$text': {'$search': query}}))
+    return render_template('posts.html', posts=posts)
+
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     '''
-      Check if username already exists
-      If it does, send user back to registration form
-      If username is new, register new username into DB
-      Put new user into session cookie
+    Check if username already exists
+    If it does, send user back to registration form
+    If username is new, register new username into DB
+    Put new user into session cookie
     '''
     if request.method == 'POST':
         existing_user = mongo.db.users.find_one(
@@ -172,7 +187,7 @@ def edit_post(post_id):
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         return redirect(url_for
-                        ("profile", username=username, genres=genres))
+                        ("profile", username=username))
 
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
