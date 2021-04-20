@@ -138,7 +138,7 @@ def add_post():
     into database. Redirects user to home page.
     '''
     today = datetime.date.today()
-    if session['user'] and request.method == 'POST':
+    if request.method == 'POST':
         post = {
             'genre_name': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
@@ -150,7 +150,8 @@ def add_post():
         mongo.db.posts.insert_one(post)
         flash('Post Successfully Added')
         return redirect(url_for('get_posts'))
-    else:
+    
+    if session['user'] is None:
         return redirect(url_for('login'))
 
     genres = mongo.db.genres.find().sort('genre_name', 1)
