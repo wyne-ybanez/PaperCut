@@ -6,6 +6,7 @@
 {% if posts|length > 0 %}
 
 <div class="row">
+
   <div id="post-card" class="col s12 m8">
     {% for post in posts %}
     <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
@@ -13,15 +14,15 @@
       <!-- Genre Image -->
       <div class="card-image">
         {% if post.genre_name == 'Nature' %}
-        <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature genre image">
+          <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="nature genre image">
         {% elif post.genre_name =='Thriller' %}
-        <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="thriller genre image">
+          <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="thriller genre image">
         {% elif post.genre_name =='Comedy' %}
-        <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="comedy genre image">
+          <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="comedy genre image">
         {% elif post.genre_name =='Adventure' %}
-        <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="comedy genre image">
+          <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="comedy genre image">
         {% elif post.genre_name =='Fantasy' %}
-        <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="comedy genre image">
+          <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="comedy genre image">
         {% endif %}
 
         <span class="card-title white-text">{{ post.genre_name }}</span>
@@ -65,9 +66,9 @@
         <p><em>Author:</em> {{ post.created_by }}</p>
         <!-- Display dates and edit dates -->
         {% if post.date %}
-        <p><em>Date:</em> {{ post.date }}</p>
+          <p><em>Date:</em> {{ post.date }}</p>
         {% elif post.edit_date %}
-        <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
+          <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
         {% endif %}
       </div>
       <!-- Read Review -->
@@ -75,16 +76,17 @@
         <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read</a>
         <!-- Edit and Delete -->
         {% if session.user|lower == post.created_by|lower %}
-        <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
+          <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
         {% endif%}
         {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
-        <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
+          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
         {% endif %}
       </div>
     </div>
     {% endfor %}
   </div>
 
+  <!-- No Results from search -->
   {% else %}
       <h3 class="center-align red-text">No Results Found</h3>
   {% endif %}

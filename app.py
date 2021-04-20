@@ -20,14 +20,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
-@app.route("/get_posts")
+@app.route('/')
+@app.route('/get_posts')
 def get_posts():
     '''
     Displays all posts onto page.
-    Set pagination config.
+    Set pagination limit to 5 per page.
     '''
-    posts = list(mongo.db.posts.find().sort('_id',1).skip(0).limit(5))
+    posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(10))
     return render_template("index.html", posts=posts)
 
 
