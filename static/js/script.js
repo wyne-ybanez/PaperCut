@@ -3,26 +3,31 @@ $(document).ready(function () {
     $('textarea#post-content').characterCounter(); // Character counter
     $('select').formSelect(); // Form select
     $('.modal').modal(); // Initialize Modals 
-    // $('#edit_genre').modal(open);  
-    // $('#update').modal(open);
 
+    // Scroll effect Navbar interactivity
+    function checkScroll(){
+        var startY = $('.navbar').height() * 2; 
 
-    // Scroll effect interactivity - Editted: https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll
-    // function checkScroll(){
-    //     var startY = $('.navbar').height() * 2; 
+        if($(window).scrollTop() > startY){
+            $('.fa-bars').addClass('scrolled');
+            $('.nav-wrapper').addClass('scrolled');
+            $('.brand-logo').removeClass('black-text');
+            $('.nav-search-bar').addClass('white-text');
+            $('.nav-search-icon').css('color','#fff');
+        }else{
+            $('.fa-bars').removeClass("scrolled");
+            $('.nav-wrapper').removeClass('scrolled');
+            $('.brand-logo').addClass('black-text');
+            $('.nav-search-bar').removeClass('white-text');
+            $('.nav-search-icon').css('color','#000');
+        }
+    }
 
-    //     if($(window).scrollTop() > startY){
-    //         $('.fa-bars').addClass("scrolled");
-    //     }else{
-    //         $('.fa-bars').removeClass("scrolled");
-    //     }
-    // }
-
-    // if($('.navbar').length > 0){
-    //     $(window).on("scroll load resize", function(){
-    //         checkScroll();
-    //     });
-    // }    
+    if($('.navbar').length > 0){
+        $(window).on("scroll load resize", function(){
+            checkScroll();
+        });
+    }    
 
     // Code Institute Validation Code
     validateMaterializeSelect();
