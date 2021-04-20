@@ -24,9 +24,10 @@ mongo = PyMongo(app)
 @app.route("/get_posts")
 def get_posts():
     '''
-    Displays all posts onto page
+    Displays all posts onto page.
+    Set pagination config.
     '''
-    posts = list(mongo.db.posts.find())
+    posts = list(mongo.db.posts.find().sort('_id',1).skip(0).limit(5))
     return render_template("index.html", posts=posts)
 
 
@@ -132,12 +133,12 @@ def logout():
 @app.route('/add_post', methods=['GET','POST'])
 def add_post():
     ''' 
-    Allows user to add a post. A flash message
+    Allows registered user to add a post. A flash message
     is shown if the post is successful. Inserts data
-    into database. Redirects user to home page
+    into database. Redirects user to home page.
     '''
     today = datetime.date.today()
-    if request.method == 'POST':
+    if session['user'] and request.method == 'POST':
         post = {
             'genre_name': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
@@ -149,8 +150,10 @@ def add_post():
         mongo.db.posts.insert_one(post)
         flash('Post Successfully Added')
         return redirect(url_for('get_posts'))
+    else:
+        return redirect(url_for('login'))
 
-    genres = mongo.db.genres.find().sort('genre_name',1)
+    genres = mongo.db.genres.find().sort('genre_name', 1)
     return render_template('add_post.html', genres=genres)
 
 
