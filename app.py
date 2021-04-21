@@ -26,9 +26,11 @@ def get_posts():
     '''
     Displays all posts onto page.
     Set pagination limit to 5 per page.
+    Skip determined by (page number - 1 * 5)
     '''
-    posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(10))
-    return render_template("index.html", posts=posts)
+    posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(5))
+    genres = mongo.db.genres.find().sort('genre_name', -1)
+    return render_template("index.html", posts=posts, genres=genres)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -130,7 +132,7 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/add_post', methods=['GET','POST'])
+@app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
     ''' 
     Allows registered user to add a post. A flash message
@@ -140,7 +142,7 @@ def add_post():
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
-            'genre_name': request.form.get('genre_name'),
+            'genre_id': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
@@ -150,7 +152,7 @@ def add_post():
         mongo.db.posts.insert_one(post)
         flash('Post Successfully Added')
         return redirect(url_for('get_posts'))
-    
+
     if session['user'] is None:
         return redirect(url_for('login'))
 
@@ -178,7 +180,7 @@ def edit_post(post_id):
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {
-            'genre_name': request.form.get('genre_name'),
+            'genre_id': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
