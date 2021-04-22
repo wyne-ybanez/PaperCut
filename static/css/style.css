@@ -121,6 +121,11 @@ nav .brand-logo,
     margin: 30px 10px;
 }
 
+/* Color gradient from: https://mycolor.space/gradient?ori=to+left&hex=%233418B0&hex2=%23EB8512&sub=1 */
+.btn-floating.halfway-fab {
+    background-image: linear-gradient(to left, #3418b0, #ac008e, #e00062, #f24338, #eb8512);
+}   
+
 .btn-floating.halfway-fab.plus {
     right: 70px;
 }
