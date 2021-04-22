@@ -28,8 +28,23 @@ def get_posts():
     Set pagination limit to 5 per page.
     Skip determined by (page number - 1 * 5)
     '''
+
+    # Construct Pipeline for lookup
+    look_up_related_genre_id = {
+        "$lookup": {
+            "from": "genres",
+            "localField": "_id",
+            "foreignField": "genre_id",
+            "as": "related_genre"
+        }
+    }
+
+    # Pipeline
+    pipeline = [look_up_related_genre_id]
+    
+    results = mongo.db.genres.aggregate(pipeline)
     posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(5))
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, results=results)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -141,7 +156,7 @@ def add_post():
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
-            'genre_name': request.form.get('genre_name'),
+            'genre_id': request.form.get('genre'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
@@ -179,7 +194,7 @@ def edit_post(post_id):
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {
-            'genre_name': request.form.get('genre_name'),
+            'genre_id': request.form.get('genre'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
@@ -248,13 +263,11 @@ def edit_genre(genre_id):
             'genre_name': request.form.get('genre_name')
         }
         mongo.db.genres.update({'_id': ObjectId(genre_id)}, submit)
-        mongo.db.posts.update({'_id': ObjectId(post_id)}, submit)
-        flash('Genre Successfully Added')
+        flash('Genre Successfully Updated')
         return redirect(url_for('dashboard'))
 
     genre = mongo.db.genres.find_one({'_id': ObjectId(genre_id)})
-    posts = mongo.db.genres.find()
-    return render_template('edit_genre.html', genre=genre, posts=posts)
+    return render_template('edit_genre.html', genre=genre)
 
 
 @app.route('/delete_genre/<genre_id>')
