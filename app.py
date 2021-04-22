@@ -29,8 +29,7 @@ def get_posts():
     Skip determined by (page number - 1 * 5)
     '''
     posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(5))
-    genres = mongo.db.genres.find().sort('genre_name', -1)
-    return render_template("index.html", posts=posts, genres=genres)
+    return render_template("index.html", posts=posts)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -142,7 +141,7 @@ def add_post():
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
-            'genre_id': request.form.get('genre_name'),
+            'genre_name': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
@@ -180,7 +179,7 @@ def edit_post(post_id):
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {
-            'genre_id': request.form.get('genre_name'),
+            'genre_name': request.form.get('genre_name'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
             'review': request.form.get('review'),
@@ -249,11 +248,13 @@ def edit_genre(genre_id):
             'genre_name': request.form.get('genre_name')
         }
         mongo.db.genres.update({'_id': ObjectId(genre_id)}, submit)
+        mongo.db.posts.update({'_id': ObjectId(post_id)}, submit)
         flash('Genre Successfully Added')
         return redirect(url_for('dashboard'))
 
     genre = mongo.db.genres.find_one({'_id': ObjectId(genre_id)})
-    return render_template('edit_genre.html', genre=genre)
+    posts = mongo.db.genres.find()
+    return render_template('edit_genre.html', genre=genre, posts=posts)
 
 
 @app.route('/delete_genre/<genre_id>')
