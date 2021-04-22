@@ -23,14 +23,13 @@
           <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="Adventure genre image">
         {% elif post.genre_id == '6073344c0c164046e72ced5d' %}
           <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="Fantasy genre image">
-        {% elif post.genre_id == '608023ded9f71798665a5741' or 'Unknown' or None %}
+        {% elif post.genre_id == '608023ded9f71798665a5741' %}
           <img src="{{ url_for('static', filename='images/none.jpeg') }}" alt="No Genre image">
-        {% endif %}
-        
+        {% endif %}       
 
         <!-- Display genre name based on genre_id -->
-          <span class="card-title white-text">{{ results.genre_name }}</span>
-
+            <span class="card-title white-text">{{ post.genre_name }}</span>
+ 
         <!-- Card Buttons  -->
         <!-- Add Post -->
           <!-- Must be registered User -->

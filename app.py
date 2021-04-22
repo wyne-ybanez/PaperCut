@@ -25,26 +25,19 @@ mongo = PyMongo(app)
 def get_posts():
     '''
     Displays all posts onto page.
+    Get Genre name via Genre ID. 
     Set pagination limit to 5 per page.
     Skip determined by (page number - 1 * 5)
     '''
+    posts = list(mongo.db.posts.find().sort('date', -1).skip(0).limit(5))
 
-    # Construct Pipeline for lookup
-    look_up_related_genre_id = {
-        "$lookup": {
-            "from": "genres",
-            "localField": "_id",
-            "foreignField": "genre_id",
-            "as": "related_genre"
-        }
-    }
+    for post in posts:
+        genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        # Assign to variable
+        post['genre_name'] = genre_name
 
-    # Pipeline
-    pipeline = [look_up_related_genre_id]
-    
-    results = mongo.db.genres.aggregate(pipeline)
-    posts = list(mongo.db.posts.find().sort('date',-1).skip(0).limit(5))
-    return render_template("index.html", posts=posts, results=results)
+    return render_template("index.html", posts=posts)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -204,8 +197,8 @@ def edit_post(post_id):
         mongo.db.posts.update({'_id': ObjectId(post_id)}, edit)
         flash('Post Successfully Updated')
 
-    post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     genres = mongo.db.genres.find().sort('genre_name', 1)
+    post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     return render_template('edit_post.html', post=post, genres=genres)
 
 
