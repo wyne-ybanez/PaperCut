@@ -216,6 +216,10 @@ nav .brand-logo,
     text-decoration: underline;
 }
 
+/*====== Footer ======*/
+.page-footer h5{
+    font-weight: 600;
+}
 
 /*====== Mobile Phone media queries ======*/
 @media only screen 
