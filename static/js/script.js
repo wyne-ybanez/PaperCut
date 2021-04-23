@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('textarea#post-content').characterCounter(); // Character counter
     $('select').formSelect(); // Form select
     $('.modal').modal(); // Initialize Modals 
+    $('#copyright').text(new Date().getFullYear());
 
     // Scroll effect Navbar interactivity
     function checkScroll(){
@@ -10,16 +11,25 @@ $(document).ready(function () {
 
         if($(window).scrollTop() > startY){
             $('.fa-bars').addClass('scrolled');
+            $('.fa-bars').removeClass('text-shadow');
             $('.nav-wrapper').addClass('scrolled');
-            $('.brand-logo').removeClass('black-text');
-            $('.nav-search-bar').addClass('white-text');
-            $('.nav-search-icon').css('color','#fff');
-        }else{
+            $('.brand-logo').removeClass('white-text text-shadow');
+            $('.brand-logo').addClass('black-text');
+            $('.nav-search-bar').removeClass('white-text text-shadow');
+            $('.nav-search-bar').addClass('black-text');
+            $('.nav-search-icon').removeClass('white-text text-shadow');
+            $('.nav-search-icon').css('color','#000');
+        }
+        else{
+            $('.fa-bars').addClass('text-shadow');
             $('.fa-bars').removeClass("scrolled");
             $('.nav-wrapper').removeClass('scrolled');
-            $('.brand-logo').addClass('black-text');
-            $('.nav-search-bar').removeClass('white-text');
-            $('.nav-search-icon').css('color','#000');
+            $('.brand-logo').removeClass('black-text');
+            $('.brand-logo').addClass('white-text text-shadow');
+            $('.nav-search-bar').addClass('white-text text-shadow');
+            $('.nav-search-bar').removeClass('black-text');
+            $('.nav-search-icon').addClass('text-shadow');
+            $('.nav-search-icon').css('color','#fff');
         }
     }
 

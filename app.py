@@ -26,18 +26,19 @@ def get_posts():
     '''
     Displays all posts onto page.
     Get Genre name via Genre ID. 
+    Displays 
     Set pagination limit to 5 per page.
     Skip determined by (page number - 1 * 5)
     '''
     posts = list(mongo.db.posts.find().sort('date', -1).skip(0).limit(5))
-
+    header_img = True
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         # Assign to variable
         post['genre_name'] = genre_name
 
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts, header_img=header_img)
 
 
 @app.route('/search', methods=['GET', 'POST'])

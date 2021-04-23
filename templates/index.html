@@ -1,4 +1,20 @@
 {% extends "base.html" %}
+
+{% block header %}
+  <!-- Header Image -->
+  <div class="overlay"></div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="site-heading">
+                  <h1 class="text-shadow site-logo">Papercuts</h1>
+                  <span class="subheading text-shadow site-logo">Critical Book Reviews and Rants</span>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}
+
 {% block content %}
 
 <h1 class="center-align page-heading">Latest Posts</h1>
@@ -9,7 +25,7 @@
 
   <div id="post-card" class="col s12 m8">
     {% for post in posts %}
-        <div href="{{ url_for('show_post', post_id=post._id) }}" class="card hoverable grey lighten-4">
+        <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4">
 
       <!-- Genre Image based on genre_id-->
       <div class="card-image">
@@ -36,11 +52,11 @@
         <!-- Add Post -->
           <!-- Must be registered User -->
         {% if session.user|lower %}
-          <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
+          <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light main-color">
             <i class="fas fa-plus"></i>
           </a>
         {% else %}
-          <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
+          <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab waves-effect waves-light main-color">
             <i class="fas fa-plus"></i>
           </a>
         {% endif %}
@@ -52,7 +68,7 @@
         <!-- Edit Post -->
         {% if session.user|lower == post.created_by|lower %}
           <a href="{{ url_for('edit_post', post_id=post._id) }}"
-            class="btn-floating pen halfway-fab waves-effect waves-light orange">
+            class="btn-floating pen halfway-fab waves-effect waves-light">
             <i class="fas fa-pen"></i>
           </a>
         {% endif %}
@@ -65,7 +81,7 @@
         <br>
         <p><em>Review:</em></p>
         <p class="card-review">{{ post.review }}</p>
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read more</a>
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">Read more</a>
         <br>
         <br>
         <p><em>Author:</em> {{ post.created_by }}</p>
@@ -78,13 +94,13 @@
       </div>
       <!-- Read Review -->
       <div class="card-action">
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align just orange-text">Read</a>
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">Read</a>
         <!-- Edit and Delete -->
         {% if session.user|lower == post.created_by|lower %}
-          <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align just orange-text">Edit</a>
+          <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align deep-orange-text link">Edit</a>
         {% endif%}
         {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
-          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align just orange-text">Delete</a>
+          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align deep-orange-text link">Delete</a>
         {% endif %}
       </div>
     </div>
