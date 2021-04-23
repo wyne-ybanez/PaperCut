@@ -68,14 +68,17 @@ nav.nav-extended .nav-wrapper {
   transition-duration: 0.5s;
 }
 
-nav .brand-logo,
-.brand-logo {
+.nav-logo,
+.brand-logo,
+nav .brand-logo {
   font-size: 2rem;
   font-weight: 700;
 }
 
 .sidenav li > a {
   font-size: 20px;
+  color: #fff;
+  font-weight: 700;
 }
 
 .sidenav.right-aligned {
@@ -361,9 +364,6 @@ header.masthead .post-heading .meta a {
 
   nav .brand-logo {
     font-size: 2.2rem;
-  }
-
-  ul h4 {
     font-weight: 700;
   }
 }

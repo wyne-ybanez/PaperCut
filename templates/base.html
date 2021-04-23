@@ -64,9 +64,9 @@
 
 </header>
 
-<ul id="slide-out" class="sidenav">
+<ul id="slide-out" class="sidenav nav-logo text-shadow">
     <li>
-        <h4 class="center-align white-text brand-logo text-shadow">Papercuts</h4>
+        <h4 class="center-align white-text nav-logo text-shadow">Papercuts</h4>
     </li>
     <li><a href="{{ url_for('get_posts') }}">Home</a></li>
     {% if session.user %}
@@ -83,9 +83,9 @@
 </ul>
 
 <!-- Mobile Side Nav -->
-<ul class="sidenav" id="mobile-demo">
+<ul class="sidenav nav-logo text-shadow" id="mobile-demo">
     <li>
-        <h4 class="center-align white-text">Papercuts</h4>
+        <h4 class="center-align nav-logo white-text">Papercuts</h4>
     </li>
     <li><a href="{{ url_for('get_posts') }}">Home</a></li>
     {% if session.user %}

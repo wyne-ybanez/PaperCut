@@ -171,9 +171,14 @@ def add_post():
 @app.route('/show_post/<post_id>')
 def show_post(post_id):
     '''
-    Show post to reader
+    Show post to reader.
+    Change Genre ID to matching Genre Name.
     '''
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
+    genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+    # Assign Genre name to Genre ID
+    post['genre_id'] = genre_name
     return render_template('review.html', post=post)
 
 
