@@ -1,31 +1,46 @@
 {% extends "base.html" %}
 
 {% block header %}
-  <!-- Header Image -->
-  <div class="overlay"></div>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-              <div class="site-heading">
-                  <h1 class="text-shadow site-logo">Papercuts</h1>
-                  <span class="subheading text-shadow site-logo">Critical Book Reviews and Rants</span>
-              </div>
-          </div>
-      </div>
-  </div>
+
+  {% if header_img %}
+    <!-- Header Image -->
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class="text-shadow site-logo">Papercuts</h1>
+                    <span class="subheading text-shadow white-text site-logo">
+                      Critical Book Reviews and Rants
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
-
-<h1 class="center-align page-heading">Latest Posts</h1>
-
-{% if posts|length > 0 %}
+  {% if posts|length > 0 %}
 
 <div class="row">
 
-  <div id="post-card" class="col s12 m8">
+  <div class="col l3 s12">
+    <div class="genre-search">
+      <h2>Search Genres:</h2>
+        <ul>
+            {% for genre in genres %}
+              <li class="genre-list">
+                  <p>{{ genre.genre_name }}</p>
+              </li>
+            {% endfor %}
+        </ul>
+    </div>
+  </div>
+
+  <div id="post-card" class="col s12 l9">
     {% for post in posts %}
-        <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4">
+      <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4">
 
       <!-- Genre Image based on genre_id-->
       <div class="card-image">
@@ -76,20 +91,32 @@
 
       <!-- Card Description -->
       <div class="card-content">
-        <p class="post-title"><strong>{{ post.post_title }}</strong></p>
-        <p><em>Book:</em> {{ post.book }}</p>
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="post-title black-text">
+          <strong>{{ post.post_title }}</strong>
+        </a>
+        <p><em>Book:</em> 
+          {{ post.book }}
+        </p>
         <br>
         <p><em>Review:</em></p>
         <p class="card-review">{{ post.review }}</p>
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">Read more</a>
+          <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">
+            Read more
+          </a>
         <br>
         <br>
-        <p><em>Author:</em> {{ post.created_by }}</p>
+        <p><em>Author:</em>
+          {{ post.created_by }}
+        </p>
         <!-- Display dates and edit dates -->
         {% if post.date %}
-          <p><em>Date:</em> {{ post.date }}</p>
+          <p><em>Date:</em>
+            {{ post.date }}
+          </p>
         {% elif post.edit_date %}
-          <p><em>Latest Edit:</em> {{ post.edit_date }}</p>
+          <p><em>Latest Edit:</em>
+            {{ post.edit_date }}
+          </p>
         {% endif %}
       </div>
       <!-- Read Review -->

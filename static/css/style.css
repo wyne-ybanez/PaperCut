@@ -151,7 +151,7 @@ header.masthead .site-heading h1 {
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 1.1;
   display: block;
   margin: 10px 0 0;
@@ -294,6 +294,22 @@ header.masthead .post-heading .meta a {
   ) !important;
 }
 
+/*====== Genre Search ======*/
+/* .genre-search {
+    position: relative;
+    right: 100px;
+} */
+
+.genre-search h2 {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.genre-search .genre-list P{
+    margin-top: 0;
+}
+
+
 /*====== Textarea ======*/
 
 #review {
@@ -302,6 +318,9 @@ header.masthead .post-heading .meta a {
 }
 
 /*====== Dashboard ======*/
+#add_genre {
+    margin: 2.5rem 0;
+}
 
 .card-title.stats-center {
   font-size: 35px;
