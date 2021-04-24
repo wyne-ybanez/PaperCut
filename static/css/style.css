@@ -310,6 +310,18 @@ header.masthead .post-heading .meta a {
     margin-top: 0;
 }
 
+.search {
+  width: 200px;
+}
+
+.card {
+  margin: 10px 0 ;
+}
+
+/* Changing select drop down menu color: https://www.javaer101.com/en/article/2794917.html */
+.dropdown-content li>a, .dropdown-content li>span {
+  color: orangered;
+}
 
 /*====== Textarea ======*/
 
