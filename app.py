@@ -49,11 +49,14 @@ def search():
     '''
     Allows user to search for specific posts.
     Perform search on any text-based index for 
-    posts collection 
+    posts collection. 
     '''
     query = request.form.get('query')
-    posts = list(mongo.db.posts.find({'$text': {'$search': query}}))
-    return render_template('index.html', posts=posts)
+
+    genres = mongo.db.genres.find()
+    posts = list(mongo.db.posts.find(
+        {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
+    return render_template('index.html', posts=posts, genres=genres)
 
 
 @app.route('/register', methods=['GET', 'POST'])

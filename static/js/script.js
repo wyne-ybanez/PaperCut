@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('textarea#post-content').characterCounter(); // Character counter
     $('select').formSelect(); // Form select
     $('.modal').modal(); // Initialize Modals 
-    $('#copyright').text(new Date().getFullYear());
+    $('#copyright').text(new Date().getFullYear()); // Copyright Year
 
     // Scroll effect Navbar interactivity
     function checkScroll(){

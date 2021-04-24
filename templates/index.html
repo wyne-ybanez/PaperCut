@@ -28,13 +28,18 @@
   <div class="col l3 s12">
     <div class="genre-search">
       <h2>Search Genres:</h2>
-        <ul>
-            {% for genre in genres %}
-              <li class="genre-list">
-                  <p>{{ genre.genre_name }}</p>
-              </li>
-            {% endfor %}
-        </ul>
+        <form action="{{ url_for('search') }}" method="POST">
+          <select id="query" name="query" class="validate">
+            <option value="" disabled selected>Choose Genre</option>
+                  {% for genre in genres %}
+                    <option value="{{ genre._id }}">{{ genre.genre_name }}</option>
+                  {% endfor %}
+          </select>
+          <label for="query">Search Genre</label>
+          <button type="submit" class="waves-effect main-color center-align white-text 
+          waves-orange btn">Search
+          </button>
+        </form>
     </div>
   </div>
 
