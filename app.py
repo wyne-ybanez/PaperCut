@@ -52,10 +52,16 @@ def search():
     posts collection. 
     '''
     query = request.form.get('query')
-
-    genres = mongo.db.genres.find()
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
+
+    for post in posts:
+        genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        # Assign name to ID
+        post['genre_name'] = genre_name
+        
+    genres = mongo.db.genres.find()
     return render_template('index.html', posts=posts, genres=genres)
 
 
