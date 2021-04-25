@@ -139,37 +139,86 @@
   </div>
 </div>
 
+  <!-- Pagination Feature -->
+
   {% if search_called == False: %}
-    <!-- Pagination Feature -->
-    <div class="row">
-      <div class="col l12 s12">
-        <ul class="pagination center-align">
-          {% if page == 1%}
-            <li style=" visibility: hidden;">
-            {% else %}
-              <li>
-            {% endif %}
-            <a href="{{ url_for('get_posts', page = page - 1) }}"><i class="fas fa-chevron-left"></i></a>
-          </li>
-    
+  <div class="row">
+    <div class="col l12 s12">
+      <ul class="pagination center-align">
+
+        {% if page == 1 %}
+        <li style="visibility: hidden;">
+          {% else %}
+        <li>
+          {% endif %}
+          <a href="{{ url_for('get_posts', page = page - 1) }}"><i class="fas fa-chevron-left"></i></a>
+        </li>
+        
+        <!-- 1 Page -->
+        {% if posts_data|length <= 5 %} 
           <li class="{% if page == 1 %} active {% endif %}
-                  waves-effect"><a href="{{ url_for('get_posts', page = 1) }}">1</a></li>
-          <li class="{% if page == 2 %} active {% endif %}
-                  waves-effect"><a href="{{ url_for('get_posts', page = 2) }}">2</a></li>
-          <li class="{% if page == 3 %} active {% endif %}
-                  waves-effect"><a href="{{ url_for('get_posts', page = 3) }}">3</a></li>
-          <li class="{% if page == 4 %} active {% endif %}
-                  waves-effect"><a href="{{ url_for('get_posts', page = 4) }}">4</a></li>
-          <li class="{% if page == 5 %} active {% endif %}
-                  waves-effect"><a href="{{ url_for('get_posts', page = 5) }}">5</a></li>
-    
-          {% if page == 5%}
-            <li style=" visibility: hidden;">
+                      waves-effect"><a href="{{ url_for('get_posts', page = 1) }}">1</a></li>
+          {% if page == 1 %}
+          <li style=" visibility: hidden;">
             {% else %}
-              <li>
+          <li>
             {% endif %}
             <a href="{{ url_for('get_posts', page = page + 1) }}"><i class="fas fa-chevron-right"></i></a>
           </li>
+          
+        <!-- 2 Pages -->
+          {% elif posts_data|length <= 10 %} 
+            <li class="{% if page == 1 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 1) }}">1</a></li>
+            <li class="{% if page == 2 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 2) }}">2</a></li>
+            {% if page == 2 %}
+            <li style=" visibility: hidden;">
+              {% else %}
+            <li>
+              {% endif %}
+              <a href="{{ url_for('get_posts', page = page + 1) }}"><i class="fas fa-chevron-right"></i></a>
+            </li>
+            
+          <!-- 3 Pages -->
+            {% elif posts_data|length <= 15 %} 
+              <li class="{% if page == 1 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 1) }}">1</a></li>
+              <li class="{% if page == 2 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 2) }}">2</a></li>
+              <li class="{% if page == 3 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 3) }}">3</a></li>
+              {% if page == 3 %}
+              <li style=" visibility: hidden;">
+                {% else %}
+              <li>
+                {% endif %}
+                <a href="{{ url_for('get_posts', page = page + 1) }}"><i class="fas fa-chevron-right"></i></a>
+              </li>
+              
+            <!-- 4 Pages -->
+              {% elif posts|length <= 20 %} 
+                <li class="{% if page == 1 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 1) }}">1</a></li>
+                <li class="{% if page == 2 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 2) }}">2</a></li>
+                <li class="{% if page == 3 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 3) }}">3</a></li>
+                <li class="{% if page == 4 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 4) }}">4</a></li>
+                {% if page == 4 %}
+                <li style=" visibility: hidden;">
+                  {% else %}
+                <li>
+                  {% endif %}
+                  <a href="{{ url_for('get_posts', page = page + 1) }}"><i class="fas fa-chevron-right"></i></a>
+                </li>
+  
+                <!-- Final Page -->
+                {% else %}
+                <li class="{% if page == 5 %} active {% endif %}
+                      waves-effect"><a href="{{ url_for('get_posts', page = 5) }}">5</a></li>
+                {% endif %}       
         </ul>
       </div>
     </div>

@@ -6,7 +6,6 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-from flask_paginate import Pagination, get_page_args
 import datetime
 if os.path.exists("env.py"):
     import env
@@ -25,29 +24,31 @@ mongo = PyMongo(app)
 @app.route('/get_posts')
 def get_posts():
     '''
-    Displays all posts onto page.
-    Get Genre name via Genre ID. 
-    Displays searched posts.
-    Set pagination limit to 5 per page.
-    Skip determined by (page number - 1 * 5)
+    Displays Header Image.
+    Displays posts onto page.
+    Set posts limit to 5 per page.
+    Skip determined by (page number - 1 * 5).
+    Paginates page according to length of data.
     '''
     header_img = True
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
-    SKIP_POSTS = (page - 1) * 5
+    SKIP_POSTS = (page - 1) * POSTS_PER_PAGE
     search_called = False
 
     posts = list(mongo.db.posts.find().sort(
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
+    posts_data = list(mongo.db.posts.find())
+    print(len(posts_data))
 
+    # Attach Genre name via Genre ID. 
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
-        # Assign name to ID
         post['genre_name'] = genre_name
 
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    return render_template("index.html", posts=posts, header_img=header_img,
+    return render_template("index.html", posts=posts, posts_data=posts_data, header_img=header_img,
                            genres=genres, page=page, search_called=search_called)
 
 
@@ -55,12 +56,11 @@ def get_posts():
 def search():
     '''
     Allows user to search for specific posts.
-    Displays the first 5 results
+    Displays without pagination
     '''
-    page = request.args.get('page', 1, type=int)
-    search_called = True
-
     query = request.form.get('query')
+    search_called = True
+    page = request.args.get('page', 1, type=int)
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
 
@@ -298,20 +298,20 @@ def delete_genre(genre_id):
 
 
 
-@app.errorhandler(404)
-def not_found_error(error):
-    """
-    Route to handle 404 error
-    """
-    return render_template('404.html', error=error), 404
+# @app.errorhandler(404)
+# def not_found_error(error):
+#     """
+#     Route to handle 404 error
+#     """
+#     return render_template('404.html', error=error), 404
 
 
-@app.errorhandler(500)
-def internal_error(error):
-    """
-    Route to handle 500 error
-    """
-    return render_template('500.html', error=error), 500
+# @app.errorhandler(500)
+# def internal_error(error):
+#     """
+#     Route to handle 500 error
+#     """
+#     return render_template('500.html', error=error), 500
 
 
 if __name__ == '__main__':
