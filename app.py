@@ -6,6 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from flask_paginate import Pagination, get_page_args
 import datetime
 if os.path.exists("env.py"):
     import env
@@ -30,22 +31,17 @@ def get_posts():
     Set pagination limit to 5 per page.
     Skip determined by (page number - 1 * 5)
     '''
-    page_number = 1
-    skip_posts_per_page = (page_number - 1) * 5
+    header_img = True
+    POSTS_PER_PAGE = 5
+    page = request.args.get('page', 1, type=int)
+    SKIP_POSTS = (page - 1) * 5
 
     posts = list(mongo.db.posts.find().sort(
-        'date', -1).skip(skip_posts_per_page).limit(5))
+        'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
 
-    for post in posts:
-        genre_name = mongo.db.genres.find_one(
-            {"_id": ObjectId(post["genre_id"])})["genre_name"]
-        # Assign name to ID
-        post['genre_name'] = genre_name
-
-    header_img = True
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, header_img=header_img,
-                           genres=genres, page_number=page_number)
+                           genres=genres, page=page)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -295,6 +291,23 @@ def delete_genre(genre_id):
     mongo.db.genres.remove({'_id': ObjectId(genre_id)})
     flash('Genre Successfully Deleted')
     return redirect(url_for('dashboard'))
+
+
+
+@app.errorhandler(404)
+def not_found_error(error):
+    """
+    Route to handle 404 error
+    """
+    return render_template('404.html', error=error), 404
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    """
+    Route to handle 500 error
+    """
+    return render_template('500.html', error=error), 500
 
 
 if __name__ == '__main__':
