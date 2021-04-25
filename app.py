@@ -35,34 +35,38 @@ def get_posts():
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
     SKIP_POSTS = (page - 1) * 5
+    search_called = False
 
     posts = list(mongo.db.posts.find().sort(
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
-
-    genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    return render_template("index.html", posts=posts, header_img=header_img,
-                           genres=genres, page=page)
-
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    '''
-    Allows user to search for specific posts.
-    Perform search on any text-based index for 
-    posts collection. 
-    '''
-    query = request.form.get('query')
-    posts = list(mongo.db.posts.find(
-        {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
 
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         # Assign name to ID
         post['genre_name'] = genre_name
-        
+
+    genres = list(mongo.db.genres.find().sort('genre_name', 1))
+    return render_template("index.html", posts=posts, header_img=header_img,
+                           genres=genres, page=page, search_called=search_called)
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    '''
+    Allows user to search for specific posts.
+    Displays the first 5 results
+    '''
+    page = request.args.get('page', 1, type=int)
+    search_called = True
+
+    query = request.form.get('query')
+    posts = list(mongo.db.posts.find(
+        {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
+
     genres = mongo.db.genres.find()
-    return render_template('index.html', posts=posts, genres=genres)
+    return render_template('index.html', posts=posts, genres=genres, page=page,
+                           search_called=search_called)
 
 
 @app.route('/register', methods=['GET', 'POST'])

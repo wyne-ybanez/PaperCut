@@ -36,7 +36,7 @@
 
                     <!-- Nav Search Bar -->
                     {% if session.user|lower %}
-                        <form action="{{ url_for('search') }}" method="post" class="col s6">
+                        <form action="{{ url_for('search', page = 1) }}" method="post" class="col s6">
                             <div class="nav row valign-wrapper center-align">
                                 <div class="input-field col s10">
                                     <i class="fas fa-search prefix nav-search-icon white-text text-shadow"></i>
