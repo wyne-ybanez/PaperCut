@@ -23,9 +23,9 @@
                 <!-- Buttons -->
                 <div>
                     <span><a href="{{ url_for('edit_genre', genre_id=genre._id) }}"
-                            class="card btn halfway-fab waves-effect waves-light teal">Edit</a></span>
+                            class="card btn halfway-fab waves-effect waves-light main-color">Edit</a></span>
                     <span><a href="{{ url_for('delete_genre', genre_id=genre._id) }}"
-                            class="card btn halfway-fab waves-effect waves-light orange">Delete</a></span>
+                            class="card btn halfway-fab waves-effect waves-light black">Delete</a></span>
                 </div>
             </li>
             {% endfor %}
@@ -33,7 +33,7 @@
         <!-- Add New Genre -->
         <div class="center-align">
             <a href="{{ url_for('add_genre') }}" id="add_genre" 
-                class="btn center-algin waves-effect waves-light">Add genre</a>
+                class="btn center-algin main-color waves-effect waves-light">Add genre</a>
         </div>
     </div>
 </div>

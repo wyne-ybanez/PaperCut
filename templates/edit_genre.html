@@ -9,7 +9,7 @@
             <!-- Genre Name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix orange-text"></i>
+                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
                     <input id="genre_name" name="genre_name" type="text" minlength="3" maxlength="25"
                         type="text" value="{{ genre.genre_name }}" class="validate" required> 
                     <label for="genre_name">Genre Name</label>
@@ -19,17 +19,17 @@
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('dashboard') }}" class="btn-large waves-effect waves-light orange text-shadow">
+                    <a href="{{ url_for('dashboard') }}" class="btn-large waves-effect waves-light black text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
-                    <a href="#edit_genre" class="btn-large teal modal-trigger waves-effect waves-light text-shadow">
+                    <a href="#edit_genre" class="btn-large main-color modal-trigger waves-effect waves-light text-shadow">
                         Edit Genre <i class="fas fa-edit right"></i>
                     </a>
                 </div>  
             </div>
 
             <!-- Modal Structure -->
-            <div id="edit_genre" class="modal teal white-text">
+            <div id="edit_genre" class="modal black white-text">
                 <div class="modal-content">
                     <h4><i class="fas fa-exclamation-circle left"></i>
                         Are you certain you would like to apply the changes?
@@ -37,10 +37,10 @@
                 </div>
                 <div class="modal-footer">
                     <a href="{{ url_for('dashboard') }}" class="btn modal-close waves-effect center-align 
-                        orange white-text text-shadow">Cancel <i class="fas fa-times-circle right"></i>
+                        black white-text text-shadow">Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <button type="submit"
-                        class="modal-close waves-effect teal center-align white-text waves-green btn">Update
+                        class="modal-close waves-effect main-color center-align white-text waves-green btn">Update
                         <i class="fas fa-check-circle right"></i>
                     </button>
                 </div>

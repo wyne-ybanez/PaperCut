@@ -199,6 +199,16 @@ header.masthead .post-heading .meta a {
   }
 }
 
+/*====== Register/Login ======*/
+
+.register,
+.login {
+  justify-content: center;
+  align-items: center;    
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
 /*====== Body ======*/
 
 .page-heading {
@@ -332,7 +342,7 @@ header.masthead .post-heading .meta a {
   width: 200px;
 }
 
-.card {
+.genre-search .card {
   margin: 10px 0 ;
 }
 

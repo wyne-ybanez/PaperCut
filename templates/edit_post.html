@@ -8,12 +8,12 @@
             <div class="row">
                 <!-- Genre -->
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix orange-text"></i>
+                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
                     <select id="genre" name="genre" class="validate" required>
                         <option value="" disabled>Choose Genre</option>
                             {% for genre in genres %}
                                 <!-- Ensuring preselected genre is default -->
-                                {% if  genre._id == post.genre_id %}
+                                {% if post.genre_id == genre._id%}
                                     <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
                                 {% else %}
                                     <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
@@ -26,7 +26,7 @@
                 <!-- Title -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-heading prefix orange-text"></i>
+                    <i class="fas fa-heading prefix deep-orange-text"></i>
                     <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
                         value="{{ post.post_title }}" class="validate" required>
                     <label for="post_title">Title</label>
@@ -35,7 +35,7 @@
                 <!-- Book -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-book prefix orange-text"></i>
+                    <i class="fas fa-book prefix deep-orange-text"></i>
                     <input id="book" name="book" type="text" minlength="5" maxlength="200"
                         value="{{ post.book }}" class="validate" required>
                     <label for="book">Book</label>
@@ -44,7 +44,7 @@
                 <!-- Book Review -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pen prefix orange-text"></i>
+                    <i class="fas fa-pen prefix deep-orange-text"></i>
                     <textarea id="review" name="review" class="materialize-textarea" minlength="5"
                         maxlength="3000" data-length="1500" required>{{- post.review -}}</textarea>
                     <label for="review">Book Review</label>
@@ -53,18 +53,20 @@
             <div class="row">
             <!-- Cancel edits -->
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('get_posts') }}" class="btn-large orange waves-effect waves-light text-shadow">
+                    <a href="{{ url_for('get_posts') }}" class="btn-large black waves-effect 
+                        waves-light text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a> 
             <!-- Submit edits -->
-                    <a href="#edit_post" class="btn-large modal-trigger teal waves-effect waves-light text-shadow">
+                    <a href="#edit_post" class="btn-large modal-trigger main-color waves-effect 
+                        waves-light text-shadow">
                         Update <i class="fas fa-plus-square right"></i>
                     </a>
                 </div>  
             </div>
 
             <!-- Modal Structure -->
-            <div id="edit_post" class="modal teal white-text">
+            <div id="edit_post" class="modal black white-text">
                 <div class="modal-content">
                     <h4><i class="fas fa-exclamation-circle left"></i>
                         Are you certain you would like to apply the changes?
@@ -72,10 +74,10 @@
                 </div>
                 <div class="modal-footer">
                     <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
-                        orange white-text text-shadow">Cancel 
+                        black white-text text-shadow">Cancel 
                         <i class="fas fa-times-circle right"></i>
                     </a>
-                    <button type="submit" class="modal-close waves-effect teal center-align white-text 
+                    <button type="submit" class="modal-close waves-effect main-color center-align white-text 
                         waves-green btn">Update 
                         <i class="fas fa-check-circle right"></i>
                     </button>

@@ -60,12 +60,18 @@ def search():
     '''
     query = request.form.get('query')
     search_called = True
-    page = request.args.get('page', 1, type=int)
+    
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
-
     genres = mongo.db.genres.find()
-    return render_template('index.html', posts=posts, genres=genres, page=page,
+
+    # Attach Genre name to Genre ID. 
+    for post in posts:
+        genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        post['genre_name'] = genre_name
+
+    return render_template('index.html', posts=posts, genres=genres,
                            search_called=search_called)
 
 
@@ -191,9 +197,10 @@ def show_post(post_id):
     Change Genre ID to matching Genre Name.
     '''
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
+
+    # Attach Genre Name to Genre ID
     genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
-    # Assign Genre name to Genre ID
     post['genre_id'] = genre_name
     return render_template('review.html', post=post)
 

@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
+    <div class="row login">
         <div class="col s12 m6">
-            <h1 class="center-align"><a href="{{ url_for('get_posts') }}" class="brand-logo black-text text-shadow">PAPERCUTS</a></h1>
             <h3 class="center-align page-heading">Log In</h3>
         </div>   
         <form class="col s12 m6" method="POST" action="{{ url_for('login') }}">
@@ -27,7 +26,7 @@
                 </div>
                 <!-- login -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large orange text-shadow">
+                    <button type="submit" class="col s12 btn-large main-color text-shadow">
                         Log In <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
@@ -38,7 +37,7 @@
         <div class="col s12">
             <p class="center-align">
                 New Here?
-                <a href="{{ url_for('register') }}" class="orange-text text-darken darken-2">Register Account</a>
+                <a href="{{ url_for('register') }}" class="deep-orange-text text-darken darken-2">Register Account</a>
             </p>
         </div>
     </div>
