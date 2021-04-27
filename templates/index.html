@@ -8,8 +8,10 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1 class="text-shadow site-logo">Papercuts</h1>
-                    <span class="subheading text-shadow white-text site-logo">
+                    <h1 class="text-shadow site-logo">
+                      Papercuts
+                    </h1>
+                    <span class="subheading text-shadow site-logo">
                       Critical Book Reviews and Rants
                     </span>
                 </div>
@@ -71,11 +73,13 @@
         <!-- Add Post -->
           <!-- Must be registered User -->
         {% if session.user|lower %}
-          <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab waves-effect waves-light main-color">
+          <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab 
+              waves-effect waves-light main-color">
             <i class="fas fa-plus"></i>
           </a>
         {% else %}
-          <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab waves-effect waves-light main-color">
+          <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
+              waves-effect waves-light main-color">
             <i class="fas fa-plus"></i>
           </a>
         {% endif %}
@@ -131,10 +135,30 @@
           <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align deep-orange-text link">Edit</a>
         {% endif%}
         {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
-          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="center-align deep-orange-text link">Delete</a>
+          <a href="#delete_post" class="modal-trigger center-align deep-orange-text link">Delete</a>
         {% endif %}
       </div>
     </div>
+
+      <!-- Modal for Delete Post -->
+      <div id="delete_post" class="modal black white-text">
+        <div class="modal-content">
+          <h4><i class="fas fa-exclamation-circle left"></i>
+            Are you certain you would like to delete the post?
+          </h4>
+        </div>
+        <div class="modal-footer">
+          <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                black white-text text-shadow">Cancel
+            <i class="fas fa-times-circle right"></i>
+          </a>
+          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-close waves-effect main-color center-align white-text 
+                waves-green btn">Delete
+            <i class="fas fa-check-circle right"></i>
+          </a>
+        </div>
+      </div>
+      
     {% endfor %}
   </div>
 </div>

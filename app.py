@@ -234,6 +234,11 @@ def edit_post(post_id):
 
 @app.route('/delete_post/<post_id>')
 def delete_post(post_id):
+    '''
+    Deletes Post as long as
+    request comes from the author or
+    from an admin.
+    '''
     mongo.db.posts.remove({'_id': ObjectId(post_id)})
     flash('Post Deleted')
     return redirect(url_for('get_posts'))
