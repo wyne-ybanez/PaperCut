@@ -7,16 +7,18 @@
     <div class="col s12">
         <div class="card">
           <div class="card-image">
-            <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab waves-effect waves-light orange">
+            <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab 
+              waves-effect waves-light orange">
               <i class="fas fa-plus"></i>
             </a>
             <!-- Creator/Admin actions -->
             {% if session.user|lower == post.created_by|lower %}
-              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab waves-effect waves-light orange">
+              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab 
+                waves-effect waves-light orange">
               <i class="fas fa-pen"></i>
               </a>
               <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
-                <i class="fas fa-times-circle"></i>
+                <i class="fas fa-trash-alt"></i>
               </a>
             {% endif %}
           </div>
@@ -53,7 +55,7 @@
         </h4>
     </div>
     <div class="modal-footer">
-        <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="btn modal-close waves-effect center-align 
             black white-text text-shadow">Cancel 
             <i class="fas fa-times-circle right"></i>
         </a>

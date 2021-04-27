@@ -137,7 +137,7 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/profile/<username>', methods=['GET','POST'])
+@app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     '''
     Create profile page for user
@@ -146,10 +146,12 @@ def profile(username):
     '''
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
+    admin_user = mongo.db.users.find_one(
+        {'username': session['user'], 'admin': 'true'})
 
     if session['user']:
-        return render_template('profile.html', username=username)
-
+        return render_template('profile.html', username=username,
+                               admin_user=admin_user)
     return redirect(url_for('login'))
 
 
