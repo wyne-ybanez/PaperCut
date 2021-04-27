@@ -41,20 +41,17 @@ def get_posts():
     posts_data = list(mongo.db.posts.find())
     print(len(posts_data))
 
-    # Allow admins to access Dashboard
-    admin_user = mongo.db.users.find_one(
-        {'username': session['user'], 'admin': 'true'})
-
     # Attach Genre name via Genre ID.
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         post['genre_name'] = genre_name
-
+    
+    admin = mongo.db.users.find_one({'admin': 'true'})
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
                            header_img=header_img, genres=genres, page=page,
-                           search_called=search_called, admin_user=admin_user)
+                           search_called=search_called, admin=admin)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -151,12 +148,12 @@ def profile(username):
     '''
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
-    admin_user = mongo.db.users.find_one(
+    admin = mongo.db.users.find_one(
         {'username': session['user'], 'admin': 'true'})
 
     if session['user']:
         return render_template('profile.html', username=username,
-                               admin_user=admin_user)
+                               admin=admin)
     return redirect(url_for('login'))
 
 
