@@ -2,11 +2,24 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="col s12">
             <div class="card-panel">
-                <h3 class="center-align deep-orange lighten-1">
-                    {{ username }}'s Profile
-                </h3>
+                <!-- Profile Content -->
+                <div class="card-content">
+                    <div class="container">
+                    <p style="font-size: 20px;"><em>Book:</em></p>
+                    <p class="book">{{ username }}</p>
+                    <br>
+                    <p style="font-size: 20px;"><em>Genre:</em></p>
+                    <p class="card-genre black-text">{{ username }}</p>
+                    <br>
+                    <p style="font-size: 20px;"><em>Review:</em></p>
+                    <p class="review"><strong>{{- username -}}</strong></p>
+                    <br>
+                    <p class="right-align"><em>Author:</em> {{ username }}</p>
+                    
+                    </div>
+                </div>
             </div>
         </div>
     </div>

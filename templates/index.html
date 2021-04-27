@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block styles %}
-<!-- AOS CSS Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- AOS CSS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% endblock %}
 
 {% block header %}
@@ -59,7 +59,7 @@
       <!-- Genre Image based on genre_id-->
       <div class="card-image">
         {% if post.genre_id == '60801478c4a5cd24e572d02e' %}
-          <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="Nature genre image">
+          <img src="{{ url_for('static', filename='images/nature.jpeg') }}" alt="Nature genre image">
         {% elif post.genre_id == '60800dded88bad5caa6671f2' %}
           <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="Thriller genre image">
         {% elif post.genre_id =='6088189e0d2bac4f6f3e8ab4' %}
@@ -110,20 +110,20 @@
       <!-- Card Description -->
       <div class="card-content">
         <a href="{{ url_for('show_post', post_id=post._id) }}" class="post-title black-text">
-          <strong>{{ post.post_title }}</strong>
+          <strong class="truncate">{{ post.post_title }}</strong>
         </a>
         <p><em>Book:</em> 
           {{ post.book }}
         </p>
         <br>
         <p><em>Review:</em></p>
-        <p class="card-review">{{ post.review }}</p>
+        <p class="card-review truncate">{{ post.review }}</p>
           <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">
             Read more
           </a>
         <br>
         <br>
-        <p><em>Author:</em>
+        <p class="truncate"><em>Author:</em>
           {{ post.created_by }}
         </p>
         <!-- Display dates and edit dates -->
@@ -250,9 +250,9 @@
 {% endblock %}
 
 {% block scripts %}
-<!-- AOS Scripting -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
+  <!-- AOS Scripting -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+      AOS.init();
   </script>
 {% endblock %}
