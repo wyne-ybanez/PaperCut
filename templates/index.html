@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block styles %}
+<!-- AOS CSS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
 {% block header %}
   {% if header_img %}
     <!-- Header Image -->
@@ -8,10 +13,12 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1 class="text-shadow site-logo">
+                    <h1 class="text-shadow site-logo" data-aos="fade-up" 
+                      data-aos-anchor-placement="top-bottom" data-aos-duration="1200">
                       Papercuts
                     </h1>
-                    <span class="subheading text-shadow site-logo">
+                    <span class="subheading text-shadow site-logo" data-aos="fade-up" 
+                      data-aos-anchor-placement="top-bottom" data-aos-delay="1500" data-aos-duration="1500">
                       Critical Book Reviews and Rants
                     </span>
                 </div>
@@ -46,7 +53,8 @@
 
   <div id="post-card" class="col s12 l9">
     {% for post in posts %}
-      <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4">
+      <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4"
+          data-aos="fade-right">
 
       <!-- Genre Image based on genre_id-->
       <div class="card-image">
@@ -242,4 +250,9 @@
 {% endblock %}
 
 {% block scripts %}
+<!-- AOS Scripting -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
 {% endblock %}

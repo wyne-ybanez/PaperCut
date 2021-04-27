@@ -15,7 +15,7 @@
               <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab waves-effect waves-light orange">
               <i class="fas fa-pen"></i>
               </a>
-              <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn-floating halfway-fab waves-effect waves-light orange">
+              <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
                 <i class="fas fa-times-circle"></i>
               </a>
             {% endif %}
@@ -44,5 +44,24 @@
     </div>
   </div> 
 
-
+  <!-- Delete Post Modal -->
+  
+  <div id="delete_post" class="modal black white-text">
+    <div class="modal-content">
+        <h4><i class="fas fa-exclamation-circle left"></i>
+            Are you certain you would like to delete the post?
+        </h4>
+    </div>
+    <div class="modal-footer">
+        <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+            black white-text text-shadow">Cancel 
+            <i class="fas fa-times-circle right"></i>
+        </a>
+        <a href="{{ url_for('delete_post', post_id=post._id) }}"
+           class="modal-close waves-effect main-color center-align white-text 
+              waves-green btn">Delete
+            <i class="fas fa-check-circle right"></i>
+        </a>
+    </div>
+  </div>
 {% endblock %}
