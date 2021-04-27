@@ -240,7 +240,7 @@ def delete_post(post_id):
     from an admin.
     '''
     mongo.db.posts.remove({'_id': ObjectId(post_id)})
-    flash('Post Deleted')
+    flash('Post Successfully Deleted')
     return redirect(url_for('get_posts'))
 
 

@@ -355,9 +355,15 @@ header.masthead .post-heading .meta a {
 
 /*====== Textarea ======*/
 
+/* * Preserve text area prewrap: https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477 */
+.card-content .container p {
+  white-space: pre-wrap;
+}
+
 #review {
   height: 8rem !important;
   overflow-y: visible;
+  line-height: 1rem;
 }
 
 /*====== Dashboard ======*/

@@ -137,8 +137,7 @@
           <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align deep-orange-text link">Edit</a>
         {% endif%}
         {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
-          <a href="{{ url_for('delete_post', post_id=post._id) }}" 
-            class="modal-trigger center-align deep-orange-text link">Delete</a>
+          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-trigger center-align deep-orange-text link">Delete</a>
         {% endif %}
         </div>
       </div>     
