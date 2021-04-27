@@ -72,9 +72,9 @@
     {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
         <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
-        {% if session.user|lower == 'admin'|lower %}
-            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-        {% endif %}
+        
+            <li><a href="{{ url_for('dashboard', admin=admin) }}">Dashboard</a></li>
+        
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
     {% else %}
         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -92,7 +92,7 @@
         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
         <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
     {% if session.user|lower == 'admin'|lower %}
-        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('dashboard', admin=admin) }}">Dashboard</a></li>
     {% endif %}
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
     {% else %}
@@ -147,7 +147,7 @@
                         <li><a class="white-text" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a class="white-text" href="{{ url_for('add_post') }}">Add Post</a></li>
                     {% if session.user|lower == 'admin'|lower %}
-                        <li><a class="white-text" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                        <li><a class="white-text" href="{{ url_for('dashboard', admin=admin) }}">Dashboard</a></li>
                     {% endif %}
                         <li><a class="white-text" href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}

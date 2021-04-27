@@ -342,7 +342,8 @@ header.masthead .post-heading .meta a {
   width: 200px;
 }
 
-.genre-search .card {
+.genre-search .card,
+.genre-list .card {
   margin: 10px 0 ;
 }
 

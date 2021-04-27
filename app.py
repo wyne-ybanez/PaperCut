@@ -56,7 +56,8 @@ def get_posts():
 def search():
     '''
     Allows user to search for specific posts.
-    Displays without pagination
+    Lets the site know when a search function
+    is called to remove pagination feature.
     '''
     query = request.form.get('query')
     search_called = True
@@ -241,15 +242,21 @@ def delete_post(post_id):
 @app.route('/dashboard')
 def dashboard():
     '''
+    Check if user is an admin
     Displays no. of users.
     Displays no. of posts.
     Action buttons for genre manipulation.
     '''
-    total_users = mongo.db.users.count_documents({})
-    total_posts = mongo.db.posts.count_documents({})
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    return render_template('dashboard.html', genres=genres,
-                           total_users=total_users, total_posts=total_posts)
+    admin_user = mongo.db.users.find_one({'username': session['user'],
+                                          'admin': 'true'})
+
+    if admin_user:
+        total_users = mongo.db.users.count_documents({})
+        total_posts = mongo.db.posts.count_documents({})
+        return render_template('dashboard.html', genres=genres,
+                               total_users=total_users, total_posts=total_posts)
+    return render_template('404.html')
 
 
 @app.route('/add_genre', methods=['GET', 'POST'])
@@ -304,13 +311,12 @@ def delete_genre(genre_id):
     return redirect(url_for('dashboard'))
 
 
-
-# @app.errorhandler(404)
-# def not_found_error(error):
-#     """
-#     Route to handle 404 error
-#     """
-#     return render_template('404.html', error=error), 404
+@app.errorhandler(404)
+def not_found_error(error):
+    """
+    Route to handle 404 error
+    """
+    return render_template('404.html', error=error), 404
 
 
 # @app.errorhandler(500)
