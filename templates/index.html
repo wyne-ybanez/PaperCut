@@ -54,15 +54,17 @@
           <img src="{{ url_for('static', filename='images/nature.jpg') }}" alt="Nature genre image">
         {% elif post.genre_id == '60800dded88bad5caa6671f2' %}
           <img src="{{ url_for('static', filename='images/thriller.jpeg') }}" alt="Thriller genre image">
-        {% elif post.genre_id =='6073348f0c164046e72ced61' %}
+        {% elif post.genre_id =='6088189e0d2bac4f6f3e8ab4' %}
           <img src="{{ url_for('static', filename='images/comedy.jpeg') }}" alt="Comedy genre image">
-        {% elif post.genre_id == '607334580c164046e72ced5e' %}
+        {% elif post.genre_id == '608819335dd8d069fab7c362' %}
           <img src="{{ url_for('static', filename='images/adventure.jpeg') }}" alt="Adventure genre image">
-        {% elif post.genre_id == '6073344c0c164046e72ced5d' %}
+        {% elif post.genre_id == '608818b10d2bac4f6f3e8ab5' %}
           <img src="{{ url_for('static', filename='images/fantasy.jpeg') }}" alt="Fantasy genre image">
         {% elif post.genre_id == '607334630c164046e72ced5f' %}
           <img src="{{ url_for('static', filename='images/romance.jpeg') }}" alt="Romance genre image">
-        {% elif post.genre_id == '608023ded9f71798665a5741' %}
+        {% elif post.genre_id == '608818b70d2bac4f6f3e8ab6' %}
+          <img src="{{ url_for('static', filename='images/space.jpeg') }}" alt="Space genre image">
+        {% else %}
           <img src="{{ url_for('static', filename='images/none.jpeg') }}" alt="No Genre image">
         {% endif %}       
 
@@ -135,30 +137,11 @@
           <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align deep-orange-text link">Edit</a>
         {% endif%}
         {% if session.user|lower == post.created_by|lower or session.user|lower == 'admin'%}
-          <a href="#delete_post" class="modal-trigger center-align deep-orange-text link">Delete</a>
+          <a href="{{ url_for('delete_post', post_id=post._id) }}" 
+            class="modal-trigger center-align deep-orange-text link">Delete</a>
         {% endif %}
-      </div>
-    </div>
-
-      <!-- Modal for Delete Post -->
-      <div id="delete_post" class="modal black white-text">
-        <div class="modal-content">
-          <h4><i class="fas fa-exclamation-circle left"></i>
-            Are you certain you would like to delete the post?
-          </h4>
         </div>
-        <div class="modal-footer">
-          <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
-                black white-text text-shadow">Cancel
-            <i class="fas fa-times-circle right"></i>
-          </a>
-          <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-close waves-effect main-color center-align white-text 
-                waves-green btn">Delete
-            <i class="fas fa-check-circle right"></i>
-          </a>
-        </div>
-      </div>
-      
+      </div>     
     {% endfor %}
   </div>
 </div>
