@@ -72,6 +72,8 @@
           <img src="{{ url_for('static', filename='images/romance.jpeg') }}" alt="Romance genre image">
         {% elif post.genre_id == '608818b70d2bac4f6f3e8ab6' %}
           <img src="{{ url_for('static', filename='images/space.jpeg') }}" alt="Space genre image">
+        {% elif post.genre_id == '608862e11507fdd49f81f6be' %}
+          <img src="{{ url_for('static', filename='images/enlightenment.jpeg') }}" alt="Space genre image">
         {% else %}
           <img src="{{ url_for('static', filename='images/none.jpeg') }}" alt="No Genre image">
         {% endif %}       
@@ -112,7 +114,7 @@
         <a href="{{ url_for('show_post', post_id=post._id) }}" class="post-title black-text">
           <strong class="truncate">{{ post.post_title }}</strong>
         </a>
-        <p><em>Book:</em> 
+        <p><em>Book:</em>
           {{ post.book }}
         </p>
         <br>
