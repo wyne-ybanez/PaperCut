@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('select').formSelect(); // Form select
     $('.modal').modal(); // Initialize Modals 
     $('#copyright').text(new Date().getFullYear()); // Copyright Year
+    $('.tooltipped').tooltip(); // Tooltips
 
     // Pagination
     // $('#pagination').materializePagination({

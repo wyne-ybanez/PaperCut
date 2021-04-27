@@ -10,16 +10,16 @@
           <div class="card-image">
             <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab 
               waves-effect waves-light orange">
-              <i class="fas fa-plus"></i>
+              <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
             </a>
             <!-- Creator/Admin actions -->
             {% if session.user|lower == post.created_by|lower %}
               <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab 
                 waves-effect waves-light orange">
-              <i class="fas fa-pen"></i>
+              <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit Post"></i>
               </a>
               <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
-                <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt tooltipped" data-position="bottom" data-tooltip="Delete Post"></i>
               </a>
             {% endif %}
           </div>

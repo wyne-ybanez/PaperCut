@@ -87,24 +87,24 @@
         {% if session.user|lower %}
           <a href="{{ url_for('add_post') }}" class="btn-floating plus halfway-fab 
               waves-effect waves-light main-color">
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
           </a>
         {% else %}
           <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
               waves-effect waves-light main-color">
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
           </a>
         {% endif %}
         <!-- Read Post -->
         <a href="{{ url_for('show_post', post_id=post._id) }}"
           class="btn-floating halfway-fab waves-effect waves-light">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search tooltipped" data-position="bottom" data-tooltip="Read Post"></i>
         </a>
         <!-- Edit Post -->
         {% if session.user|lower == post.created_by|lower %}
           <a href="{{ url_for('edit_post', post_id=post._id) }}"
             class="btn-floating pen halfway-fab waves-effect waves-light">
-            <i class="fas fa-pen"></i>
+            <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit Post"></i>
           </a>
         {% endif %}
       </div>

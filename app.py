@@ -30,6 +30,7 @@ def get_posts():
     Skip determined by (page number - 1 * 5).
     Paginates page according to length of data.
     '''
+    # Variables
     header_img = True
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
@@ -39,19 +40,17 @@ def get_posts():
     posts = list(mongo.db.posts.find().sort(
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
-    print(len(posts_data))
 
     # Attach Genre name via Genre ID.
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         post['genre_name'] = genre_name
-    
-    admin = mongo.db.users.find_one({'admin': 'true'})
+
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
                            header_img=header_img, genres=genres, page=page,
-                           search_called=search_called, admin=admin)
+                           search_called=search_called)
 
 
 @app.route('/search', methods=['GET', 'POST'])
