@@ -13,21 +13,37 @@
                     <i class="fas fa-folder-open prefix deep-orange-text"></i>
                     <select id="avatar" name="avatar" class="validate" required>
                         <option value="" disabled>Choose avatar</option>
-                        <option value="https://gravatar.com/avatar/223e012188fd4c52cddb8fcfc0e2bc00?s=400&d=robohash&r=x">
-                            Silver Robot
+                        <option value="https://gravatar.com/avatar/fdf71ac18c658b6e64f11445a752cd47?s=400&d=robohash&r=x">
+                            John (Silver)
+                        </option>
+                        <option value="https://gravatar.com/avatar/2c8cfcf0539a887a54f6a7ac0261e71c?s=400&d=robohash&r=x">
+                            Sammy (Yellow)
+                        </option>
+                        <option value="https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=robohash&r=x">
+                            Paul (Purple)
+                        </option>
+                        <option value="https://robohash.org/6e282ac2ee8a1b54165a73b2a4d8e08f?set=set4&bgset=&size=400x400">
+                            Nancy (Yellow Cat)
+                        </option>
+                        <option value="https://robohash.org/6293c0c3863941364db60dfe8c0b5472?set=set4&bgset=&size=400x400">
+                            Harrington (Scarf Cat)
+                        </option>
+                        <option value="https://robohash.org/7f3189b268b8b7ed69946d146dcdf342?set=set4&bgset=&size=400x400">
+                            Elfen (Blue Cat)
                         </option>
                     </select>
                     <label for="avatar">Avatar</label>
                 </div>
-
             </div>
 
                 <!-- User Bio -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix deep-orange-text"></i>
-                    <textarea id="status" name="status" class="materialize-textarea" minlength="2"
-                        maxlength="300" required>{{ user.status }}</textarea>
+                    <textarea id="status" name="status" class="materialize-textarea"
+                        maxlength="300" required>
+                        {{- user.status -}}
+                    </textarea>
                     <label for="status">Status</label>
                 </div>
             </div>
@@ -50,7 +66,8 @@
             <div id="edit_profile" class="modal black white-text">
                 <div class="modal-content">
                     <h4><i class="fas fa-exclamation-circle left"></i>
-                        Are you certain you would like to apply the changes?
+                        Are you sure you would like to apply the changes
+                        to your profile?
                     </h4>
                 </div>
                 <div class="modal-footer">

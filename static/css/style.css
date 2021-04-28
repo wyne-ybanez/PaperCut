@@ -216,7 +216,11 @@ header.masthead .post-heading .meta a {
 .avatar {
   vertical-align: middle;
   object-fit: contain;
+  height: 220px;
+  width: 220px;
   border-radius: 50%;
+  background-color: white;
+  bottom: 1rem;
 }
 
 .card-content .container .user {

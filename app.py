@@ -169,7 +169,7 @@ def edit_profile(username):
                               '$set': {'status': edit, 'avatar': avatar}})
         flash('Profile Successfully Updated')
 
-    user = mongo.db.users.find_one({'username': session['user']})['username']
+    user = mongo.db.users.find_one({'username': session['user']})
     return render_template('edit_profile.html', user=user)
 
 
