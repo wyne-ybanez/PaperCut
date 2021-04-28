@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if admin or username==session.user %}
+{% if admin or session.user %}
     <h1 class="center-align page-heading">Edit Profile</h1>
 
     <div class="row card-panel grey lighten-4">
@@ -13,9 +13,8 @@
                     <i class="fas fa-folder-open prefix deep-orange-text"></i>
                     <select id="avatar" name="avatar" class="validate" required>
                         <option value="" disabled>Choose avatar</option>
-                        <option>
-                            <div style="background-image: url('https://images.unsplash.com/photo-1563888430434-7823117fa92e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80')">
-                            </div>
+                        <option value="https://gravatar.com/avatar/223e012188fd4c52cddb8fcfc0e2bc00?s=400&d=robohash&r=x">
+                            Silver Robot
                         </option>
                     </select>
                     <label for="avatar">Avatar</label>
@@ -27,9 +26,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pen prefix deep-orange-text"></i>
-                    <textarea id="bio" name="bio" class="materialize-textarea" minlength="5"
-                        maxlength="3000" data-length="1500" required>{{ username }}</textarea>
-                    <label for="bio">User Bio</label>
+                    <textarea id="status" name="status" class="materialize-textarea" minlength="2"
+                        maxlength="300" required>{{ user.status }}</textarea>
+                    <label for="status">Status</label>
                 </div>
             </div>
             <div class="row">

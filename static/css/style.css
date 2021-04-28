@@ -210,13 +210,23 @@ header.masthead .post-heading .meta a {
   margin-top: 1.5rem;
 }
 
-/*====== Avatar: https://www.w3schools.com/howto/howto_css_image_avatar.asp ======*/
+/*====== Profile ======*/
+/* Avatar: https://www.w3schools.com/howto/howto_css_image_avatar.asp */
 
 .avatar {
   vertical-align: middle;
-  width: 50px;
-  height: 50px;
+  object-fit: contain;
   border-radius: 50%;
+}
+
+.card-content .container .user {
+  margin-top: 1rem;
+  font-size: 20px;
+}
+
+.card-status {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 /*====== Body ======*/
@@ -331,11 +341,6 @@ header.masthead .post-heading .meta a {
 
 .card-genre{
   font-size: 25px;
-  font-weight: 700;
-}
-
-.card-bio {
-  font-size: 20px;
   font-weight: 700;
 }
 

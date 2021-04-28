@@ -163,9 +163,10 @@ def edit_profile(username):
     Allows users to add bios to profile.
     '''
     if request.method == 'POST':
-        edit = request.form.get('bio')
+        edit = request.form.get('status')
+        avatar = request.form.get('avatar')
         mongo.db.users.update({'username': session['user']}, {
-                              '$set': {'bio': edit}})
+                              '$set': {'status': edit, 'avatar': avatar}})
         flash('Profile Successfully Updated')
 
     user = mongo.db.users.find_one({'username': session['user']})['username']
