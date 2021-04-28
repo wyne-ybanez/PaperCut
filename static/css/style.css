@@ -210,6 +210,15 @@ header.masthead .post-heading .meta a {
   margin-top: 1.5rem;
 }
 
+/*====== Avatar: https://www.w3schools.com/howto/howto_css_image_avatar.asp ======*/
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 /*====== Body ======*/
 
 .page-heading {
@@ -320,8 +329,13 @@ header.masthead .post-heading .meta a {
   font-weight: 700;
 }
 
-.card-genre {
+.card-genre{
   font-size: 25px;
+  font-weight: 700;
+}
+
+.card-bio {
+  font-size: 20px;
   font-weight: 700;
 }
 

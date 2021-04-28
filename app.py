@@ -156,6 +156,17 @@ def profile(username):
     return redirect(url_for('login'))
 
 
+@app.route('/edit_profile/<username>', methods=['GET', 'POST'])
+def edit_profile(username):
+    '''
+    Allows content creator to edit 
+    their profiles.
+    '''
+    username = mongo.db.users.find_one(
+        {'username': session['user']})['username']
+    return render_template('edit_profile.html', username=username)
+
+
 @app.route('/logout')
 def logout():
     '''

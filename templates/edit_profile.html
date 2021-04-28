@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1 class="center-align page-heading">Edit Profile</h1>
+
+    <div class="row card-panel grey lighten-4">
+        <form class="col s12" method="POST" action="{{ url_for('edit_profile', username=username) }}">
+            <div class="row">
+
+                <!-- avatarImage -->
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                    <select id="avatar" name="avatar" class="validate" required>
+                        <option value="" disabled>Choose avatar</option>
+                        <option>
+                            <div style="background-image: url('https://images.unsplash.com/photo-1563888430434-7823117fa92e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80')">
+                            </div>
+                        </option>
+                    </select>
+                    <label for="avatar">Avatar</label>
+                </div>
+
+            </div>
+
+                <!-- User Bio -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pen prefix deep-orange-text"></i>
+                    <textarea id="review" name="review" class="materialize-textarea" minlength="5"
+                        maxlength="3000" data-length="1500" required>{{ username }}</textarea>
+                    <label for="review">User Bio</label>
+                </div>
+            </div>
+            <div class="row">
+            <!-- Cancel edits -->
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('get_posts') }}" class="btn-large black waves-effect 
+                        waves-light text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a> 
+            <!-- Submit edits -->
+                    <a href="#edit_profile" class="btn-large modal-trigger main-color waves-effect 
+                        waves-light text-shadow">
+                        Update <i class="fas fa-plus-square right"></i>
+                    </a>
+                </div>  
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="edit_profile" class="modal black white-text">
+                <div class="modal-content">
+                    <h4><i class="fas fa-exclamation-circle left"></i>
+                        Are you certain you would like to apply the changes?
+                    </h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                        black white-text text-shadow">Cancel 
+                        <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="modal-close waves-effect main-color center-align white-text 
+                        waves-green btn">Update 
+                        <i class="fas fa-check-circle right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
