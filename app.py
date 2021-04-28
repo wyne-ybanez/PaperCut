@@ -41,6 +41,7 @@ def get_posts():
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
     users = list(mongo.db.users.find())
+    user = mongo.db.users.find_one({'username': session['user']})
 
     # Attach Genre name via Genre ID.
     for post in posts:
@@ -51,7 +52,7 @@ def get_posts():
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
                            header_img=header_img, genres=genres, page=page,
-                           search_called=search_called, users=users)
+                           search_called=search_called, users=users, user=user)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -63,12 +64,12 @@ def search():
     '''
     query = request.form.get('query')
     search_called = True
-    
+
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     genres = mongo.db.genres.find()
 
-    # Attach Genre name to Genre ID. 
+    # Attach Genre name to Genre ID.
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
@@ -91,10 +92,10 @@ def register():
             {'username': request.form.get('username').lower()}
         )
 
-        if existing_user: 
+        if existing_user:
             flash('Username already exists')
             return redirect(url_for('register'))
-    
+
         register = {
             'username': request.form.get('username').lower(),
             'password': generate_password_hash(request.form.get('password')),
@@ -121,12 +122,15 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user['password'], request.form.get('password')):
-                    session['user'] = request.form.get('username').lower()
-                    flash('Welcome, {}'.format(
-                        request.form.get('username')))
-                    return redirect(url_for(
-                            "profile", username=session["user"]))
+                    existing_user['password'], request.form.get('password')):
+                session['user'] = request.form.get('username').lower()
+                flash('Welcome, {}'.format(
+                    request.form.get('username')))
+                user = mongo.db.users.find_one(
+                    {'username': request.form.get('username').lower()})
+
+                return redirect(url_for(
+                    "profile", username=session['user'], user_id=user['_id']))
             else:
                 flash('Incorrect Username and/or Password')
                 return redirect(url_for("login"))
@@ -138,22 +142,16 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/profile/<username>', methods=['GET', 'POST'])
-def profile(username):
+@app.route('/profile/<user_id>', methods=['GET', 'POST'])
+def profile(user_id):
     '''
     Create profile page for user.
     Taking user's username from DB.
     Use session cookie to identify user.
     '''
-    username = mongo.db.users.find_one(
-        {'username': session['user']})['username']
-    admin = mongo.db.users.find_one(
-        {'username': session['user'], 'admin': 'true'})
-    user = mongo.db.users.find_one({'username': session['user']})
-
+    user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
     if session['user']:
-        return render_template('profile.html', username=username, admin=admin,
-                               user=user)
+        return render_template("profile.html", user=user)
     return redirect(url_for('login'))
 
 
@@ -191,6 +189,7 @@ def add_post():
     is shown if the post is successful. Inserts data
     into database. Redirects user to home page.
     '''
+    user = mongo.db.users.find_one({'username': session['user']})
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
@@ -209,7 +208,7 @@ def add_post():
         return redirect(url_for('login'))
 
     genres = mongo.db.genres.find().sort('genre_name', 1)
-    return render_template('add_post.html', genres=genres)
+    return render_template('add_post.html', genres=genres, user=user)
 
 
 @app.route('/show_post/<post_id>')
@@ -222,9 +221,11 @@ def show_post(post_id):
 
     # Attach Genre Name to Genre ID
     genre_name = mongo.db.genres.find_one(
-            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        {"_id": ObjectId(post["genre_id"])})["genre_name"]
     post['genre_id'] = genre_name
-    return render_template('review.html', post=post)
+
+    user = mongo.db.users.find_one({'username': session['user']})
+    return render_template('review.html', post=post, user=user)
 
 
 @app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
@@ -235,6 +236,7 @@ def edit_post(post_id):
     been editted successfully. 
     Redirect the user to their profile after edit.
     '''
+    user = mongo.db.users.find_one({'username': session['user']})
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {
@@ -250,7 +252,8 @@ def edit_post(post_id):
 
     genres = mongo.db.genres.find().sort('genre_name', 1)
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
-    return render_template('edit_post.html', post=post, genres=genres)
+    return render_template('edit_post.html', post=post, genres=genres,
+                           user=user)
 
 
 @app.route('/delete_post/<post_id>')
@@ -273,6 +276,7 @@ def dashboard():
     Displays no. of posts.
     Action buttons for genre manipulation.
     '''
+    user = mongo.db.users.find_one({'username': session['user']})
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     admin_user = mongo.db.users.find_one({'username': session['user'],
                                           'admin': 'true'})
@@ -281,7 +285,7 @@ def dashboard():
         total_users = mongo.db.users.count_documents({})
         total_posts = mongo.db.posts.count_documents({})
         return render_template('dashboard.html', genres=genres,
-                               total_users=total_users, total_posts=total_posts)
+                               total_users=total_users, total_posts=total_posts, user=user)
     return render_template('404.html')
 
 
@@ -313,6 +317,7 @@ def edit_genre(genre_id):
     Flash message used to indicate successful change.
     Redirects admin to the dashboard.
     '''
+    user = mongo.db.users.find_one({'username': session['user']})
     if request.method == 'POST':
         submit = {
             'genre_name': request.form.get('genre_name')
@@ -322,7 +327,7 @@ def edit_genre(genre_id):
         return redirect(url_for('dashboard'))
 
     genre = mongo.db.genres.find_one({'_id': ObjectId(genre_id)})
-    return render_template('edit_genre.html', genre=genre)
+    return render_template('edit_genre.html', genre=genre, user=user)
 
 
 @app.route('/delete_genre/<genre_id>')
