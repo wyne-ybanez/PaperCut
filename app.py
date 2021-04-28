@@ -41,6 +41,7 @@ def get_posts():
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
     users = list(mongo.db.users.find())
+    session['user'] = ''
     username = mongo.db.users.find_one({'username': session['user']})
 
     # Attach Genre name via Genre ID.
@@ -68,6 +69,7 @@ def search():
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     genres = mongo.db.genres.find()
+    username = mongo.db.users.find_one({'username': session['user']})
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -76,7 +78,7 @@ def search():
         post['genre_name'] = genre_name
 
     return render_template('index.html', posts=posts, genres=genres,
-                           search_called=search_called)
+                           search_called=search_called, username=username)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -170,6 +172,7 @@ def edit_profile(username):
                               '$set': {'status': edit, 'avatar': avatar}})
         flash('Profile Successfully Updated')
 
+    username = mongo.db.users.find_one({'username': session['user']})
     user = mongo.db.users.find_one({'username': session['user']})
     return render_template('edit_profile.html', user=user, username=username)
 
@@ -192,6 +195,7 @@ def add_post():
     into database. Redirects user to home page.
     '''
     user = mongo.db.users.find_one({'username': session['user']})
+    username = user
     today = datetime.date.today()
     if request.method == 'POST':
         post = {
@@ -210,7 +214,7 @@ def add_post():
         return redirect(url_for('login'))
 
     genres = mongo.db.genres.find().sort('genre_name', 1)
-    return render_template('add_post.html', genres=genres, user=user)
+    return render_template('add_post.html', genres=genres, username=username)
 
 
 @app.route('/show_post/<post_id>')
@@ -238,6 +242,7 @@ def edit_post(post_id):
     Redirect the user to their profile after edit.
     '''
     user = mongo.db.users.find_one({'username': session['user']})
+    username = user
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {
@@ -254,7 +259,7 @@ def edit_post(post_id):
     genres = mongo.db.genres.find().sort('genre_name', 1)
     post = mongo.db.posts.find_one({'_id': ObjectId(post_id)})
     return render_template('edit_post.html', post=post, genres=genres,
-                           user=user)
+                           username=user)
 
 
 @app.route('/delete_post/<post_id>')
