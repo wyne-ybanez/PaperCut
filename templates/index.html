@@ -110,7 +110,7 @@
       </div>
 
       <!-- Card Description -->
-      <div class="card-content">
+      <div class="card-content description">
         <a href="{{ url_for('show_post', post_id=post._id) }}" class="post-title black-text">
           <strong class="truncate">{{ post.post_title }}</strong>
         </a>
@@ -125,12 +125,17 @@
           </a>
         <br>
         <br>
-        <p class="truncate"><em>Author:</em>
-          {{ post.created_by }}
-        </p>
+        <p class="truncate"><em>Created by:</em></p>
+          {% for user in users %}
+          {% if post.created_by == user.username %}
+            <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar">
+            {{ post.created_by }}
+          {% endif %}
+          {% endfor %}
+        
         <!-- Display dates and edit dates -->
         {% if post.date %}
-          <p><em>Date:</em>
+          <p style="margin-top: 10px;"><em>Date:</em>
             {{ post.date }}
           </p>
         {% elif post.edit_date %}

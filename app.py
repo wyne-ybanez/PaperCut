@@ -40,6 +40,7 @@ def get_posts():
     posts = list(mongo.db.posts.find().sort(
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
+    users = list(mongo.db.users.find())
 
     # Attach Genre name via Genre ID.
     for post in posts:
@@ -50,7 +51,7 @@ def get_posts():
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
                            header_img=header_img, genres=genres, page=page,
-                           search_called=search_called)
+                           search_called=search_called, users=users)
 
 
 @app.route('/search', methods=['GET', 'POST'])

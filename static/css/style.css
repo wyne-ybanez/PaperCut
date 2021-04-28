@@ -223,6 +223,15 @@ header.masthead .post-heading .meta a {
   bottom: 1rem;
 }
 
+.index-avatar {
+  vertical-align: middle;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+}
+
 .card-content .container .user {
   margin-top: 1rem;
   font-size: 20px;
@@ -279,6 +288,10 @@ header.masthead .post-heading .meta a {
 .card {
   box-shadow: 0px 8px 15px rgb(0 0 0 / 30%);
   margin: 30px 10px;
+}
+
+.card .card-content.description {
+  padding-bottom: 0;
 }
 
 .truncate {
