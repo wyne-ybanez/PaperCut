@@ -10,12 +10,12 @@
                     <i class="fas fa-times-circle tooltipped" data-position="bottom" data-tooltip="Return">
                     </i>
                 </a>
-                <!-- Edit/Login -->
+                <!-- Edit Profile -->
                 {% if session.user|lower == username %}
-                <a href="{{ url_for('edit_profile', username=session['user']) }}" class="btn-floating plus halfway-fab 
-                    waves-effect waves-light main-color">
-                    <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit"></i>
-                </a>
+                    <a href="{{ url_for('edit_profile', username=session['user']) }}" class="btn-floating plus halfway-fab 
+                        waves-effect waves-light main-color">
+                        <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit"></i>
+                    </a>
                 {% else %}
                 <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
                              waves-effect waves-light main-color">
@@ -28,8 +28,11 @@
                 <div class="container">
                     <p style="font-size: 20px;">User: <strong class="card-bio">{{ username }}</strong></p>
                     <br>
-                    <p style="font-size: 20px;"><em>Bio:</em></p>
-                    <p class="card-bio">{{ username }}</p>
+                    
+                    <p style="font-size: 20px;">Bio:</p>
+                    
+                    <p class="card-bio">{{ user.bio }}</p>
+                    
                 </div>
             </div>
         </div>

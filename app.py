@@ -97,7 +97,6 @@ def register():
         register = {
             'username': request.form.get('username').lower(),
             'password': generate_password_hash(request.form.get('password')),
-            'admin': 'false'
         }
         mongo.db.users.insert_one(register)
 
@@ -141,30 +140,36 @@ def login():
 @app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     '''
-    Create profile page for user
-    Taking user's username from DB
-    Use session cookie to identify user
+    Create profile page for user.
+    Taking user's username from DB.
+    Use session cookie to identify user.
     '''
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
     admin = mongo.db.users.find_one(
         {'username': session['user'], 'admin': 'true'})
+    user = mongo.db.users.find_one({'username': session['user']})
 
     if session['user']:
-        return render_template('profile.html', username=username,
-                               admin=admin)
+        return render_template('profile.html', username=username, admin=admin,
+                               user=user)
     return redirect(url_for('login'))
 
 
 @app.route('/edit_profile/<username>', methods=['GET', 'POST'])
 def edit_profile(username):
     '''
-    Allows content creator to edit 
-    their profiles.
+    Allows users to edit their profiles.
+    Allows users to add bios to profile.
     '''
-    username = mongo.db.users.find_one(
-        {'username': session['user']})['username']
-    return render_template('edit_profile.html', username=username)
+    if request.method == 'POST':
+        edit = request.form.get('bio')
+        mongo.db.users.update({'username': session['user']}, {
+                              '$set': {'bio': edit}})
+        flash('Profile Successfully Updated')
+
+    user = mongo.db.users.find_one({'username': session['user']})['username']
+    return render_template('edit_profile.html', user=user)
 
 
 @app.route('/logout')
