@@ -12,30 +12,51 @@
             <!-- Card Buttons  -->
             <div class="card-image">
                 <!-- Return -->
-                <a href="{{ url_for('get_posts') }}" class="btn-floating halfway-fab waves-effect waves-light">
-                    <i class="fas fa-times-circle tooltipped" data-position="bottom" data-tooltip="Return">
+                <a href="{{ url_for('get_posts') }}" class="btn-floating plus halfway-fab waves-effect waves-light">
+                    <i class="fas fa-arrow-alt-circle-left tooltipped" data-position="bottom" data-tooltip="Return">
                     </i>
                 </a>
                 <!-- Edit Profile -->
                 {% if session.user|lower == user.username|lower or session.user == 'admin' %}
-                <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn-floating plus halfway-fab 
+                <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn-floating pen halfway-fab 
                         waves-effect waves-light main-color">
-                    <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit My Profile"></i>
+                    <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit"></i>
                 </a>
-
+                <a href="#delete_profile" class="btn-floating halfway-fab 
+                        waves-effect waves-light main-color modal-trigger">
+                    <i class="fas fa-times-circle tooltipped" data-position="bottom" data-tooltip="Delete"></i>
+                </a>
                 {% endif %}
             </div>
             <!-- Profile Content -->
             <div class="card-content">
                 <div class="container">
-                    <p class="user">User:</p>
-                    <p style="margin-left: 50px;"><strong class="card-status">{{ user.username }}</strong></p>
-                    <br>
+                    <p class="user">Username: <strong class="card-status" style="margin-left: 10px;">{{ user.username }}</strong>
+                    </p>
                     <p style="font-size: 20px;">Status:</p>
                     <p style="margin-left: 50px;" class="card-status status">{{ user.status }}</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+ <!-- Modal Structure -->
+ <div id="delete_profile" class="modal black white-text">
+    <div class="modal-content">
+        <h4><i class="fas fa-exclamation-circle left"></i>
+            Are you sure you would like to delete the profile?
+        </h4>
+    </div>
+    <div class="modal-footer">
+        <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+            black white-text text-shadow">Cancel 
+            <i class="fas fa-times-circle right"></i>
+        </a>
+        <a href="{{ url_for('delete_profile', user_id=user._id) }}" class="modal-close waves-effect main-color center-align white-text 
+            waves-light btn">Delete 
+            <i class="fas fa-check-circle right"></i>
+        </a>
     </div>
 </div>
 {% endblock %}
