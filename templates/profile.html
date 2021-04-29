@@ -5,7 +5,14 @@
 
 <div class="row">
     <div class="col s4">
+        {% if user.avatar %}
         <img class="avatar text-shadow hoverable card" src="{{ user.avatar }}">
+        {% else %}
+        <!-- Default avatar -->
+        <img class="avatar text-shadow hoverable card" 
+            src="https://avatars.dicebear.com/v2/female/8294f3a9f11df5c87368bdf66aaa2564.svg"
+            alt="author's avatar">
+        {% endif %} 
     </div>
     <div class="col s8">
         <div class="card">
