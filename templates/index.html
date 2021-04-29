@@ -127,8 +127,7 @@
         <br>
         <p><em>Review:</em></p>
         <p class="card-review truncate">{{ post.review }}</p>
-        <a href="{% if session.user %}{{ url_for('show_post', post_id=post._id) }}
-                {% else %}{{ url_for('login') }}{% endif %}" class="center-align deep-orange-text link">
+        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">
           Read more
         </a>
         <br>
@@ -136,7 +135,8 @@
         <p class="truncate"><em>Created by:</em></p>
         {% for user in users %}
         {% if post.created_by == user.username %}
-        <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar"> {{ post.created_by }}
+        <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar">
+        <a href="{{ url_for('search_profile', user_id=user._id) }}">{{ post.created_by }}</a>
         {% endif %}
         {% endfor %}
 
@@ -153,7 +153,7 @@
       </div>
       <!-- Read Review -->
       <div class="card-action">
-        <a href="{% if session.user %}{{ url_for('show_post', post_id=post._id) }}{% else %}{{ url_for('login') }}{% endif %}" 
+        <a href="{{ url_for('show_post', post_id=post._id) }}" 
           class="center-align deep-orange-text link">Read</a>
         <!-- Edit and Delete -->
         {% if session.user|lower == post.created_by|lower %}

@@ -41,7 +41,6 @@ def get_posts():
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
     users = list(mongo.db.users.find())
-    session = {'user':'guest'}
 
     for post in posts:
         genre_name = mongo.db.genres.find_one(
@@ -141,19 +140,14 @@ def login():
     return render_template('login.html')
 
 
-# @app.route('/profile/<user_id>', methods=['GET', 'POST'])
-# def profile(user_id):
-#     '''
-#     Create profile page for user.
-#     Taking user's username from DB.
-#     Use session cookie to identify user.
-#     '''
-#     user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
-#     username = mongo.db.users.find_one({'username': session['user']})
-
-#     if session['user']:
-#         return render_template("profile.html", user=user, username=username)
-#     return redirect(url_for('login'))
+@app.route('/search_profile/<user_id>', methods=['GET', 'POST'])
+def search_profile(user_id):
+    '''
+    Researching user and see
+    their status.
+    '''
+    user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
+    return render_template("profile.html", user=user)
 
 
 @app.route('/profile/<username>', methods=['GET', 'POST'])
@@ -163,10 +157,9 @@ def profile(username):
     Taking user's username from DB.
     Use session cookie to identify user.
     '''
-    username = mongo.db.users.find_one({'username': session['user']})['username']
     user = mongo.db.users.find_one({'username': session['user']})
     if session['user']:
-        return render_template("profile.html", username=username, user=user)
+        return render_template("profile.html", user=user)
     return redirect(url_for('login'))
 
 
