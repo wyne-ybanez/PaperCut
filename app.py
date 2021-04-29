@@ -182,10 +182,16 @@ def edit_profile(user_id):
 def delete_profile(user_id):
     '''
     Deletes Profile from db
+    Logs User out after account deletion.
+    Keeps admin logged in.
     '''
     mongo.db.users.remove({'_id': ObjectId(user_id)})
-    flash('User Successfully Deleted')
-    return redirect(url_for('get_posts'))
+    admin_user = mongo.db.users.find_one({'admin': 'true'})
+
+    if admin_user:
+        flash('User Successfully Deleted')
+        return redirect(url_for('get_posts'))
+    return redirect(url_for('logout'))
 
 
 @app.route('/logout')
@@ -359,12 +365,12 @@ def not_found_error(error):
     return render_template('404.html', error=error), 404
 
 
-# @app.errorhandler(500)
-# def internal_error(error):
-#     """
-#     Route to handle 500 error
-#     """
-#     return render_template('500.html', error=error), 500
+@app.errorhandler(500)
+def internal_error(error):
+    """
+    Route to handle 500 error
+    """
+    return render_template('500.html', error=error), 500
 
 
 if __name__ == '__main__':
