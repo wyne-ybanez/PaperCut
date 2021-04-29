@@ -66,7 +66,7 @@ def search():
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     genres = mongo.db.genres.find()
-        
+
     # Attach Genre name to Genre ID.
     for post in posts:
         genre_name = mongo.db.genres.find_one(
