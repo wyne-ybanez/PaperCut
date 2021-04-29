@@ -41,7 +41,6 @@ def get_posts():
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
     posts_data = list(mongo.db.posts.find())
     users = list(mongo.db.users.find())
-    admin_user = mongo.db.users.find_one({'admin': 'true'})
 
     for post in posts:
         genre_name = mongo.db.genres.find_one(
@@ -51,8 +50,7 @@ def get_posts():
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
                            header_img=header_img, genres=genres, page=page,
-                           search_called=search_called, users=users,
-                           admin_user=admin_user)
+                           search_called=search_called, users=users)
 
 
 @app.route('/search', methods=['GET', 'POST'])
