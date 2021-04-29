@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align page-heading">{{ user.username }}'s Profile</h3>
+<h3 class="center-align page-heading">{{ username }}'s Profile</h3>
 
 <div class="row">
     <div class="col s4">
@@ -17,8 +17,8 @@
                     </i>
                 </a>
                 <!-- Edit Profile -->
-                {% if user.username == session.user|lower or user.admin %}
-                <a href="{{ url_for('edit_profile', username=session['user']) }}" class="btn-floating plus halfway-fab 
+                {% if session.user|lower == username|lower or session.user == 'admin' %}
+                <a href="{{ url_for('edit_profile', username=session.user|lower) }}" class="btn-floating plus halfway-fab 
                         waves-effect waves-light main-color">
                     <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit My Profile"></i>
                 </a>
@@ -28,7 +28,7 @@
             <div class="card-content">
                 <div class="container">
                     <p class="user">User:</p>
-                    <p style="margin-left: 50px;"><strong class="card-status">{{ user.username }}</strong></p>
+                    <p style="margin-left: 50px;"><strong class="card-status">{{ username }}</strong></p>
                     <br>
                     <p style="font-size: 20px;">Status:</p>
                     <p style="margin-left: 50px;" class="card-status status">{{ user.status }}</p>

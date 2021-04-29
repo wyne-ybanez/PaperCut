@@ -96,10 +96,17 @@
         </a>
         {% endif %}
         <!-- Read Post -->
+        {% if session.user %}
         <a href="{{ url_for('show_post', post_id=post._id) }}"
           class="btn-floating halfway-fab waves-effect waves-light">
           <i class="fas fa-search tooltipped" data-position="bottom" data-tooltip="Read Post"></i>
         </a>
+        {% else %}
+        <a href="{{ url_for('login') }}"
+          class="btn-floating halfway-fab waves-effect waves-light">
+          <i class="fas fa-search tooltipped" data-position="bottom" data-tooltip="Read Post"></i>
+        </a>
+        {% endif %}
         <!-- Edit Post -->
         {% if session.user|lower == post.created_by|lower %}
         <a href="{{ url_for('edit_post', post_id=post._id) }}"
@@ -120,7 +127,8 @@
         <br>
         <p><em>Review:</em></p>
         <p class="card-review truncate">{{ post.review }}</p>
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">
+        <a href="{% if session.user %}{{ url_for('show_post', post_id=post._id) }}
+                {% else %}{{ url_for('login') }}{% endif %}" class="center-align deep-orange-text link">
           Read more
         </a>
         <br>
@@ -128,8 +136,7 @@
         <p class="truncate"><em>Created by:</em></p>
         {% for user in users %}
         {% if post.created_by == user.username %}
-        <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar">
-        <a href="{{ url_for('profile', user_id=user._id) }}">{{ post.created_by }}</a>
+        <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar"> {{ post.created_by }}
         {% endif %}
         {% endfor %}
 
@@ -146,7 +153,8 @@
       </div>
       <!-- Read Review -->
       <div class="card-action">
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align deep-orange-text link">Read</a>
+        <a href="{% if session.user %}{{ url_for('show_post', post_id=post._id) }}{% else %}{{ url_for('login') }}{% endif %}" 
+          class="center-align deep-orange-text link">Read</a>
         <!-- Edit and Delete -->
         {% if session.user|lower == post.created_by|lower %}
         <a href="{{ url_for('edit_post', post_id=post._id) }}" class="center-align deep-orange-text link">Edit</a>
