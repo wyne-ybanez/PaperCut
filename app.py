@@ -294,7 +294,8 @@ def dashboard():
     Action buttons for genre manipulation.
     '''
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
-    admin_user = mongo.db.users.find_one({'admin': 'true'})
+    admin_user = mongo.db.users.find({'username': session['user'],
+                                      'admin': 'true'})
 
     if admin_user:
         total_users = mongo.db.users.count_documents({})
