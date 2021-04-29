@@ -13,7 +13,7 @@
                         <option value="" disabled>Choose Genre</option>
                             {% for genre in genres %}
                                 <!-- Ensuring preselected genre is default -->
-                                {% if post.genre_id == genre._id%}
+                                {% if post.genre_id == genre._id %}
                                     <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
                                 {% else %}
                                     <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>

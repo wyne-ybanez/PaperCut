@@ -18,10 +18,11 @@
                 </a>
                 <!-- Edit Profile -->
                 {% if session.user|lower == user.username|lower or session.user == 'admin' %}
-                <a href="{{ url_for('edit_profile', username=session.user|lower) }}" class="btn-floating plus halfway-fab 
+                <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn-floating plus halfway-fab 
                         waves-effect waves-light main-color">
                     <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit My Profile"></i>
                 </a>
+
                 {% endif %}
             </div>
             <!-- Profile Content -->

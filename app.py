@@ -160,8 +160,8 @@ def profile(username):
     return redirect(url_for('login'))
 
 
-@app.route('/edit_profile/<username>', methods=['GET', 'POST'])
-def edit_profile(username):
+@app.route('/edit_profile/<user_id>', methods=['GET', 'POST'])
+def edit_profile(user_id):
     '''
     Allows users to edit their profiles.
     Allows users to add bios to profile.
@@ -169,13 +169,23 @@ def edit_profile(username):
     if request.method == 'POST':
         edit = request.form.get('status')
         avatar = request.form.get('avatar')
-        mongo.db.users.update({'username': session['user']}, {
+        mongo.db.users.update({'_id': ObjectId(user_id)}, {
                               '$set': {'status': edit, 'avatar': avatar}})
         flash('Profile Successfully Updated')
 
     username = mongo.db.users.find_one({'username': session['user']})
-    user = username
+    user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
     return render_template('edit_profile.html', user=user, username=username)
+
+
+@app.route('/delete_profile/<user_id>')
+def delete_profile(user_id):
+    '''
+    Deletes Profile from db
+    '''
+    mongo.db.users.remove({'_id': ObjectId(user_id)})
+    flash('User Successfully Deleted')
+    return redirect(url_for('get_posts'))
 
 
 @app.route('/logout')
