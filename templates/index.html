@@ -96,17 +96,10 @@
         </a>
         {% endif %}
         <!-- Read Post -->
-        {% if session.user %}
         <a href="{{ url_for('show_post', post_id=post._id) }}"
           class="btn-floating halfway-fab waves-effect waves-light">
           <i class="fas fa-search tooltipped" data-position="bottom" data-tooltip="Read Post"></i>
         </a>
-        {% else %}
-        <a href="{{ url_for('login') }}"
-          class="btn-floating halfway-fab waves-effect waves-light">
-          <i class="fas fa-search tooltipped" data-position="bottom" data-tooltip="Read Post"></i>
-        </a>
-        {% endif %}
         <!-- Edit Post -->
         {% if session.user|lower == post.created_by|lower %}
         <a href="{{ url_for('edit_post', post_id=post._id) }}"
@@ -136,7 +129,7 @@
         {% for user in users %}
         {% if post.created_by == user.username %}
         <img class="index-avatar" src="{{ user.avatar }}" alt="author's avatar">
-        <a href="{{ url_for('search_profile', user_id=user._id) }}">{{ post.created_by }}</a>
+        <a href="{{ url_for('search_profile', user_id=user._id) }}" class="black-text">{{ post.created_by }}</a>
         {% endif %}
         {% endfor %}
 
