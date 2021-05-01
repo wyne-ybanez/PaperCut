@@ -195,7 +195,7 @@ def delete_profile(user_id):
     for post in posts:
         if post['created_by'] == user:
             mongo.db.posts.remove({'created_by': session['user']})
-        elif post['created_by'] == 'admin':
+        elif user == 'admin':
             flash('User Successfully Deleted')
             return redirect(url_for('get_posts'))
 
