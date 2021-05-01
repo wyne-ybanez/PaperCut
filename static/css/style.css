@@ -96,7 +96,7 @@ nav .brand-logo {
 
 .row .nav {
   position: relative;
-  left: 16rem;
+  left: 8rem;
 }
 
 .nav-search-icon {
@@ -549,7 +549,7 @@ header.masthead .post-heading .meta a {
 }
 
 /*====== Tablets ======*/
-@media only screen and (min-width: 601px){
+@media only screen and (min-width: 768px) and (max-width: 1024px){
   .row .nav {
     left: 0;
   }
