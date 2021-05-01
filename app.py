@@ -66,6 +66,7 @@ def search():
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     genres = mongo.db.genres.find()
+    users = mongo.db.users.find()
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -74,7 +75,7 @@ def search():
         post['genre_name'] = genre_name
 
     return render_template('index.html', posts=posts, genres=genres,
-                           search_called=search_called)
+                           search_called=search_called, users=users)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -181,12 +182,22 @@ def edit_profile(user_id):
 @app.route('/delete_profile/<user_id>')
 def delete_profile(user_id):
     '''
-    Deletes Profile from db
+    Deletes Profile and user's posts from db.
     Logs User out after account deletion.
     Keeps admin logged in.
     '''
     mongo.db.users.remove({'_id': ObjectId(user_id)})
     admin_user = mongo.db.users.find_one({'admin': 'true'})
+    user = session['user']
+    posts = mongo.db.posts.find()
+
+    # Delete User's posts after account deletion
+    for post in posts:
+        if post['created_by'] == user:
+            mongo.db.posts.remove({'created_by': session['user']})
+        elif post['created_by'] == 'admin':
+            flash('User Successfully Deleted')
+            return redirect(url_for('get_posts'))
 
     if admin_user:
         flash('User Successfully Deleted')
