@@ -6,18 +6,6 @@ $(document).ready(function () {
     $('#copyright').text(new Date().getFullYear()); // Copyright Year
     $('.tooltipped').tooltip(); // Tooltips
 
-    // Pagination
-    // $('#pagination').materializePagination({
-    //     align: 'left',
-    //     lastPage:  10,
-    //     firstPage:  1,
-    //     urlParameter: 'page',
-    //     useUrlParameter: true,
-    //     onClickCallback: function(requestedPage){
-    //         console.log('Requested page is '+ requestedPage);
-    //         }
-    // });
-
     // Scroll effect Navbar interactivity
     function checkScroll(){
         var startY = $('.navbar').height() * 2; 
