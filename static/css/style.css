@@ -476,6 +476,44 @@ header.masthead .post-heading .meta a {
     margin-bottom: 0;
 }
 
+.responsive {
+    width: auto;
+    justify-content: center;  
+    align-items: center;
+    text-align: center;
+}
+
+/*====== Extra Small phones ======*/
+@media only screen and (min-width: 320px) and (max-width: 480px){
+  .card-review{
+    width: auto;
+  }
+
+  nav .brand-logo {
+    display: none;
+  }
+
+  nav.nav-extended .nav-wrapper {
+    padding: 0px;
+  } 
+
+  .row .nav{
+    left: 0;
+  }
+
+  .sidenav{
+    width: auto;
+  }
+
+  .page-heading {
+    font-size: 3.2rem;
+  }
+
+  .modal .modal-footer{
+    display: flex;
+  }  
+}
+
 /*====== Mobile Phone media queries ======*/
 @media only screen and (min-width: 375px) and (max-width: 667px) {
   .phone {
@@ -493,10 +531,6 @@ header.masthead .post-heading .meta a {
     left: 0;
   }
 
-  .search {
-    width: 318px;
-  }
-
   .page-heading {
     font-size: 3.2rem;
   }
@@ -510,8 +544,26 @@ header.masthead .post-heading .meta a {
   } 
 
   nav .brand-logo {
-    font-size: 2.2rem;
-    font-weight: 700;
     display: none;
   }
 }
+
+/*====== Tablets ======*/
+@media only screen and (min-width: 601px){
+  .row .nav {
+    left: 0;
+  }
+
+  nav.nav-extended .nav-wrapper {
+    padding: 0px;
+  } 
+
+  .row .col.m3.tablet{
+    right: 470px;
+  }
+
+  .row .col.m8.tablet {
+    left: 50px;
+  }
+}
+  
