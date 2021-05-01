@@ -548,8 +548,11 @@ header.masthead .post-heading .meta a {
   }
 }
 
-/*====== Tablets ======*/
 @media only screen and (min-width: 768px) and (max-width: 1024px){
+  .row .col.m3.brand-logo {
+    display: none;
+  }
+  
   .row .nav {
     left: 0;
   }
