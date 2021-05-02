@@ -579,4 +579,10 @@ header.masthead .post-heading .meta a {
     margin-bottom: 10.5rem;
   }
 }
+
+@media only screen and (min-width: 1024px) and (max-width: 1366px){
+  .row .nav {
+    left: 10rem;
+  }
+}
   
