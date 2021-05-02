@@ -232,7 +232,7 @@ Criteria:
 Implementation:
 
 The administrator's dashboard will have the functionality to add, edit or delete genres via add_genre.html and
-edit_genre.html.
+edit_genre.html. Deleting the Genre will also delete the posts for that Genre.
 
 User Story:
 > As an admin of Papercuts I want to be able to view how many users are registered on the website and delete users
@@ -244,8 +244,7 @@ Criteria:
 
 Implementation:
 
-The administrator's dashboard will have the functionality to view a user's profile details and posts when researching their
-account. The admin will can see and use the same buttons the user interacts with to edit or delete their post.
+The administrator's dashboard will have the functionality to view a user's profile details and posts when researching their account. The admin will can see and use the same buttons the user interacts with to edit or delete their post.
 
 ### **The Skeleton Plane**
 #### Wireframes

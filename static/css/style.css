@@ -391,7 +391,7 @@ header.masthead .post-heading .meta a {
 
 .genre-search .card,
 .genre-list .card {
-  margin: 10px 0 ;
+  margin: 10px 10px ;
 }
 
 /* Changing select drop down menu color: https://www.javaer101.com/en/article/2794917.html */
@@ -512,6 +512,11 @@ header.masthead .post-heading .meta a {
   .modal .modal-footer{
     display: flex;
   }  
+
+  .genre-search .card,
+  .genre-list .card {
+    margin: 10px 0px ;
+  }
 }
 
 /*====== Mobile Phone media queries ======*/
@@ -550,6 +555,11 @@ header.masthead .post-heading .meta a {
   .register,
   .login {
     margin-top: 4rem;
+  }
+
+  .genre-search .card,
+  .genre-list .card {
+    margin: 10px 0px ;
   }
 }
 
