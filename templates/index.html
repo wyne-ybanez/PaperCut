@@ -54,7 +54,7 @@
   <div id="post-card" class="col s12 l9">
     {% for post in posts %}
     <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4"
-      data-aos="fade-right">
+      data-aos="fade-right" data-aos-duration="1500">
 
       <!-- Genre Image based on genre_id-->
       <div class="card-image">
