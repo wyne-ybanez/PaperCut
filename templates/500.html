@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+   <!-- Header Image -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="site-heading">
+        <h1 class="text-shadow site-logo" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1200">
+          Oops! There has been an internal server error. Please return to the main page.
+        </h1>
+      </div>
+      <!-- Return Button -->
+      <div class="row">
+        <a href="{{ url_for('get_posts') }}" class="center-align btn-large main-color text-shadow">
+            Return <i class="fas fa-sign-in-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
