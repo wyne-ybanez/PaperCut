@@ -358,10 +358,12 @@ def edit_genre(genre_id):
 def delete_genre(genre_id):
     '''
     Deletes genre from website. Removes genre from database.
+    Deletes Posts with the associated genre.
     Flash message to indicate successful deletion.
     Redirects admin to dashboard.
     '''
     mongo.db.genres.remove({'_id': ObjectId(genre_id)})
+    mongo.db.posts.remove({'genre_id': genre_id})
     flash('Genre Successfully Deleted')
     return redirect(url_for('dashboard'))
 
