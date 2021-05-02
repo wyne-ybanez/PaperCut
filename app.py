@@ -236,9 +236,6 @@ def add_post():
         flash('Post Successfully Added')
         return redirect(url_for('get_posts'))
 
-    if session['user'] is None:
-        return redirect(url_for('login'))
-
     genres = mongo.db.genres.find().sort('genre_name', 1)
     return render_template('add_post.html', genres=genres)
 

@@ -207,7 +207,7 @@ header.masthead .post-heading .meta a {
   justify-content: center;
   align-items: center;    
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 9rem;
 }
 
 /*====== Profile ======*/
@@ -546,11 +546,17 @@ header.masthead .post-heading .meta a {
   nav .brand-logo {
     display: none;
   }
+
+  .register,
+  .login {
+    margin-top: 4rem;
+  }
 }
 
+/*====== IPad/tablets ======*/
 @media only screen and (min-width: 768px) and (max-width: 1024px){
   .row .col.m3.brand-logo {
-    display: none;
+    left: 110px;
   }
   
   .row .nav {
@@ -567,6 +573,10 @@ header.masthead .post-heading .meta a {
 
   .row .col.m8.tablet {
     left: 50px;
+  }
+
+  .margin-bottom {
+    margin-bottom: 10.5rem;
   }
 }
   
