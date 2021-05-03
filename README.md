@@ -367,13 +367,21 @@ All images used within the website were all taken from [unsplash](https://unspla
 
 ### Features Left to Implement
 
-- A feature I would like to implement in the near future is to allow users to upload their own profile pictures.
-- A feature on the registration page which confirms the user's desired password via a second input field.
-- A feature I would like to work on in the future is the ability to like another user's post, perhaps sort reviews according to the most liked post.
+A feature I would like to implement in the near future is to allow users to upload their own profile pictures.
+
+Another feature I would like to add is on the registration page. An authenticator which confirms the user's desired password via a second input field which reads if both passwords match.
+
+A feature I would like to work on in the future is the ability to like another user's post, perhaps sort reviews according to the most liked post.
 
 ****
 ## Technologies
 
+- HTML
+    - The website incorporates HTML as the base structure for the pages.
+- CSS
+    - The project uses CSS to style and design the website.
+- JavaScript
+    - 
 
 ****
 ## Testing

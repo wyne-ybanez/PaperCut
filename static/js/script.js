@@ -71,16 +71,3 @@ $(document).ready(function () {
 });
 
 // https://stackoverflow.com/questions/52452763/materialize-textarea-tag-is-not-scrollable-on-fixed-height/52454652
-function changedValue() {
-    let text = document.getElementById("review");
-    let textValue = text.value;
-    let row = text.getAttribute('rows');
-    let lines = textValue.split(/\r|\r\n|\n/);
-    let count = lines.length;
-    if (count >= row) {
-        text.style.overflowY = "scroll";
-    }
-    else if (count < row) {
-        text.style.overflowY = "hidden";
-    }
-}
