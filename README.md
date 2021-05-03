@@ -14,7 +14,7 @@ The user can also create and post their own book reviews. The live website can b
     * [The Skeleton Plane](#The-Skeleton-Plane)
         * [Wireframes](#Wireframes)
         * [Database Design](#Database-Design)
-        * [Security](#Security)
+        * [Database Security](#Security)
     * [The Surface Plane](#The-Surface-Plane)
         * [Design](#Design)
             * [Colour Scheme](#Colour-Scheme)
@@ -28,12 +28,11 @@ The user can also create and post their own book reviews. The live website can b
 * [Testing](#Testing)
     * [Test Strategy](#Test-Strategy)
     * [Test Results](#Test-Results)
-    * [Isses and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
 * [Deployment](#Deployment)
     * [Project Creation](#Project-Creation)
     * [GitHub Pages](#Deployment-To-Heroku)
     * [Run Locally](#Run-Locally)
-    * [Fork Project]
+    * [Fork Project](#Fork-Project)
 * [Credits](#Credits)
   * [Content](#Content)
   * [Acknowledgements](#Acknowledgements)
@@ -446,6 +445,10 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
+### Test Results
+
+Test Results are documented [here](TESTING.md)
+
 ## Deployment
 
 ### Project Creation
@@ -520,7 +523,27 @@ In the terminal, I utilised the following commands in the following order:
 
 **Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) file configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. These details are private and not disclosed in this repository for security purposes.**
 
+### Local Clone
+
+This is used when you would like to make changes to the project code
+
+1. Should you wish to use a different IDE like VSCode. You first log in to Github and locate the required repository. Here is the link for this [repository](https://github.com/wyne-ybanez/PaperCut)
+2. Open a new terminal on Git Bash
+3. Type `git clone`, and then paste the URL you copied 
+
+```
+$ git clone https://github.com/wyne-ybanez/PaperCut
+```
+
+ Here is a link that can explain this process further. [Click Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
+
 ### Fork Project 
+
+You can fork the repository through the following steps. Forking the repository means you will have a copy of the repository and any changes you make will not affect the original repository.
+
+1. Log in to GitHub and locate the GitHub Repository. Here is a link for the [repository](https://github.com/wyne-ybanez/PaperCut)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu. Looking towards the right of the page. Locate the button "Fork" then click 
+3. You should now have a copy of the original repository in your GitHub account
 
 ****
 ## Credits
