@@ -280,30 +280,30 @@ Sample Object Format:
 **Collection: genres**<br>
 
 {<br>
-    _id: <em>unique value</em>,<br>
-    genre_name: "Adventure"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: <em>unique value</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;genre_name: "Adventure"<br>
 }
 
 **Collection: posts**<br>
 
 {<br>
-    _id: <em>unique value</em>,<br>
-    genre_id: <em>(genre)unique value</em>,<br>
-    post_title: "The best new Thriller",<br>
-    book: "Sixteen Horses by Greg Buchanan",<br>
-    review: "Near the dying English seaside town of Ilmarsh, local police detective...",<br>
-    date: "28 April, 2021",<br>
-    created_by: <em>unique username</em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: <em>unique value</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;genre_id: <em>(genre)unique value</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;post_title: "The best new Thriller",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;book: "Sixteen Horses by Greg Buchanan",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;review: "Near the dying English seaside town of Ilmarsh, local police detective...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;date: "28 April, 2021",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;created_by: <em>unique username</em><br>
 }
 
 **Collection: users**<br>
 
 {<br>
-    _id: <em>unique value</em>,<br>
-    username: <em>unique username</em>,<br>
-    password: <em>unique hashed password</em>,<br>
-    avatar: "https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=r...",<br>
-    status: "Im doing fantastic!",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_id: <em>unique value</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;username: <em>unique username</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password: <em>unique hashed password</em>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;avatar: "https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=r...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;status: "Im doing fantastic!",<br>
 }
 
 #### Database Security
@@ -376,12 +376,60 @@ A feature I would like to work on in the future is the ability to like another u
 ****
 ## Technologies
 
-- HTML
+- [HTML](https://en.wikipedia.org/wiki/HTML)
     - The website incorporates HTML as the base structure for the pages.
-- CSS
+
+- [CSS](https://en.wikipedia.org/wiki/CSS)
     - The project uses CSS to style and design the website.
-- JavaScript
-    - 
+
+- [Materialize](https://materializecss.com/) 
+    - Materialize was used for website design and website responsiveness.
+
+- [jQuery](https://jquery.com/)
+    - Materialize Modals
+    - Materialize Side Nav
+    - Materialize Text Area character counter
+    - Materialize Form Select 
+    - Materialize Tooltips
+    - Website Copyright
+    - Navigation bar scrolling interactivity
+    - Validation for materialize inputs
+
+- [Python](https://www.python.org/)
+    - Python was used to create and run the back-end logic of the website.
+    - Python modules used (as stated in requirements.txt):
+        - click==7.1.2
+        - dnspython==2.1.0
+        - Flask==1.1.2
+        - flask-paginate==0.8.1
+        - Flask-PyMongo==2.3.0
+        - itsdangerous==1.1.0
+        - pymongo==3.11.3
+        - Werkzeug==1.0.1 
+
+- [MongoDB](https://www.mongodb.com/2)
+    - MongoDB is a non-relational database used to create document based collections. This was used to store the data inputs made through the website.
+
+- [Google Fonts](https://fonts.google.com/)
+    - Google Fonts was used throughout the website, mainly the font "Syne".
+
+- [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+    - This was used to inspect the website and help debug styling issues and test for grid layouts.
+
+- [GitHub](https://github.com/)
+    - This was used to store the scource code for the website.
+
+- [Git](https://git-scm.com/)
+    - Git was used for version control during development where code was committed and pushed to the project's Github repository.
+
+- [Heroku](https://dashboard.heroku.com/apps)
+    - This was used to deploy the live website.
+
+- [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
+    - This was used to create wireframes prior to the project having been developed.
+
+- [TinyPNG](https://tinypng.com/)
+    - This was used to reduce the file sizes of the images used in the project.
 
 ****
 ## Testing

@@ -69,5 +69,3 @@ $(document).ready(function () {
         });
     }
 });
-
-// https://stackoverflow.com/questions/52452763/materialize-textarea-tag-is-not-scrollable-on-fixed-height/52454652
