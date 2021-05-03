@@ -32,6 +32,7 @@ The user can also create and post their own book reviews. The live website can b
     * [Project Creation](#Project-Creation)
     * [GitHub Pages](#Deployment-To-Heroku)
     * [Run Locally](#Run-Locally)
+    * [Local Clone](#Local-Clone)
     * [Fork Project](#Fork-Project)
 * [Credits](#Credits)
   * [Content](#Content)
@@ -550,6 +551,19 @@ You can fork the repository through the following steps. Forking the repository 
 
 ### Code
 
-- CSS preload animation fix: https://css-tricks.com/transitions-only-after-page-load/
+- CSS preload animation fix - [link](https://css-tricks.com/transitions-only-after-page-load/)
+- How to format dates - [link](https://stackabuse.com/how-to-format-dates-in-python/)
+- Validation code for Code Institute - [link](https://github.com/Code-Institute-Solutions/TaskManagerAuth/blob/main/04-AddingATask-WritingToTheDatabase/02-materialize-select-validation/static/js/script.js)
+- Stackoverflow solution for changing text area height - [link](https://stackoverflow.com/questions/52452763/materialize-textarea-tag-is-not-scrollable-on-fixed-height/52454652)
+- Mongodb count number of users/posts - [link](https://docs.mongodb.com/manual/reference/method/db.collection.countDocuments/)
+- Scroll effect - [link](https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll)
+- Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to genre_id in posts
+- Header image - Start Bootstrap - [Clean Blog v5.0.10](https://startbootstrap.com/theme/clean-blog)
+- Changing select drop down menu color - [link](https://www.javaer101.com/en/article/2794917.html)
+- Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
+- Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
+- Avatar generator - [link](https://vinicius73.github.io/gravatar-url-generator/#/)
+- Main color theme of the website - [link](https://cssgradient.io/) 
 
 ### Acknowledgements
+
