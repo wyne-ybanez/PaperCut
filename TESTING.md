@@ -19,7 +19,6 @@
     * [CSS](#css)
     * [Javascript](#javascript)
     * [Python](#python)
-* [Responsiveness and Browsers](#responsiveness-and-browsers)
 * [Accessibility](#accessibility)
 * [Known bugs](#known-bugs)
 
@@ -46,6 +45,41 @@ User Story:
 > As a user, I want the website to be responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
 its content to be clear and be positioned accordingly.
 
-- 
-- 
-- 
+- Website tested on mobile - website responds accordingly and lay out is clear.
+- Website tested on laptop - website responds accordingly and lay out is clear.
+- Website tested on iPad and iPad pro - website responds accordingly and lay out is clear.
+
+User Story: 
+> As a user, I want to be able to return to the main site without having to use the browser buttons so that I can easily return to the website if I navigate to a page that doesn't exist.
+
+- Both Error 404(URL not Found) and Error 500(Internal Server Error )have dedicated pages to handle the errors should they arise.
+- These error pages have a button which allows the user to return to the home page.
+
+![Error_Page](readme_Img/404.png)
+
+User Story: 
+> As a user, I want to be able to register an account to the website so I can post book reviews. I also want to be able to edit and delete the reviews I created.
+
+- Users can register an account through register.html
+- Users can add a post through the "add post" option in the side navbar menu
+- Users can also add a post through the action "plus" button on card posts or through the "plus" button in review.html
+- Users can edit posts should the action button be available for them - they are always able to edit their own posts. This can be done through the button with the "pen" icon.
+- Users can delete posts they created through the 'delete' option at the bottom of every post or by clicking on the button with the "trash" icon.
+
+User Story: 
+> As a user, I want to be able to edit and delete the profile I created.
+
+- Edit their profiles through edit_profile.html - accessed through the button with the "pen" icon.
+- They will be able to determine their avatar and status description through this page.
+- They can delete a profile as long as they are the admin or the profile belongs to them. This can be done through the button with the "X" icon.
+
+![Profile_Page](readme_Img/profile.png)
+
+User Story: 
+> As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
+
+- As long as the user has signed in, there is always a search input field at the top navigation bar.
+- This search input field queries for a text and finds a relating post for that text input.
+- Genres are searched through the main page where there is a drop down menu to search for posts within a specific genre.
+
+
