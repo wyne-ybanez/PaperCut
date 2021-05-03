@@ -69,10 +69,11 @@
     </div>
 </div>
 
-{% if session.user %}
+<!-- Display User's posts -->
 
 <div id="post-card" class="col s12 l12">
     {% for post in posts %}
+    {% if post['created_by'] == user['username']%}
     <div href="{{ url_for('show_post', post_id=post._id, header=header) }}" class="card hoverable grey lighten-4"
       data-aos="fade-right" data-aos-duration="1500">
 
@@ -153,7 +154,7 @@
         <img class="index-avatar" src="https://avatars.dicebear.com/v2/female/8294f3a9f11df5c87368bdf66aaa2564.svg"
           alt="author's avatar">
         {% endif %}
-        <a href="{{ url_for('search_profile', user_id=user._id) }}" class="black-text">{{ post.created_by }}</a>
+        <a href="{{ url_for('profile', username=session['user']) }}" class="black-text">{{ post.created_by }}</a>
 
         <!-- Display dates and edit dates -->
         {% if post.date %}
@@ -179,7 +180,9 @@
         {% endif %}
       </div>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
-{% endif %}
+
+
 {% endblock %}

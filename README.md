@@ -341,11 +341,9 @@ All images used within the website were all taken from [unsplash](https://unspla
 
 - The registration page originally two input fields for the password and a second one to confirm the original password. This is something I seek to implement in the future.
 
-- Originally, the profile pages were meant to also display the posts made by the researched user through their profile. At the moment this idea has not been brought to fruition and is an idea I seek to add to the website in the future.
-
 - Originally, it was desired that the user could update their profile images with their preferred pictures. At the moment the website creates a drop down list of which the user can choose an avatar for their profile. User image uploads is a feature I would like to implement into this website in the future.
 
-- The option to change the user's email address on the profile has been removed. Instead the user can only edit their profile status. I did this to avoid confusion between user's, in order to make finding author's posts easier and maintain account security.
+- The option to change the user's email address on the profile has been removed. Instead the user can only edit their profile status and posts. I did this to avoid confusion between user's, in order to make finding author's posts easier and maintain account security.
 
 - Rather than having a genre list, instead the website has a drop down feature displaying all the genre options. This ultimately makes the page look cleaner.
 
@@ -361,7 +359,9 @@ All images used within the website were all taken from [unsplash](https://unspla
 - Log in Feature which allows users to sign into their account.
 - Search functionality which is on every page in the website as long as the user is signed in.
 - Genre search functionality which allows users to search for posts based on the post genre.
-- Profile page which shows user's username and status.
+- Profile page which shows logged in user's username, status and posts. Displays other profile's usernames and status.
+- Posts modification - the website allows content creators to create, edit or delete profiles and posts they have created.
+- Mobile responsiveness.
 - 
 
 ### Features Left to Implement

@@ -142,16 +142,17 @@ def login():
 def search_profile(user_id):
     '''
     Researching user and see
-    their status.
+    their status and posts.
     '''
     user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
-    return render_template("profile.html", user=user)
+    posts = mongo.db.posts.find({'created_by': user['username']})
+    return render_template("profile.html", user=user, posts=posts)
 
 
 @app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     '''
-    Create profile page for user.
+    Profile page for user.
     Taking user's username from DB.
     Use session cookie to identify user.
     '''
