@@ -2,78 +2,78 @@
 
 {% block content %}
 
-    <h1 class="center-align page-heading">Edit Genre</h1>
+<h1 class="center-align page-heading">Edit Genre</h1>
 
-    <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="{{ url_for('edit_genre', genre_id=genre._id) }}">
-            <!-- Genre Name -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
-                    <input id="genre_name" name="genre_name" type="text" minlength="3" maxlength="25"
-                        type="text" value="{{ genre.genre_name }}" class="validate" required> 
-                    <label for="genre_name">Genre Name</label>
-                </div>
+<div class="row card-panel grey lighten-4">
+    <form class="col s12" method="POST" action="{{ url_for('edit_genre', genre_id=genre._id) }}">
+        <!-- Genre Name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                <input id="genre_name" name="genre_name" type="text" minlength="3" maxlength="25" type="text"
+                    value="{{ genre.genre_name }}" class="validate" required>
+                <label for="genre_name">Genre Name</label>
             </div>
+        </div>
 
-            <!-- Submit Button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('dashboard') }}" class="card btn-large waves-effect waves-light 
+        <!-- Submit Button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('dashboard') }}" class="card btn-large waves-effect waves-light 
                         black text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <!-- Delete -->
-                    <a href="#delete_genre" class="card btn-large modal-trigger main-color waves-effect 
+                    Cancel <i class="fas fa-times-circle right"></i>
+                </a>
+                <!-- Delete -->
+                <a href="#delete_genre" class="card btn-large modal-trigger main-color waves-effect 
                         waves-light text-shadow">
-                        Delete <i class="fas fa-trash-alt right"></i>
-                    </a>
-                    <!-- Edit -->
-                    <a href="#edit_genre" class="card btn-large main-color modal-trigger waves-effect waves-light
+                    Delete <i class="fas fa-trash-alt right"></i>
+                </a>
+                <!-- Edit -->
+                <a href="#edit_genre" class="card btn-large main-color modal-trigger waves-effect waves-light
                         text-shadow">
-                        Edit Genre <i class="fas fa-edit right"></i>
-                    </a>
-                </div>  
+                    Edit Genre <i class="fas fa-edit right"></i>
+                </a>
             </div>
+        </div>
 
-            <!-- Edit Genre Modal -->
-            <div id="edit_genre" class="modal black white-text">
-                <div class="modal-content">
-                    <h4><i class="fas fa-exclamation-circle left"></i>
-                        Are you certain you would like to apply the changes?
-                    </h4>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ url_for('dashboard') }}" class="btn modal-close waves-effect center-align 
+        <!-- Edit Genre Modal -->
+        <div id="edit_genre" class="modal black white-text">
+            <div class="modal-content">
+                <h4><i class="fas fa-exclamation-circle left"></i>
+                    Are you certain you would like to apply the changes?
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('dashboard') }}" class="btn modal-close waves-effect center-align 
                         black white-text text-shadow">Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit"
-                        class="modal-close waves-effect main-color center-align white-text waves-green btn">Update
-                        <i class="fas fa-check-circle right"></i>
-                    </button>
-                </div>
+                </a>
+                <button type="submit"
+                    class="modal-close waves-effect main-color center-align white-text waves-green btn">Update
+                    <i class="fas fa-check-circle right"></i>
+                </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
-     <!-- Delete Genre Modal -->
-     <div id="delete_genre" class="modal black white-text">
-        <div class="modal-content">
-            <h4><i class="fas fa-exclamation-circle left"></i>
-                Deleting the Genre will also delete the posts 
-                associated with the genre. Are you sure you'd like to proceed?
-            </h4>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
-                black white-text text-shadow">Cancel 
-                <i class="fas fa-times-circle right"></i>
-            </a>
-            <a href="{{ url_for('delete_genre',genre_id=genre._id) }}" class="modal-close waves-effect main-color center-align white-text 
-                waves-green btn">Delete
-                <i class="fas fa-check-circle right"></i>
-            </a>
-        </div>
+<!-- Delete Genre Modal -->
+<div id="delete_genre" class="modal black white-text">
+    <div class="modal-content">
+        <h4><i class="fas fa-exclamation-circle left"></i>
+            Deleting the Genre will also delete the posts
+            associated with the genre. Are you sure you'd like to proceed?
+        </h4>
     </div>
+    <div class="modal-footer">
+        <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                black white-text text-shadow">Cancel
+            <i class="fas fa-times-circle right"></i>
+        </a>
+        <a href="{{ url_for('delete_genre',genre_id=genre._id) }}" class="modal-close waves-effect main-color center-align white-text 
+                waves-green btn">Delete
+            <i class="fas fa-check-circle right"></i>
+        </a>
+    </div>
+</div>
 
 {% endblock %}

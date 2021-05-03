@@ -2,80 +2,79 @@
 {% block content %}
 
 {% if admin or session.user %}
-    <h1 class="center-align page-heading">Edit My Profile</h1>
+<h1 class="center-align page-heading">Edit My Profile</h1>
 
-    <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_id=user._id) }}">
-            <div class="row">
+<div class="row card-panel grey lighten-4">
+    <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_id=user._id) }}">
+        <div class="row">
 
-                <!-- Avatar Image -->
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
-                    <select id="avatar" name="avatar" class="validate">
-                        <option value="" disabled selected>Choose avatar</option>
-                        <option value="https://gravatar.com/avatar/fdf71ac18c658b6e64f11445a752cd47?s=400&d=robohash&r=x"
-                            alt="Silver Robot John">John (Silver)</option>
-                        <option value="https://gravatar.com/avatar/2c8cfcf0539a887a54f6a7ac0261e71c?s=400&d=robohash&r=x"
-                            alt="Yellow Robot Sammy">Sammy (Yellow)</option>
-                        <option value="https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=robohash&r=x"
-                            alt="Purple Robot Paul">Paul (Purple)</option>
-                        <option value="https://robohash.org/6e282ac2ee8a1b54165a73b2a4d8e08f?set=set4&bgset=&size=400x400"
-                            alt="Yellow Cat Nancy">Nancy (Yellow Cat)</option>
-                        <option value="https://robohash.org/6293c0c3863941364db60dfe8c0b5472?set=set4&bgset=&size=400x400"
-                            alt="Scarf Cat Harrington">Harrington (Scarf Cat)</option>
-                        <option value="https://robohash.org/7f3189b268b8b7ed69946d146dcdf342?set=set4&bgset=&size=400x400"
-                            alt="Blue Cat Elfen">Elfen (Blue Cat)</option>
-                    </select>
-                    <label for="avatar">Avatar</label>
-                </div>
+            <!-- Avatar Image -->
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                <select id="avatar" name="avatar" class="validate">
+                    <option value="" disabled selected>Choose avatar</option>
+                    <option value="https://gravatar.com/avatar/fdf71ac18c658b6e64f11445a752cd47?s=400&d=robohash&r=x"
+                        alt="Silver Robot John">John (Silver)</option>
+                    <option value="https://gravatar.com/avatar/2c8cfcf0539a887a54f6a7ac0261e71c?s=400&d=robohash&r=x"
+                        alt="Yellow Robot Sammy">Sammy (Yellow)</option>
+                    <option value="https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=robohash&r=x"
+                        alt="Purple Robot Paul">Paul (Purple)</option>
+                    <option value="https://robohash.org/6e282ac2ee8a1b54165a73b2a4d8e08f?set=set4&bgset=&size=400x400"
+                        alt="Yellow Cat Nancy">Nancy (Yellow Cat)</option>
+                    <option value="https://robohash.org/6293c0c3863941364db60dfe8c0b5472?set=set4&bgset=&size=400x400"
+                        alt="Scarf Cat Harrington">Harrington (Scarf Cat)</option>
+                    <option value="https://robohash.org/7f3189b268b8b7ed69946d146dcdf342?set=set4&bgset=&size=400x400"
+                        alt="Blue Cat Elfen">Elfen (Blue Cat)</option>
+                </select>
+                <label for="avatar">Avatar</label>
             </div>
+        </div>
 
-                <!-- User Bio -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pen prefix deep-orange-text"></i>
-                    <textarea id="status" name="status" class="materialize-textarea"
-                        maxlength="300" required>
+        <!-- User Bio -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pen prefix deep-orange-text"></i>
+                <textarea id="status" name="status" class="materialize-textarea" maxlength="300" required>
                         {{- user.status -}}
                     </textarea>
-                    <label for="status">Status</label>
-                </div>
+                <label for="status">Status</label>
             </div>
-            <div class="row">
+        </div>
+        <div class="row">
             <!-- Cancel edits -->
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('get_posts') }}" class="card btn-large black waves-effect 
+            <div class="col s12 center-align">
+                <a href="{{ url_for('get_posts') }}" class="card btn-large black waves-effect 
                         waves-light text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a> 
-            <!-- Submit edits -->
-                    <a href="#edit_profile" class="card btn-large modal-trigger main-color waves-effect 
+                    Cancel <i class="fas fa-times-circle right"></i>
+                </a>
+                <!-- Submit edits -->
+                <a href="#edit_profile" class="card btn-large modal-trigger main-color waves-effect 
                         waves-light text-shadow">
-                        Update <i class="fas fa-plus-square right"></i>
-                    </a>
-                </div>  
+                    Update <i class="fas fa-plus-square right"></i>
+                </a>
             </div>
+        </div>
 
-            <!-- Modal Structure -->
-            <div id="edit_profile" class="modal black white-text">
-                <div class="modal-content">
-                    <h4><i class="fas fa-exclamation-circle left"></i>
-                        Are you sure you would like to apply the changes
-                        to your profile?
-                    </h4>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
-                        black white-text text-shadow">Cancel 
-                        <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="modal-close waves-effect main-color center-align white-text 
-                        waves-green btn">Update 
-                        <i class="fas fa-check-circle right"></i>
-                    </button>
-                </div>
+        <!-- Modal Structure -->
+        <div id="edit_profile" class="modal black white-text">
+            <div class="modal-content">
+                <h4><i class="fas fa-exclamation-circle left"></i>
+                    Are you sure you would like to apply the changes
+                    to your profile?
+                </h4>
             </div>
-        </form>
-    </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                        black white-text text-shadow">Cancel
+                    <i class="fas fa-times-circle right"></i>
+                </a>
+                <button type="submit" class="modal-close waves-effect main-color center-align white-text 
+                        waves-green btn">Update
+                    <i class="fas fa-check-circle right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 {% endif %}
 {% endblock %}

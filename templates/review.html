@@ -4,75 +4,74 @@
 <h3 class="center-align review-title">{{ post.post_title }}</h3>
 
 <div class="row">
-    <div class="col s12">
-        <div class="card">
-          <!-- Action buttons -->
-          <div class="card-image">
-            {% if session.user %}
-            <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab 
+  <div class="col s12">
+    <div class="card">
+      <!-- Action buttons -->
+      <div class="card-image">
+        {% if session.user %}
+        <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab 
               waves-effect waves-light orange">
-              <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
-            </a>
-            {% else %}
-            <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
+          <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
+        </a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
               waves-effect waves-light orange">
-              <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
-            </a>
-            {% endif %}
-            <!-- Creator/Admin actions -->
-            {% if session.user|lower == post.created_by|lower %}
-              <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab 
+          <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
+        </a>
+        {% endif %}
+        <!-- Creator/Admin actions -->
+        {% if session.user|lower == post.created_by|lower %}
+        <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab 
                 waves-effect waves-light orange">
-              <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit Post"></i>
-              </a>
-              <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
-                <i class="fas fa-trash-alt tooltipped" data-position="bottom" data-tooltip="Delete Post"></i>
-              </a>
-            {% endif %}
-          </div>
-          <!-- Content -->
-          <div class="card-content">
-            <div class="container">
-              <p style="font-size: 20px;"><em>Book:</em></p>
-              <p class="book">{{ post.book }}</p>
-              <br>
-              <p style="font-size: 20px;"><em>Genre:</em></p>
-              <p class="card-genre black-text">{{ post.genre_id }}</p>
-              <br>
-              <p style="font-size: 20px;"><em>Review:</em></p>
-              <p class="review"><strong>{{- post.review -}}</strong></p>
-              <br>
-              <p class="right-align"><em>Author:</em> {{ post.created_by }}</p>
-              <!-- Show Date of creation & Edit date -->
-              {% if post.date %}
-                <p class="right-align"><em>Date:</em> {{ post.date }}</p>
-              {% elif post.edit_date %}
-                <p class="right-align"><em>Last update:</em> {{ post.edit_date }}</p>
-              {% endif %}
-            </div>
-          </div>
+          <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit Post"></i>
+        </a>
+        <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
+          <i class="fas fa-trash-alt tooltipped" data-position="bottom" data-tooltip="Delete Post"></i>
+        </a>
+        {% endif %}
+      </div>
+      <!-- Content -->
+      <div class="card-content">
+        <div class="container">
+          <p style="font-size: 20px;"><em>Book:</em></p>
+          <p class="book">{{ post.book }}</p>
+          <br>
+          <p style="font-size: 20px;"><em>Genre:</em></p>
+          <p class="card-genre black-text">{{ post.genre_id }}</p>
+          <br>
+          <p style="font-size: 20px;"><em>Review:</em></p>
+          <p class="review"><strong>{{- post.review -}}</strong></p>
+          <br>
+          <p class="right-align"><em>Author:</em> {{ post.created_by }}</p>
+          <!-- Show Date of creation & Edit date -->
+          {% if post.date %}
+          <p class="right-align"><em>Date:</em> {{ post.date }}</p>
+          {% elif post.edit_date %}
+          <p class="right-align"><em>Last update:</em> {{ post.edit_date }}</p>
+          {% endif %}
         </div>
-    </div>
-  </div> 
-
-  <!-- Delete Post Modal -->
-  
-  <div id="delete_post" class="modal black white-text">
-    <div class="modal-content">
-        <h4><i class="fas fa-exclamation-circle left"></i>
-            Are you certain you would like to delete the post?
-        </h4>
-    </div>
-    <div class="modal-footer">
-        <a href="{{ url_for('show_post', post_id=post._id) }}" class="btn modal-close waves-effect center-align 
-            black white-text text-shadow">Cancel 
-            <i class="fas fa-times-circle right"></i>
-        </a>
-        <a href="{{ url_for('delete_post', post_id=post._id) }}"
-           class="modal-close waves-effect main-color center-align white-text 
-              waves-green btn">Delete
-            <i class="fas fa-check-circle right"></i>
-        </a>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Delete Post Modal -->
+
+<div id="delete_post" class="modal black white-text">
+  <div class="modal-content">
+    <h4><i class="fas fa-exclamation-circle left"></i>
+      Are you certain you would like to delete the post?
+    </h4>
+  </div>
+  <div class="modal-footer">
+    <a href="{{ url_for('show_post', post_id=post._id) }}" class="btn modal-close waves-effect center-align 
+            black white-text text-shadow">Cancel
+      <i class="fas fa-times-circle right"></i>
+    </a>
+    <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-close waves-effect main-color center-align white-text 
+              waves-green btn">Delete
+      <i class="fas fa-check-circle right"></i>
+    </a>
+  </div>
+</div>
 {% endblock %}

@@ -1,89 +1,89 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1 class="center-align page-heading">Edit Post</h1>
+<h1 class="center-align page-heading">Edit Post</h1>
 
-    <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
-            <div class="row">
-                <!-- Genre -->
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
-                    <select id="genre" name="genre" class="validate" required>
-                        <option value="" disabled>Choose Genre</option>
-                            {% for genre in genres %}
-                                <!-- Ensuring preselected genre is default -->
-                                {% if post.genre_id == genre._id %}
-                                    <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
-                                {% else %}
-                                    <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
-                                {% endif %}
-                            {% endfor %}
-                    </select>
-                    <label for="genre">Genre</label>
-                </div>
+<div class="row card-panel grey lighten-4">
+    <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
+        <div class="row">
+            <!-- Genre -->
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                <select id="genre" name="genre" class="validate" required>
+                    <option value="" disabled>Choose Genre</option>
+                    {% for genre in genres %}
+                    <!-- Ensuring preselected genre is default -->
+                    {% if post.genre_id == genre._id %}
+                    <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
+                    {% else %}
+                    <option value="{{ genre._id }}" selected>{{ genre.genre_name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="genre">Genre</label>
             </div>
-                <!-- Title -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-heading prefix deep-orange-text"></i>
-                    <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
-                        value="{{ post.post_title }}" class="validate" required>
-                    <label for="post_title">Title</label>
-                </div>
+        </div>
+        <!-- Title -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-heading prefix deep-orange-text"></i>
+                <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
+                    value="{{ post.post_title }}" class="validate" required>
+                <label for="post_title">Title</label>
             </div>
-                <!-- Book -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-book prefix deep-orange-text"></i>
-                    <input id="book" name="book" type="text" minlength="5" maxlength="200"
-                        value="{{ post.book }}" class="validate" required>
-                    <label for="book">Book</label>
-                </div>
+        </div>
+        <!-- Book -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-book prefix deep-orange-text"></i>
+                <input id="book" name="book" type="text" minlength="5" maxlength="200" value="{{ post.book }}"
+                    class="validate" required>
+                <label for="book">Book</label>
             </div>
-                <!-- Book Review -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pen prefix deep-orange-text"></i>
-                    <textarea id="review" name="review" class="materialize-textarea" minlength="5"
-                        maxlength="3000" data-length="1500" required>{{- post.review -}}</textarea>
-                    <label for="review">Book Review</label>
-                </div>
+        </div>
+        <!-- Book Review -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pen prefix deep-orange-text"></i>
+                <textarea id="review" name="review" class="materialize-textarea" minlength="5" maxlength="3000"
+                    data-length="1500" required>{{- post.review -}}</textarea>
+                <label for="review">Book Review</label>
             </div>
-            <div class="row">
+        </div>
+        <div class="row">
             <!-- Cancel edits -->
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('get_posts') }}" class="btn-large black waves-effect 
+            <div class="col s12 center-align">
+                <a href="{{ url_for('get_posts') }}" class="btn-large black waves-effect 
                         waves-light text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a> 
-                    <!-- Submit Edits -->
-                    <a href="#edit_post" class="btn-large modal-trigger main-color waves-effect 
+                    Cancel <i class="fas fa-times-circle right"></i>
+                </a>
+                <!-- Submit Edits -->
+                <a href="#edit_post" class="btn-large modal-trigger main-color waves-effect 
                         waves-light text-shadow">
-                        Update <i class="fas fa-plus-square right"></i>
-                    </a>
-                </div>  
+                    Update <i class="fas fa-plus-square right"></i>
+                </a>
             </div>
+        </div>
 
-            <!-- Modal for Edit Post -->
-            <div id="edit_post" class="modal black white-text">
-                <div class="modal-content">
-                    <h4><i class="fas fa-exclamation-circle left"></i>
-                        Are you certain you would like to apply the changes?
-                    </h4>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
-                        black white-text text-shadow">Cancel 
-                        <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="modal-close waves-effect main-color center-align white-text 
-                        waves-green btn">Update 
-                        <i class="fas fa-check-circle right"></i>
-                    </button>
-                </div>
+        <!-- Modal for Edit Post -->
+        <div id="edit_post" class="modal black white-text">
+            <div class="modal-content">
+                <h4><i class="fas fa-exclamation-circle left"></i>
+                    Are you certain you would like to apply the changes?
+                </h4>
             </div>
-        </form>
-    </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('get_posts') }}" class="btn modal-close waves-effect center-align 
+                        black white-text text-shadow">Cancel
+                    <i class="fas fa-times-circle right"></i>
+                </a>
+                <button type="submit" class="modal-close waves-effect main-color center-align white-text 
+                        waves-green btn">Update
+                    <i class="fas fa-check-circle right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

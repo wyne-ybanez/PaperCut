@@ -2,63 +2,62 @@
 
 {% block content %}
 
-    <h1 class="center-align page-heading">Add Post</h1>
+<h1 class="center-align page-heading">Add Post</h1>
 
-    <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
-            <div class="row">
-                <!-- Genre -->
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix deep-orange-text"></i>
-                    <select id="genre" name="genre" class="validate" required>
-                        <option value="" disabled selected>Choose Genre</option>
-                            {% for genre in genres %}
-                                <option value="{{ genre._id }}">{{ genre.genre_name }}</option>
-                            {% endfor %}
-                    </select>
-                    <label for="genre">Genre</label>
-                </div>
-            </div>  
-                <!-- Title -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-heading prefix deep-orange-text"></i>
-                    <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
-                        type="text" class="validate" required>
-                    <label for="post_title">Title</label>
-                </div>
+<div class="row card-panel grey lighten-4">
+    <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
+        <div class="row">
+            <!-- Genre -->
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                <select id="genre" name="genre" class="validate" required>
+                    <option value="" disabled selected>Choose Genre</option>
+                    {% for genre in genres %}
+                    <option value="{{ genre._id }}">{{ genre.genre_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="genre">Genre</label>
             </div>
-                <!-- Book -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-book prefix deep-orange-text"></i>
-                    <input id="book" name="book" type="text" minlength="5" maxlength="200"
-                        type="text" class="validate" required>
-                    <label for="book">Book</label>
-                </div>
+        </div>
+        <!-- Title -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-heading prefix deep-orange-text"></i>
+                <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200" type="text"
+                    class="validate" required>
+                <label for="post_title">Title</label>
             </div>
-                <!-- Book Review -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pen prefix deep-orange-text"></i>
-                    <textarea id="review" name="review" class="materialize-textarea" minlength="5"
-                        maxlength="3000" data-length="2000" required>
+        </div>
+        <!-- Book -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-book prefix deep-orange-text"></i>
+                <input id="book" name="book" type="text" minlength="5" maxlength="200" type="text" class="validate"
+                    required>
+                <label for="book">Book</label>
+            </div>
+        </div>
+        <!-- Book Review -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pen prefix deep-orange-text"></i>
+                <textarea id="review" name="review" class="materialize-textarea" minlength="5" maxlength="3000"
+                    data-length="2000" required>
                     </textarea>
-                    <label for="review">Book Review</label>
-                </div>
+                <label for="review">Book Review</label>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('get_posts') }}" 
-                        class="btn-large card black waves-effect waves-light">Cancel
-                        <i class="fas fa-times-circle right"></i></a>
-                    <button type="submit" class="btn-large card main-color text-shadow waves-effect waves-light">
-                        Add Post <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>  
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('get_posts') }}" class="btn-large card black waves-effect waves-light">Cancel
+                    <i class="fas fa-times-circle right"></i></a>
+                <button type="submit" class="btn-large card main-color text-shadow waves-effect waves-light">
+                    Add Post <i class="fas fa-plus-square right"></i>
+                </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
