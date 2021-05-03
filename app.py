@@ -112,8 +112,7 @@ def login():
     '''
     Check if username exists in db.
     Check if hashed password matches with username.
-    Flash messages to indicate whether or not 
-    the login attempt is successful or has failed.
+    Flash messages to indicate successful or failed login.
     '''
     if request.method == 'POST':
         existing_user = mongo.db.users.find_one(
@@ -226,8 +225,7 @@ def logout():
 
 @app.route('/add_post', methods=['GET', 'POST'])
 def add_post():
-    ''' 
-    Allows registered user to add a post. A flash message
+    ''' Allows registered user to add a post. A flash message
     is shown if the post is successful. Inserts data
     into database. Redirects user to home page.
     '''
@@ -266,12 +264,11 @@ def show_post(post_id):
 
 @app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
-    ''' 
-    Allows post owner to edit their own post. 
-    Flash message is displayed once the post has 
-    been editted successfully. 
-    Redirect the user to their profile after edit.
     '''
+    Allows creator to edit their post
+    Flash message displays for successful edit
+    '''
+
     edit_date = datetime.date.today()
     if request.method == 'POST':
         edit = {

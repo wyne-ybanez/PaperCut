@@ -358,11 +358,6 @@ header.masthead .post-heading .meta a {
 
 .link {
   font-weight: 600;
-  background: linear-gradient(
-    0deg,
-    rgba(210, 9, 9, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  ) !important;
 }
 
 /*====== Genre Search ======*/
