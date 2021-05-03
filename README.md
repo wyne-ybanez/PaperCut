@@ -227,7 +227,7 @@ User Story:
 > As an admin of Papercuts I want to be able to create, edit and delete review categories/genres.
 
 Criteria:
-- The admin will have the ability to create, edit or delete review genres and the contents within each category.
+- The admin will have the ability to create, edit or delete review genres and the contents within each genre.
 
 Implementation:
 
@@ -279,31 +279,31 @@ Sample Object Format:
 
 **Collection: genres**<br>
 
-{
-    _id: <em>unique value</em>,
-    genre_name: "Adventure"
+{<br>
+    _id: <em>unique value</em>,<br>
+    genre_name: "Adventure"<br>
 }
 
 **Collection: posts**<br>
 
-{
-    _id: <em>unique value</em>,
-    genre_id: <em>(genre)unique value</em>,
-    post_title: "The best new Thriller",
-    book: "Sixteen Horses by Greg Buchanan",
-    review: "Near the dying English seaside town of Ilmarsh, local police detective...",
-    date: "28 April, 2021",
-    created_by: <em>unique username</em>
+{<br>
+    _id: <em>unique value</em>,<br>
+    genre_id: <em>(genre)unique value</em>,<br>
+    post_title: "The best new Thriller",<br>
+    book: "Sixteen Horses by Greg Buchanan",<br>
+    review: "Near the dying English seaside town of Ilmarsh, local police detective...",<br>
+    date: "28 April, 2021",<br>
+    created_by: <em>unique username</em><br>
 }
 
 **Collection: users**<br>
 
-{
-    _id: <em>unique value</em>,
-    username: <em>unique username</em>,
-    password: <em>unique hashed password</em>,
-    avatar: "https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=r...",
-    status: "Im doing fantastic!",
+{<br>
+    _id: <em>unique value</em>,<br>
+    username: <em>unique username</em>,<br>
+    password: <em>unique hashed password</em>,<br>
+    avatar: "https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=r...",<br>
+    status: "Im doing fantastic!",<br>
 }
 
 #### Database Security
@@ -315,16 +315,16 @@ Database security is maintained through the "env.py" file which ensures that the
 
 #### Colour Scheme
 
-The main website color are as follows:
+The main website color is a linear gradient from yellow to orange to red:<br>
+![main-color](readme_Img/main-color.png)
 - background: rgb(210,9,9);
 - background: linear-gradient(0deg, rgba(210,9,9,1) 0%, rgba(253,187,45,1) 100%);
 
-Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: 
-- #ffffff white
-- #000000 black
+Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: <br>
+![black_and_white](readme_Img/black&white.png)
 
-The secondary color is materialize css deep-orange color, this color was also used for flash messages:
-- #ff5722 deep-orange
+The secondary color is materialize css deep-orange color, this color was also used for flash messages:<br>
+![black_and_white](readme_Img/deep-orange.png)
 
 #### Typography
 
