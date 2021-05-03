@@ -275,14 +275,36 @@ The administrator's dashboard will have the functionality to view a user's profi
 
 #### Database Design (MongoDb)
 
-**Collection: categories**<br>
+Sample Object Format:
 
+**Collection: genres**<br>
 
-**Collection: reviews/posts**<br>
+{
+    _id: <em>unique value</em>,
+    genre_name: "Adventure"
+}
 
+**Collection: posts**<br>
+
+{
+    _id: <em>unique value</em>,
+    genre_id: <em>(genre)unique value</em>,
+    post_title: "The best new Thriller",
+    book: "Sixteen Horses by Greg Buchanan",
+    review: "Near the dying English seaside town of Ilmarsh, local police detective...",
+    date: "28 April, 2021",
+    created_by: <em>unique username</em>
+}
 
 **Collection: users**<br>
 
+{
+    _id: <em>unique value</em>,
+    username: <em>unique username</em>,
+    password: <em>unique hashed password</em>,
+    avatar: "https://gravatar.com/avatar/dfd40517948bc137cfff2c6de1db27cc?s=400&d=r...",
+    status: "Im doing fantastic!",
+}
 
 #### Security
 
