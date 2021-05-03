@@ -156,8 +156,9 @@ def profile(username):
     Use session cookie to identify user.
     '''
     user = mongo.db.users.find_one({'username': session['user']})
+    posts = mongo.db.posts.find({'created_by': user['username']})
     if session['user']:
-        return render_template("profile.html", user=user)
+        return render_template("profile.html", user=user, posts=posts)
     return redirect(url_for('login'))
 
 

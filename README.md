@@ -354,9 +354,15 @@ All images used within the website were all taken from [unsplash](https://unspla
 ****
 ## Features
 
-
 ### Existing Features
 
+- Home page which displays the most recent 25 posts within the community and portrays the website's purpose.
+- Registration feature which allows users to sign up and create an account.
+- Log in Feature which allows users to sign into their account.
+- Search functionality which is on every page in the website as long as the user is signed in.
+- Genre search functionality which allows users to search for posts based on the post genre.
+- Profile page which shows user's username and status.
+- 
 
 ### Features Left to Implement
 
