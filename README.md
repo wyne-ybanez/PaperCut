@@ -362,12 +362,18 @@ All images used within the website were all taken from [unsplash](https://unspla
 - Profile page which shows logged in user's username, status and posts. Displays other profile's usernames and status.
 - Posts modification - the website allows content creators to create, edit or delete profiles and posts they have created.
 - Mobile responsiveness.
-- 
+- Side Navigation bar which can be toggled on and off through the hamburger menu.
+- Admin dashboard which allows the admin to view website statistics and manipulate genres.
 
 ### Features Left to Implement
 
+- A feature I would like to implement in the near future is to allow users to upload their own profile pictures.
+- A feature on the registration page which confirms the user's desired password via a second input field.
+- A feature I would like to work on in the future is the ability to like another user's post, perhaps sort reviews according to the most liked post.
+
 ****
 ## Technologies
+
 
 ****
 ## Testing
