@@ -436,9 +436,7 @@ A feature I would like to work on in the future is the ability to like another u
 
 ### Test Strategy
 #### **Summary**
-Testing is required on all features and user stories documented in this README. 
-All clickable links must redirect to the correct pages. All forms linked to MongoDB
-must be tested to ensure they insert all given fields into the correct collections.
+Testing is to be made to ensure all features of the website is working as intended and that the links lead to the appropriate pages. Tests must be made to judge the websites responsiveness. Additionally, that all inputs done through the forms will submit the data to the appropriate collections. It is also there to ensure the project's code structure abides the universal best practices for programming. 
 
 HTML Code must pass through the [W3C HTML Validator](https://validator.w3.org/#validate_by_uri).
 
@@ -448,11 +446,6 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
-#### **High Level Test Cases**
-
-Full test results can be found [here](TESTING.md)
-
-****
 ## Deployment
 
 ### Project Creation
@@ -525,9 +518,7 @@ In the terminal, I utilised the following commands in the following order:
 
 ### Run Locally
 
-**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) 
-file configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. 
-These details are private and not disclosed in this repository for security purposes.**
+**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) file configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. These details are private and not disclosed in this repository for security purposes.**
 
 ### Fork Project 
 
