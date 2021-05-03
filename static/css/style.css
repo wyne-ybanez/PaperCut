@@ -314,14 +314,6 @@ header.masthead .post-heading .meta a {
   );
 }
 
-.main-color {
-  color: linear-gradient(
-    0deg,
-    rgba(210, 9, 9, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  ) !important;
-}
-
 .btn-floating.halfway-fab.plus {
   right: 70px;
 }
@@ -366,7 +358,7 @@ header.masthead .post-heading .meta a {
 
 .link {
   font-weight: 600;
-  color: linear-gradient(
+  background: linear-gradient(
     0deg,
     rgba(210, 9, 9, 1) 0%,
     rgba(253, 187, 45, 1) 100%
