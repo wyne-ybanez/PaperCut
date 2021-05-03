@@ -29,13 +29,14 @@ The user can also create and post their own book reviews. The live website can b
     * [Test Strategy](#Test-Strategy)
     * [Test Results](#Test-Results)
 * [Deployment](#Deployment)
-    * [Project Creation](#Project-Creation)
+    * [Deployment to Heroku](#Project-Creation)
     * [GitHub Pages](#Deployment-To-Heroku)
-    * [Run Locally](#Run-Locally)
     * [Local Clone](#Local-Clone)
     * [Fork Project](#Fork-Project)
 * [Credits](#Credits)
   * [Content](#Content)
+  * [Media](#Media)
+  * [Code](#Code)
   * [Acknowledgements](#Acknowledgements)
 
 ****
@@ -520,11 +521,9 @@ In the terminal, I utilised the following commands in the following order:
 - Click Enable Automatic deploys in 'Automatic Deploys' section
 - Choose the branch you would like to deploy and click "Deploy Branch"
 
-### Run Locally
-
-**Note: The project will not run locally with database connections unless the user sets up an [env.py](https://pypi.org/project/env.py/) file configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. You must have the connection details in order to do this. These details are private and not disclosed in this repository for security purposes.**
-
 ### Local Clone
+
+**Note: To run this project locally, an "env.py" file must be created for configuring IP, PORT, MONGO_URI, MONGO_DBNAME and SECRET_KEY. These details are private and not disclosed in this repository for security purposes.**
 
 This is used when you would like to make changes to the project code
 
@@ -549,6 +548,18 @@ You can fork the repository through the following steps. Forking the repository 
 ****
 ## Credits
 
+### Content
+
+- Game of thrones filler content used by "Allen" profile - [link](https://en.wikipedia.org/wiki/Game_of_Thrones)
+- Hidden life of Trees filler content used by "Wyne" Profile - [link](https://www.goodreads.com/book/show/28256439-the-hidden-life-of-trees#:~:text=Drawing%20on%20groundbreaking%20new%20discoveries,in%20the%20forest%20around%20him.)
+- Sixteen Horses by Greg Buchanan filler content used by "Wyne" profile - [link](https://www.waterstones.com/book/sixteen-horses/greg-buchanan/2928377056148)
+- Daisy-McG's ReadMe.md file contents and structure was adopted and used to restructure my own README.md. - [link](https://github.com/Daisy-McG/Motorbike-Event-Finder/blob/main/README.md)
+
+### Media 
+
+- Avatars used for website from avatar generator - [link](https://vinicius73.github.io/gravatar-url-generator/#/)
+- Unsplash for genre images and header image - [link](https://unsplash.com/)
+
 ### Code
 
 - CSS preload animation fix - [link](https://css-tricks.com/transitions-only-after-page-load/)
@@ -557,13 +568,25 @@ You can fork the repository through the following steps. Forking the repository 
 - Stackoverflow solution for changing text area height - [link](https://stackoverflow.com/questions/52452763/materialize-textarea-tag-is-not-scrollable-on-fixed-height/52454652)
 - Mongodb count number of users/posts - [link](https://docs.mongodb.com/manual/reference/method/db.collection.countDocuments/)
 - Scroll effect - [link](https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll)
-- Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to genre_id in posts
-- Header image - Start Bootstrap - [Clean Blog v5.0.10](https://startbootstrap.com/theme/clean-blog)
+- Header image - Start Bootstrap, Clean Blog v5.0.10 - [link](https://startbootstrap.com/theme/clean-blog)
 - Changing select drop down menu color - [link](https://www.javaer101.com/en/article/2794917.html)
 - Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
 - Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
-- Avatar generator - [link](https://vinicius73.github.io/gravatar-url-generator/#/)
 - Main color theme of the website - [link](https://cssgradient.io/) 
+- Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to 'genre_id' field in the 'posts' collection.
+- Error handlers through flask documentation - [link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 
 ### Acknowledgements
+
+I would to express my gratitude to the Code Institute tutor's and community for helping get this far.
+
+I would like to thank my mentor Dick Vlaanderen for his wisdom and advice during the development of the project.
+
+I would like to thank the Code Institute tutor Johan for his help on the "genre_name" bug which I could not solve for 3 days.
+
+I would like to give credit to Daisy, a Code Institute Student who's README.md document inspired and assisted in the structure and contents of my own README.md file.
+
+I would like to give credit to Brian Whelan, a Code Institute Student who's project inspired the overall website structure and features.
+
+
 

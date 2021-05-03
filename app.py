@@ -379,7 +379,6 @@ def not_found_error(error):
     """
     Route to handle 404 error
     """
-    header_img = True
     return render_template('404.html', error=error), 404
 
 
