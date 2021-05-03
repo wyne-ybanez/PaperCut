@@ -306,18 +306,30 @@ Sample Object Format:
     status: "Im doing fantastic!",
 }
 
-#### Security
+#### Database Security
 
-(env.py file)
+Database security is maintained through the "env.py" file which ensures that the configuration files are not stored in github via .gitignore. For production, the configuration details are placed into the app settings within Heroku.
 
 ### **The Surface Plane**
 ### Design
 
 #### Colour Scheme
 
+The main website color are as follows:
+- background: rgb(210,9,9);
+- background: linear-gradient(0deg, rgba(210,9,9,1) 0%, rgba(253,187,45,1) 100%);
+
+Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: 
+- #ffffff white
+- #000000 black
+
+The secondary color is materialize css deep-orange color, this color was also used for flash messages:
+- #ff5722 deep-orange
 
 #### Typography
 
+The main typography used for the website was the font named "Syne". This font was accessed through Google fonts. 
+The font weight values used are 400,500,600 and 700.
 
 #### Imagery
 
