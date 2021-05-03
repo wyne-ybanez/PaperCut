@@ -333,8 +333,23 @@ The font weight values used are 400,500,600 and 700.
 
 #### Imagery
 
+All images used within the website were all taken from [unsplash](https://unsplash.com/).
 
-## Differences to Design
+## Differences to Wireframes
+
+- The main homepage/main page was part of the original design, however, I thought it would be best if users could visit the website and get straight into reading posts regardless if they had an account or not. This would allow for newcomers to discern and explore what the website was about.
+
+- The registration page originally two input fields for the password and a second one to confirm the original password. This is something I seek to implement in the future.
+
+- Originally, the profile pages were meant to also display the posts made by the researched user through their profile. At the moment this idea has not been brought to fruition and is an idea I seek to add to the website in the future.
+
+- Originally, it was desired that the user could update their profile images with their preferred pictures. At the moment the website creates a drop down list of which the user can choose an avatar for their profile. User image uploads is a feature I would like to implement into this website in the future.
+
+- The option to change the user's email address on the profile has been removed. Instead the user can only edit their profile status. I did this to avoid confusion between user's, in order to make finding author's posts easier and maintain account security.
+
+- Rather than having a genre list, instead the website has a drop down feature displaying all the genre options. This ultimately makes the page look cleaner.
+
+- The Admin Dashboard has been altered immensely. Every user now has the search feature available at the top navigation bar. Instead, the dashboard will display the number of posts and the number of users registered on the website. It will also allow the admin to edit or delete genres as he/she pleases.
 
 ****
 ## Features
