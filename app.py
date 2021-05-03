@@ -145,7 +145,14 @@ def search_profile(user_id):
     their status and posts.
     '''
     user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
-    posts = mongo.db.posts.find({'created_by': user['username']})
+    posts = list(mongo.db.posts.find({'created_by': user['username']}))
+
+    # Attach Genre name to Genre ID.
+    for post in posts:
+        genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        post['genre_name'] = genre_name
+
     return render_template("profile.html", user=user, posts=posts)
 
 
