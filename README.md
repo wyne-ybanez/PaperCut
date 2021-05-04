@@ -579,6 +579,7 @@ You can fork the repository through the following steps. Forking the repository 
 - Header image - Start Bootstrap, Clean Blog v5.0.10 - [link](https://startbootstrap.com/theme/clean-blog)
 - Changing select drop down menu color - [link](https://www.javaer101.com/en/article/2794917.html)
 - Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
+- Text overlapping container solution - [link](https://stackoverflow.com/questions/50819817/materialize-text-overlapping-div)
 - Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
 - Main color theme of the website - [link](https://cssgradient.io/) 
 - Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to 'genre_id' field in the 'posts' collection.
@@ -590,7 +591,7 @@ I would to express my gratitude to the Code Institute tutor's and community for 
 
 I would like to thank my mentor Dick Vlaanderen for his wisdom and advice during the development of the project.
 
-I would like to thank the Code Institute tutor Johan for his help on the "genre_name" bug which I could not solve for 3 days.
+I would like to thank the Code Institute tutor Johan for his help on the "genre_name" bug.
 
 I would like to give credit to Daisy, a Code Institute Student who's README.md document inspired and assisted in the structure and contents of my own README.md file.
 

@@ -42,6 +42,7 @@ def get_posts():
     posts_data = list(mongo.db.posts.find())
     users = list(mongo.db.users.find())
 
+    # Assign Genre Name to Genre ID
     for post in posts:
         genre_name = mongo.db.genres.find_one(
             {"_id": ObjectId(post["genre_id"])})["genre_name"]

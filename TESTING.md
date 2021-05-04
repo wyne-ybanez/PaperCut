@@ -1,15 +1,12 @@
 # Testing
 
 * [User Stories](#user-stories)
-* [Test and bugs during development.](#test-and-bugs-during-development)
-* [Defensive programming and Security.](#defensive-programming-and-security)
-* [CRUD Functionality: Create, Read, Update, Delete.](#post--comments--and-like-functionality-create--read--update--delete) 
+* [Tests and bugs during development.](#tests-and-bugs-during-development)
 * [Validators](#validators)
     * [HTML](#html)
     * [CSS](#css)
     * [Javascript](#javascript)
     * [Python](#python)
-* [Accessibility](#accessibility)
 * [Known bugs](#known-bugs)
 
 ****
@@ -90,6 +87,7 @@ User Story:
 
 - The admin can add posts just like other users.
 - The admin has permissions to read and delete posts made by other users.
+- The admin cannot edit another user's post.
 - The admin has his/her own dedicated profile.
 
 User Story:
@@ -108,5 +106,89 @@ User Story:
 ![Admin_Dashboard](readme_Img/Dashboard.png)
 
 ****
+
+## Tests and Bugs during development
+
+### Text-Wrap Bug
+
+Description:<br>
+When the user wanted to add a paragraph or a line break to their post, materialize css would ignore this and automatically format the text into one continuos long text. Without line breaks the content of the posts were too much to digest and just seemed unappealing overall for the user. 
+
+Solution: 
+```
+.card-content .container p {
+    white-space: pre-wrap;
+}
+```
+
+[Stack Overflow Link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
+
+### Break-Word Bug
+
+Description: <br>
+When the user wanted to edit their reviews or their profile status, at times the text would not remain inside their containers and would instead continue across the page. 
+
+Solution:
+```
+.break-word {
+  word-wrap: break-word;
+}
+```
+
+[Stack Overflow Link](https://stackoverflow.com/questions/50819817/materialize-text-overlapping-div)
+
+### Genre_name bug
+
+Description:<br>
+I wanted to display the genre names of which the posts were assigned to. I initally began the project by assigning a post with a genre name for that particular post. However, this has now been altered, now a post will take in the '_id' value of a genre. This method allows the admin to change the genre name not only for one post, but for multiple posts with that genre. 
+
+The difficulty was that while the genre was assigned, it showed the genre ID rather than the genre name. 
+
+![genre_name_bug](readme_Img/genre_name_bug.png)
+
+Solution:
+```
+for post in posts:
+        genre_name = mongo.db.genres.find_one(
+            {"_id": ObjectId(post["genre_id"])})["genre_name"]
+        post['genre_name'] = genre_name  
+```
+
+### Delete Genre Modal bug
+
+Description:<br>
+The page dashboard.html displayed all the genres that were available on the website. Initially, beside every genre, were two option buttons. One to edit the genre, and one to delete. When requesting to delete a genre, I wanted a modal to appear as a method of defensive programming. 
+
+The issue was, once the admin clicks the button to approve, this delete the first genre on the list and not the specified genre. This was due to the function requiring a 'genre_id'. However, the modal could not determine the desired genre_id to delete.
+
+Solution:
+- I removed the 'DELETE' genre button from the Admin Dashboard
+- Instead I placed this button and its designated modal in edit_genre.html
+
+![edit_genre_bug](readme_Img/edit_genre_bug.png)
+
+### Search Profile bug
+
+Description:<br>
+Initially the website was aimed at viewing user's profiles through the main page and its posts, however, at the time there was no function created for this purpose. 
+
+When viewing another user's profile it would immediately view the session user's profile instead.
+
+I created another function to assist with this feature.
+
+Solution:
+```
+@app.route('/search_profile/<user_id>', methods=['GET', 'POST'])
+def search_profile(user_id):
+    '''
+    Researching user and see
+    their status and posts.
+    '''
+    user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
+    posts = list(mongo.db.posts.find({'created_by': user['username']}))
+
+    return render_template("profile.html", user=user, posts=posts)
+```
+
 
 
