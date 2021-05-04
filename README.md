@@ -72,6 +72,7 @@ that I can easily return to the website if I navigate to a page that doesn't exi
 - As a user, I want to be able to register an account to the website so I can post book reviews. I also want to
 be able to edit and delete the reviews I created.
 - As a user, I want to be able to edit and delete the profile I created.
+- As a user, I want to be able to see the posts I created and the posts other users have created.
 - As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
 
 #### Admin
@@ -197,11 +198,18 @@ Implementation:
 When the user goes to update/edit their profile information. There will be an option to delete their account. Before account deletion continues, the user will be asked if this is truly what they desire. 
 
 User Story:
-> As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
+> As a user, I want to be able to see the posts I created and the posts other users have created.
 
 Criteria:
 - The user should be able to research and read the reviews of other users as well as their own. 
-- A search box will assist the user with finding certain reviews based on categories or titles.
+- The user should be able to find their posts if they go to their profiles.
+- The user should be able to read other users' posts if they research their profile.
+
+User Story:
+> As a user, I want to be able to search/filter book reviews on a custom genre or criteria as best suits me.
+
+Criteria:
+- A search box will assist the user with finding certain reviews based on genres, titles, content, date or its author.
 - Search results will be sorted in descending order based on the date of creation.
 
 Implementation:

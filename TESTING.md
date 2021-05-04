@@ -3,17 +3,7 @@
 * [User Stories](#user-stories)
 * [Test and bugs during development.](#test-and-bugs-during-development)
 * [Defensive programming and Security.](#defensive-programming-and-security)
-* [Manual Testing](#manual-testing)
-  * [Procedure and results.](#procedure-and-results)
-    * [User functionality](#user-functionality)
-      * [Signup and login, Create.](#signup-and-login--create)
-      * [User Account, Read and Update.](#user-account--read-and-update)
-    * [CRUD Functionality: Create, Read, Update, Delete.](#post--comments--and-like-functionality-create--read--update--delete)
-      * [Create post](#create-post)
-      * [Updating Posts.](#updating-posts)
-      * [Deleting Posts.](#updating-posts)
-    * [Testing the search functions](#testing-the-search-function)
-    * [Testing admin genre functions](#testing-admin-category-function)
+* [CRUD Functionality: Create, Read, Update, Delete.](#post--comments--and-like-functionality-create--read--update--delete) 
 * [Validators](#validators)
     * [HTML](#html)
     * [CSS](#css)
@@ -25,6 +15,8 @@
 ****
 
 ## User Stories
+
+#### User stories
 
 User Story:
 > As a user, I immediately want to know the purpose as to why the site was made.
@@ -66,6 +58,15 @@ User Story:
 - Users can edit posts should the action button be available for them - they are always able to edit their own posts. This can be done through the button with the "pen" icon.
 - Users can delete posts they created through the 'delete' option at the bottom of every post or by clicking on the button with the "trash" icon.
 
+![Action_Buttons](readme_Img/buttons.png)
+
+User Story: 
+> As a user, I want to be able to see the posts I created and the posts other users have created.
+
+- Once a user has signed in, the posts they've created will be displayed in profile.html
+- The user can access this through the side navigation menu.
+- The user can also go to index.html and click on the profile name within the posts to be redirected to author's profile and see their posts.
+
 User Story: 
 > As a user, I want to be able to edit and delete the profile I created.
 
@@ -81,5 +82,31 @@ User Story:
 - As long as the user has signed in, there is always a search input field at the top navigation bar.
 - This search input field queries for a text and finds a relating post for that text input.
 - Genres are searched through the main page where there is a drop down menu to search for posts within a specific genre.
+
+#### Admin User stories
+
+User Story:
+> As an admin I want all of the above options but I want to also be able to access and delete the reviews made by other users.
+
+- The admin can add posts just like other users.
+- The admin has permissions to read and delete posts made by other users.
+- The admin has his/her own dedicated profile.
+
+User Story:
+> As an admin I want to be able to create and delete review categories/genres.
+
+- The admin has permissions to manipulate and delete genres
+- The admin can access the dashboard(dashboard.html) anytime through the side navigation menu. Here they can add a new genre.
+- If the admin deletes a genre, it also deletes posts within that genre.
+
+User Story:
+> As an admin I want to be able to view how many users are registered on the website and delete users if necessary.
+
+- The admin has the power to delete user accounts from the site if he/she visits their profile.
+- The admin can view the amount of users registered on the site in dashboard.html
+
+![Admin_Dashboard](readme_Img/Dashboard.png)
+
+****
 
 
