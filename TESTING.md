@@ -1,7 +1,7 @@
 # Testing
 
 * [User Stories](#user-stories)
-* [Tests and bugs during development.](#tests-and-bugs-during-development)
+* [Bugs during development.](#tests-and-bugs-during-development)
 * [Validators](#validators)
     * [HTML](#html)
     * [CSS](#css)
@@ -107,7 +107,7 @@ User Story:
 
 ****
 
-## Tests and Bugs during development
+## Bugs during development
 
 ### Text-Wrap Bug
 
@@ -190,5 +190,17 @@ def search_profile(user_id):
     return render_template("profile.html", user=user, posts=posts)
 ```
 
+#### Validators
 
+W3C HTML Validator [Results](https://validator.w3.org/nu/?doc=http%3A%2F%2Fpapercuts-project.herokuapp.com%2Fget_posts)
+
+W3C CSS Validator [Results](https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fpapercuts-project.herokuapp.com%2Fget_posts&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+PEP8 Validator [Result](readme_Img/pep8.png)
+
+JSHint Validator [Result](readme_Img/JsHint.png)
+
+#### Known Bugs
+
+Deleting a user as the admin does not delete the user's posts, this is something I have not found a solution for as of yet and would like to fix in the future.
 
