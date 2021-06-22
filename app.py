@@ -35,7 +35,6 @@ def get_posts():
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
     SKIP_POSTS = (page - 1) * POSTS_PER_PAGE
-    search_called = False
 
     posts = list(mongo.db.posts.find().sort(
         'date', -1).skip(SKIP_POSTS).limit(POSTS_PER_PAGE))
@@ -50,8 +49,7 @@ def get_posts():
 
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
-                           header_img=header_img, genres=genres, page=page,
-                           search_called=search_called, users=users)
+                           header_img=header_img, genres=genres, page=page, users=users)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -62,12 +60,10 @@ def search():
     is called to remove pagination feature.
     """
     query = request.form.get('query')
-    search_called = True
-
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
+    users = list(mongo.db.users.find())
     genres = mongo.db.genres.find()
-    users = mongo.db.users.find()
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -76,7 +72,7 @@ def search():
         post['genre_name'] = genre_name
 
     return render_template('index.html', posts=posts, genres=genres,
-                           search_called=search_called, users=users)
+                            users=users)
 
 
 @app.route('/register', methods=['GET', 'POST'])
