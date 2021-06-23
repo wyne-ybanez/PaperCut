@@ -42,7 +42,9 @@
           <p style="font-size: 20px;"><em>Review:</em></p>
           <p class="review break-word"><strong>{{- post.review -}}</strong></p>
           <br>
-          <p class="right-align"><em>Author:</em> {{ post.created_by }}</p>
+          <a href="{{ url_for('search_profile', user_id=user._id) }}" class="right-align black-text"><em>Author:</em>
+            {{ post.created_by }}
+          </a>
           <!-- Show Date of creation & Edit date -->
           {% if post.date %}
           <p class="right-align"><em>Date:</em> {{ post.date }}</p>
