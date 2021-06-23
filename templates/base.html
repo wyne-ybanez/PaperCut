@@ -23,50 +23,16 @@
 
 <body class="grey lighten-3">
 
-    <!-- Header Change based on page -->
-    {% if header_img %}
-    <header class="masthead"
-        style="background-image: url('https://images.unsplash.com/photo-1563888430434-7823117fa92e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80')">
-        {% else %}
-        <header>
-            {% endif %}
+    <!-- Header Changes based on page -->
+    <header {% if header_img %} class="masthead"
+        style="background-image: url('https://images.unsplash.com/photo-1563888430434-7823117fa92e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80')"
+        {% endif %}>
 
-            <!-- Side Navbar - Web -->
-            <div class="navbar-fixed">
-                <nav class="nav-extended navbar transparent no-shadows">
-                    <div class="nav-wrapper">
-                        <div class="nav-items row">
-                            <a href="{{ url_for('get_posts') }}" class="brand-logo white-text text-shadow col l1 m3 s0 xs0 phone 
-                                    responsive">Papercuts</a>
+        {% include "components/header.html" %}
 
-                            <!-- Nav Search Bar -->
-                            <form action="{{ url_for('search', page = 1) }}" method="post" class="col center-align 
-                                l8 m9 s0 xs0">
-                                <div class="nav row valign-wrapper center-align">
-                                    <div class="input-field col l8 m6 s0 xs0 responsive">
-                                        <i class="fas fa-search prefix nav-search-icon white-text text-shadow"></i>
-                                        <input type="text" name="query" id="query" minlength="1"
-                                            class="validate nav-search-bar white-text text-shadow" required>
-                                        <label for="query">Search Posts</label>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <a href="#" data-target="mobile-demo" class="sidenav-trigger right col l3 m0 s0 xs0"><i
-                                    class="fas fa-bars fa-2x text-shadow"></i></a>
-                            <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
-                                <li><a href="#" data-target="slide-out" class="sidenav-trigger web"><i
-                                            class="fas fa-bars fa-2x text-shadow"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            {% block header %}
-            {% endblock %}
-
-        </header>
+        {% block header %}
+        {% endblock %}
+    </header>
 
         <ul id="slide-out" class="sidenav nav-logo text-shadow">
             <li>

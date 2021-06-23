@@ -5,29 +5,6 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {% endblock %}
 
-{% block header %}
-{% if header_img %}
-<!-- Header Image -->
-<div class="overlay"></div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <div class="site-heading">
-        <h1 class="text-shadow site-logo" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          data-aos-duration="1200">
-          Papercuts
-        </h1>
-        <span class="subheading text-shadow site-logo" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-          data-aos-delay="1500" data-aos-duration="1500">
-          Critical Book Reviews and Rants
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
-{% endblock %}
-
 {% block content %}
 {% if posts|length > 0 %}
 
