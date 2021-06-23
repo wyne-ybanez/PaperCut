@@ -60,10 +60,10 @@ def search():
     is called to remove pagination feature.
     """
     query = request.form.get('query')
-    posts = list(mongo.db.posts.find(
-        {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     users = list(mongo.db.users.find())
     genres = mongo.db.genres.find()
+    posts = list(mongo.db.posts.find(
+        {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -390,4 +390,4 @@ def internal_error(error):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
