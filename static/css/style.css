@@ -111,6 +111,7 @@ header.masthead {
   background-attachment: scroll;
   position: relative;
   background-size: cover;
+  height: 100vh;
 }
 
 .overlay {
@@ -365,6 +366,7 @@ header.masthead .post-heading .meta a {
 .genre-search h2 {
     font-weight: 600;
     font-size: 25px;
+    margin-bottom: 0;
 }
 
 .genre-search .genre-list P{
@@ -378,6 +380,17 @@ header.masthead .post-heading .meta a {
 .genre-search .card,
 .genre-list .card {
   margin: 10px 10px ;
+}
+
+.write-post h2 {
+  font-weight: 600;
+  font-size: 25px;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+.write-post .card {
+  margin-top: 0;
 }
 
 /* Changing select drop down menu color: https://www.javaer101.com/en/article/2794917.html */
@@ -448,7 +461,7 @@ i.tooltipped:hover,
 a.card:hover,
 a.btn:hover,
 a.modal-close:hover,
-a.btn-large,
+a.btn-large:hover,
 button.modal-close:hover,
 button.card:hover {
   color: #000 !important;

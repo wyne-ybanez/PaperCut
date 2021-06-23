@@ -23,9 +23,25 @@
         </select>
         <label for="query">Search Genre</label>
         <button type="submit" class="card waves-effect main-color search center-align white-text 
-            waves-light btn col m6 s12">Search
+            waves-light btn col m12 s12">Search
         </button>
       </form>
+    </div>
+
+    <div class="write-post">
+      <h2>Write a review: </h2>
+      <p>Feel free to contribute to our community...</p>
+      <hr>
+      <br>
+      {% if session.user|lower %}
+      <a href="{{ url_for('add_post') }}" class="card waves-effect main-color search center-align white-text 
+          waves-light btn col m12"> Add Post
+      </a>
+      {% else %}
+      <a href="{{ url_for('login') }}" class="card waves-effect main-color search center-align white-text 
+          waves-light btn col m12"> Add Post
+      </a>
+      {% endif %}
     </div>
   </div>
 
