@@ -334,6 +334,7 @@ header.masthead .post-heading .meta a {
 
 .review-title {
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .card-review {
@@ -350,6 +351,7 @@ header.masthead .post-heading .meta a {
 .book {
   font-size: 25px;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .card-genre{
@@ -462,6 +464,7 @@ a.card:hover,
 a.btn:hover,
 a.modal-close:hover,
 a.btn-large:hover,
+button.btn-large:hover,
 button.modal-close:hover,
 button.card:hover {
   color: #000 !important;

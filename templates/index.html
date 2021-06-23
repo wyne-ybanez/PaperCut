@@ -30,7 +30,7 @@
 
     <div class="write-post">
       <h2>Write a review: </h2>
-      <p>Feel free to contribute to our community...</p>
+      <p style="margin-top: 0.5rem;">Feel free to contribute to our community!</p>
       <hr>
       <br>
       {% if session.user|lower %}
@@ -39,7 +39,7 @@
       </a>
       {% else %}
       <a href="{{ url_for('login') }}" class="card waves-effect main-color search center-align white-text 
-          waves-light btn col m12"> Add Post
+          waves-light btn col m12"> Sign In
       </a>
       {% endif %}
     </div>
