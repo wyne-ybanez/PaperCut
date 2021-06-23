@@ -445,11 +445,12 @@ header.masthead .post-heading .meta a {
 
 /*====== Reactive CTA ======*/
 i.tooltipped:hover,
+a.card:hover,
 a.btn:hover,
-button.modal-close:hover,
 a.modal-close:hover,
-button.card:hover,
-a.card:hover {
+a.btn-large,
+button.modal-close:hover,
+button.card:hover {
   color: #000 !important;
   background-color: #fff !important;
   background: #fff !important;
