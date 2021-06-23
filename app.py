@@ -64,6 +64,7 @@ def search():
     genres = mongo.db.genres.find()
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
+    header_img = True
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -72,7 +73,7 @@ def search():
         post['genre_name'] = genre_name
 
     return render_template('index.html', posts=posts, genres=genres,
-                            users=users)
+                            users=users, header_img=header_img)
 
 
 @app.route('/register', methods=['GET', 'POST'])

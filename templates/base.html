@@ -27,9 +27,7 @@
     <header {% if header_img %} class="masthead"
         style="background-image: url('https://images.unsplash.com/photo-1563888430434-7823117fa92e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80')"
         {% endif %}>
-
         {% include "components/header.html" %}
-
         {% block header %}
         {% endblock %}
     </header>
@@ -98,39 +96,11 @@
                 </div>
             </div>
         </div>
-
         <footer class="page-footer black">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Papercuts</h5>
-                        <p class="white-text">
-                            Papercuts - the critical book review website.
-                            An online community of book reviews, ratings and rants.
-                        </p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                            <li><a class="white-text" href="{{ url_for('get_posts') }}">Home</a></li>
-                            {% if session.user %}
-                            <li><a class="white-text"
-                                    href="{{ url_for('profile',username=session['user']) }}">Profile</a></li>
-                            <li><a class="white-text" href="{{ url_for('add_post') }}">
-                                    Add Post</a></li>
-                            {% if session.user == 'admin'|lower %}
-                            <li><a class="white-text"" href=" {{ url_for('dashboard') }}">
-                                    Dashboard</a></li>
-                            {% endif %}
-                            <li><a class="white-text" href="{{ url_for('logout') }}">Log Out</a></li>
-                            {% else %}
-                            <li><a class="white-text" href="{{ url_for('login') }}">Log In</a></li>
-                            <li><a class="white-text" href="{{ url_for('register') }}">Register</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {% include "components/footer.html" %}
+            {% block footer %}
+            {% endblock %}
+            <!-- Copyright -->
             <div class="footer-copyright white-text">
                 <div class="container">
                     © <span id="copyright"></span> Wyne Ybanez
