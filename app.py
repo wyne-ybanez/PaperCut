@@ -32,6 +32,7 @@ def get_posts():
     """
     # Variables
     header_img = True
+    search_called=False
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
     SKIP_POSTS = (page - 1) * POSTS_PER_PAGE
@@ -49,7 +50,8 @@ def get_posts():
 
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
-                           header_img=header_img, genres=genres, page=page, users=users)
+                           header_img=header_img, genres=genres, page=page, users=users,
+                           search_called=search_called)
 
 
 @app.route('/search', methods=['GET', 'POST'])
