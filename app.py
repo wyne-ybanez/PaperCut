@@ -65,6 +65,7 @@ def search():
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     header_img = True
+    search_called=True
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -73,7 +74,7 @@ def search():
         post['genre_name'] = genre_name
 
     return render_template('index.html', posts=posts, genres=genres,
-                            users=users, header_img=header_img)
+                            users=users, header_img=header_img, search_called=search_called)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -391,4 +392,4 @@ def internal_error(error):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)

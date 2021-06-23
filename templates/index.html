@@ -138,9 +138,11 @@
 {% else %}
 <div class="no_post_results">
   <h3 class="center-align deep-orange-text">No Results Found</h3>
+  {% if search_called == True %}
   <a href="{{ url_for('get_posts') }}" class="card waves-effect main-color search center-align white-text 
           waves-light btn">Return
   </a>
+  {% endif %}
 </div>
 {% endif %}
 {% endblock %}
