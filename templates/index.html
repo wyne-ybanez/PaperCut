@@ -9,43 +9,57 @@
 {% if posts|length > 0 %}
 
 <div class="row">
+    <!-- CTA buttons -->
+    <div class="col l3 s12">
 
-  <!-- Search Genre -->
-  <div class="col l3 s12">
-    <div class="genre-search">
-      <h2>Search Genres:</h2>
-      <form action="{{ url_for('search') }}" method="POST">
-        <select id="genre_query" name="query" class="validate" required>
-          <option value="" disabled selected>Choose Genre</option>
+      <div class="write-post">
+        <h2>Write a review: </h2>
+        <p style="margin-top: 0.5rem;">Feel free to contribute to our community!</p>
+        <hr>
+        <br>
+        {% if session.user|lower %}
+        <a href="{{ url_for('add_post') }}" class="card waves-effect main-color search center-align white-text 
+            waves-light btn col m12 s12"> Add Post
+        </a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="card waves-effect main-color search center-align white-text 
+            waves-light btn col m12 s12"> Sign In
+        </a>
+        <a href="{{ url_for('register') }}" class="card waves-effect main-color search center-align white-text 
+            waves-light btn col m12 s12"> Register
+        </a>
+        {% endif %}
+      </div>
+
+      <!-- Genre Search Dropdown -->
+        <div class="genre-search">
+          <h2>Search Genres:</h2>
+          <form action="{{ url_for('search') }}" method="POST">
+            <select id="genre_query" name="query" class="validate" required>
+              <option value="" disabled selected>Choose Genre</option>
+              {% for genre in genres %}
+              <option value="{{ genre._id }}">{{ genre.genre_name }}</option>
+              {% endfor %}
+            </select>
+            <label for="genre_query">Search Genre</label>
+            <button type="submit" class="card waves-effect main-color search center-align white-text 
+                waves-light btn col m12 s12">Search
+            </button>
+          </form>
+        </div>
+
+      <!-- Genre Search List -->
+      <div class="genre-options">
+        <h2>Search Genres:</h2>
+        <form action="{{ url_for('search') }}" method="POST">
           {% for genre in genres %}
-          <option value="{{ genre._id }}">{{ genre.genre_name }}</option>
+          <button type="submit" value="{{ genre._id }}" name="query" class="card waves-effect alternate-color search center-align 
+            white-text waves-light btn col m12 s12">{{ genre.genre_name }}
+          </button>
           {% endfor %}
-        </select>
-        <label for="genre_query">Search Genre</label>
-        <button type="submit" class="card waves-effect main-color search center-align white-text 
-            waves-light btn col m12 s12">Search
-        </button>
-      </form>
-    </div>
+        </form>
+      </div>
 
-    <div class="write-post">
-      <h2>Write a review: </h2>
-      <p style="margin-top: 0.5rem;">Feel free to contribute to our community!</p>
-      <hr>
-      <br>
-      {% if session.user|lower %}
-      <a href="{{ url_for('add_post') }}" class="card waves-effect main-color search center-align white-text 
-          waves-light btn col m12 s12"> Add Post
-      </a>
-      {% else %}
-      <a href="{{ url_for('login') }}" class="card waves-effect main-color search center-align white-text 
-          waves-light btn col m12 s12"> Sign In
-      </a>
-      <a href="{{ url_for('register') }}" class="card waves-effect main-color search center-align white-text 
-          waves-light btn col m12 s12"> Register
-      </a>
-      {% endif %}
-    </div>
   </div>
 
   <!-- Posts -->

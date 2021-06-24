@@ -63,7 +63,7 @@ def search():
     """
     query = request.form.get('query')
     users = list(mongo.db.users.find())
-    genres = mongo.db.genres.find()
+    genres = list(mongo.db.genres.find())
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     header_img = True

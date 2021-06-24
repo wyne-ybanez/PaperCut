@@ -317,6 +317,12 @@ header.masthead .post-heading .meta a {
   background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 }
 
+.alternate-color {
+  color:orange !important;
+  border: 2px solid orange;
+  background: #fff;
+}
+
 .btn-floating.halfway-fab.plus {
   right: 70px;
 }
@@ -367,12 +373,14 @@ header.masthead .post-heading .meta a {
 
 /*====== Genre Search ======*/
 
+.genre-options h2,
 .genre-search h2 {
     font-weight: 600;
     font-size: 25px;
     margin-bottom: 0;
 }
 
+.genre-options .genre-list P,
 .genre-search .genre-list P{
     margin-top: 0;
 }
@@ -381,6 +389,7 @@ header.masthead .post-heading .meta a {
   width: 200px;
 }
 
+.genre-options .card,
 .genre-search .card,
 .genre-list .card {
   margin: 10px 10px ;
@@ -473,6 +482,7 @@ button.card:hover {
   background-color: #fff !important;
   background: #fff !important;
   text-shadow: 0px 0px;
+  border-color: black;
 }
 
 /*====== Footer ======*/
@@ -533,6 +543,10 @@ button.card:hover {
   .genre-list .card {
     margin: 10px 0px ;
   }
+
+  .genre-options {
+    display: none;
+  }
 }
 
 /*====== Mobile Phone media queries ======*/
@@ -577,6 +591,10 @@ button.card:hover {
   .genre-list .card {
     margin: 10px 0px ;
   }
+
+  .genre-options {
+    display: none;
+  }
 }
 
 /*====== IPad/tablets ======*/
@@ -604,11 +622,31 @@ button.card:hover {
   .margin-bottom {
     margin-bottom: 10.5rem;
   }
+
+  .genre-options {
+    display: none;
+  }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1366px){
+/* Ipad Pro */
+@media (min-width: 1024px) {
   .row .nav {
     left: 10rem;
+  }
+}
+
+/* Laptop/larger Media Queries */
+@media (min-width: 1200px) and (max-width: 1366px){
+  .row .nav {
+    left: 10rem;
+  }
+
+  .genre-options {
+    display: visible;
+  }
+
+  .genre-search {
+    display: none;
   }
 }
   
