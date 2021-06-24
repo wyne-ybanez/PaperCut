@@ -43,7 +43,6 @@ body {
 .site-logo {
   font-weight: 700;
   font-size: 60px;
-  color: rgb(255, 94, 0);
 }
 
 /*====== Navbar ======*/
@@ -103,6 +102,14 @@ nav .brand-logo {
   color: #000;
 }
 
+.input-field>label {
+  color: white;
+}
+
+.input-field>label.scrolled {
+  color: black;
+}
+
 /*====== MastHead from: Start Bootstrap - Clean Blog v5.0.10 (https://startbootstrap.com/theme/clean-blog) ======*/
 header.masthead {
   margin-bottom: 50px;
@@ -128,7 +135,7 @@ header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
   padding: 200px 0 150px;
-  color: white;
+  color: orange;
 }
 
 @media only screen and (min-width: 768px) {
@@ -305,14 +312,11 @@ header.masthead .post-heading .meta a {
   text-overflow: ellipsis;
 }
 
-/* Color gradient from: https://mycolor.space/gradient?ori=to+left&hex=%233418B0&hex2=%23EB8512&sub=1 */
+/* Color gradient from: https://www.eggradients.com/category/yellow-gradient */
 .main-color,
 .btn-floating.halfway-fab {
-  background: linear-gradient(
-    0deg,
-    rgba(210, 9, 9, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background-color: #ef5734;
+  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 }
 
 .btn-floating.halfway-fab.plus {
