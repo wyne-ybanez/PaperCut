@@ -581,7 +581,7 @@ You can fork the repository through the following steps. Forking the repository 
 - Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
 - Text overlapping container solution - [link](https://stackoverflow.com/questions/50819817/materialize-text-overlapping-div)
 - Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
-- Main color theme of the website - [link](https://cssgradient.io/) 
+- Main color theme of the website - [link](https://www.eggradients.com/category/yellow-gradient) 
 - Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to 'genre_id' field in the 'posts' collection.
 - Error handlers through flask documentation - [link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 
