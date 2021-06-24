@@ -9,6 +9,7 @@
 body {
   font-family: "Syne", sans-serif;
   overflow-x: hidden;
+  background: whitesmoke
 }
 
 /* Code to stop css transitions occuring while page loads: https://css-tricks.com/transitions-only-after-page-load/ */
