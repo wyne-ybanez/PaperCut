@@ -21,11 +21,11 @@
     <title>Papercuts</title>
 </head>
 
-<body class="grey lighten-3">
+<body>
 
     <!-- Header Changes based on page -->
     <header {% if header_img %} class="masthead"
-        style="background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"
+        style="background-image: url('https://images.unsplash.com/photo-1569585723140-efb9daaa18f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"
         {% endif %}>
         {% include "components/header.html" %}
         {% block header %}
@@ -75,7 +75,7 @@
             {% if messages %}
             {% for message in messages %}
             <div class="row flashes">
-                <h4 class="deep-orange lighten-2 black-text center-align">{{ message }}</h4>
+                <h4 class="orange lighten-2 black-text center-align">{{ message }}</h4>
             </div>
             {% endfor %}
             {% endif %}

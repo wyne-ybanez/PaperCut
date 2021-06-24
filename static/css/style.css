@@ -43,6 +43,7 @@ body {
 .site-logo {
   font-weight: 700;
   font-size: 60px;
+  color: orange; 
 }
 
 /*====== Navbar ======*/
@@ -82,11 +83,8 @@ nav .brand-logo {
 }
 
 .sidenav.right-aligned {
-  background: linear-gradient(
-    0deg,
-    rgba(210, 9, 9, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background-color: #ef5734;
+  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 }
 
 .nav-items .row {
@@ -102,12 +100,14 @@ nav .brand-logo {
   color: #000;
 }
 
-.input-field>label {
+.search.input-field>label {
   color: white;
+  text-shadow: 2px 2px 2px rgb(0 0 0 / 90%);;
 }
 
-.input-field>label.scrolled {
+.search.input-field>label.scrolled {
   color: black;
+  text-shadow: none;
 }
 
 /*====== MastHead from: Start Bootstrap - Clean Blog v5.0.10 (https://startbootstrap.com/theme/clean-blog) ======*/
@@ -272,11 +272,8 @@ header.masthead .post-heading .meta a {
 }
 
 .pagination .active {
-  background: linear-gradient(
-    0deg,
-    rgba(210, 9, 9, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background-color: #ef5734;
+  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 }
 
 /*====== Card Posts ======*/
@@ -401,7 +398,7 @@ header.masthead .post-heading .meta a {
 
 /* Changing select drop down menu color: https://www.javaer101.com/en/article/2794917.html */
 .dropdown-content li>a, .dropdown-content li>span {
-  color: orangered;
+  color: orange;
 }
 
 /*====== Textarea ======*/
@@ -483,11 +480,8 @@ button.card:hover {
 }
 
 .row-color .container{
-    background: linear-gradient(
-        0deg,
-        rgba(210, 9, 9, 1) 0%,
-        rgba(253, 187, 45, 1) 100%
-      ) !important;
+    background-color: #ef5734;
+    background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
     width: 100%;
     max-width: 2000px;
     margin-top: 6rem;

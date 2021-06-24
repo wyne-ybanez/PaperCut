@@ -8,7 +8,7 @@
         <div class="row">
             <!-- Genre -->
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix deep-orange-text"></i>
+                <i class="fas fa-folder-open prefix orange-text"></i>
                 <select id="genre" name="genre" class="validate" required>
                     <option value="" disabled>Choose Genre</option>
                     {% for genre in genres %}
@@ -26,7 +26,7 @@
         <!-- Title -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-heading prefix deep-orange-text"></i>
+                <i class="fas fa-heading prefix orange-text"></i>
                 <input id="post_title" name="post_title" type="text" minlength="5" maxlength="200"
                     value="{{ post.post_title }}" class="validate" required>
                 <label for="post_title">Title</label>
@@ -35,7 +35,7 @@
         <!-- Book -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-book prefix deep-orange-text"></i>
+                <i class="fas fa-book prefix orange-text"></i>
                 <input id="book" name="book" type="text" minlength="5" maxlength="200" value="{{ post.book }}"
                     class="validate" required>
                 <label for="book">Book</label>
@@ -44,7 +44,7 @@
         <!-- Book Review -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pen prefix deep-orange-text"></i>
+                <i class="fas fa-pen prefix orange-text"></i>
                 <textarea id="review" name="review" class="materialize-textarea" minlength="5" maxlength="3000"
                     data-length="1500" required>{{- post.review -}}</textarea>
                 <label for="review">Book Review</label>
