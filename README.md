@@ -354,8 +354,6 @@ All images used within the website were all taken from [unsplash](https://unspla
 
 - The option to change the user's email address on the profile has been removed. Instead the user can only edit their profile status and posts. I did this to avoid confusion between user's, in order to make finding author's posts easier and maintain account security.
 
-- Rather than having a genre list, instead the website has a drop down feature displaying all the genre options. This ultimately makes the page look cleaner.
-
 - The Admin Dashboard has been altered immensely. Every user now has the search feature available at the top navigation bar. Instead, the dashboard will display the number of posts and the number of users registered on the website. It will also allow the admin to edit or delete genres as he/she pleases.
 
 ****
