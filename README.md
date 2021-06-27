@@ -326,14 +326,14 @@ Database security is maintained through the "env.py" file which ensures that the
 
 The main website color is a linear gradient from yellow to orange to red:<br>
 ![main-color](readme_Img/main-color.png)
-- background: rgb(210,9,9);
-- background: linear-gradient(0deg, rgba(210,9,9,1) 0%, rgba(253,187,45,1) 100%);
+- background-color: #ef5734;
+- background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 
 Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: <br>
 ![black_and_white](readme_Img/black&white.png)
 
-The secondary color is materialize css deep-orange color, this color was also used for flash messages:<br>
-![black_and_white](readme_Img/deep-orange.png)
+The secondary color is materialize css orange color, this color was also used for flash messages:<br>
+![orange_color](readme_Img/orange.png)
 
 #### Typography
 
@@ -474,6 +474,26 @@ Test Results are documented [here](TESTING.md)
 
 3. It creates a Gitpod workspace of which I could start developing the project.
 
+### Local Deployment
+
+To deploy the project locally, the following commands were used:
+
+1. In the terminal, type "pip3 install Flask" which sets up flask and allows imports.
+
+2. In terminal, the developer then types in "touch app.py" or create a new file and name it "app.py". This is where the applications funcationality derives from.
+
+3. We will be storing some sensitive information for local deployment, hence an "env.py" file must be created.
+
+4. Open a ".gitignore" file and type "env.py" as well as "__pycache__/" in this .gitignore file.
+
+5. Type "import os" within the "env.py" file in order to set default envrionment variables.
+
+- The IP variable is set to "0.0.0.0" - (os.environ.setdefault("IP", "0.0.0.0"))
+- The PORT is set to "5000" - os.environ.setdefault("PORT", "5000")
+- SECRET_KEY is set to the developers own generated secret key - os.environ.setdefault("SECRET_KEY", "#SECRET_KEY")
+- MongoDB name is set to the database name created by the developer - os.environ.setdefault("MONGO_DBNAME", "#DbName")
+- Mongo URI is provided by MongoDB upon creation of a Database and is used for Database connection - os.environ.setdefault("MONGO_URI", "#ProvidedMongoURI")
+
 ### Version Control 
 
 In the terminal, I utilised the following commands in the following order:
@@ -581,7 +601,7 @@ You can fork the repository through the following steps. Forking the repository 
 - Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
 - Text overlapping container solution - [link](https://stackoverflow.com/questions/50819817/materialize-text-overlapping-div)
 - Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
-- Main color theme of the website - [link](https://www.eggradients.com/category/yellow-gradient) 
+- "Warm-Ice" Main color theme of the website - [link](https://www.eggradients.com/category/yellow-gradient) 
 - Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to 'genre_id' field in the 'posts' collection.
 - Error handlers through flask documentation - [link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 
