@@ -324,15 +324,18 @@ Database security is maintained through the "env.py" file which ensures that the
 
 #### Colour Scheme
 
-The main website color is saddle-brown:<br>
-![main-color](readme_Img/main-brown.png)
-- background-color: #8B4513;
+The main website color is orange:<br>
 
-Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: <br>
+Text colors derive from materialize css white-text, black-text and saddle brown. These colors were used interchangeably depending on the background color used: 
+<br>
 ![black_and_white](readme_Img/black&white.png)
+<br>
+![brown-color](readme_Img/main-brown.png)
 
-The base color is the 'old lace' white color:<br>
-![brown_color](readme_Img/old-lace.png)
+The base color is the 'old lace' and wheat, variations of white color:<br>
+![base_color](readme_Img/old-lace.png)
+<br>
+![wheat_color](readme_Img/wheat.png)
 
 #### Typography
 

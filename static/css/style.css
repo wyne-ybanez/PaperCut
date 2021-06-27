@@ -45,7 +45,7 @@ body {
 .site-logo {
   font-weight: 700;
   font-size: 60px;
-  color: orange; 
+  color: #FDF5E6; 
 }
 
 /*====== Navbar ======*/
@@ -85,7 +85,7 @@ nav .brand-logo {
 }
 
 .sidenav.right-aligned {
-  background-color: #8B4513;
+  background-color: wheat;
 }
 
 .nav-items .row {
@@ -273,7 +273,7 @@ header.masthead .post-heading .meta a {
 }
 
 .pagination li.active a {
-  background-color: #8B4513;
+  background-color: orange;
   color: #fff;
 }
 
@@ -313,7 +313,7 @@ header.masthead .post-heading .meta a {
 /* Color from: https://www.rapidtables.com/web/color/brown-color.html */
 .main-color,
 .btn-floating.halfway-fab {
-  background-color: #8B4513;
+  background-color: orange;
 }
 
 .brown-text {
@@ -321,8 +321,8 @@ header.masthead .post-heading .meta a {
 }
 
 .list-color {
-  color:#8B4513	 !important;
-  border: 2px solid #8B4513	;
+  color:orange !important;
+  border: 2px solid orange	;
   background: #fff;
 }
 
@@ -488,12 +488,16 @@ button.card:hover {
 }
 
 /*====== Footer ======*/
+.page-footer {
+  background-color: wheat;
+}
+
 .page-footer h5 {
   font-weight: 600;
 }
 
 .row-color .container{
-    background-color: #8B4513;
+    background-color: orange;
     width: 100%;
     max-width: 2000px;
     margin-top: 6rem;
