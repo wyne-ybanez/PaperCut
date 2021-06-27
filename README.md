@@ -324,8 +324,8 @@ Database security is maintained through the "env.py" file which ensures that the
 
 #### Colour Scheme
 
-The main website color is a linear gradient from yellow to orange to red:<br>
-![main-color](readme_Img/main-color.png)
+The main website color is saddle-brown:<br>
+![main-color](readme_Img/main-brown.png)
 - background-color: #8B4513;
 
 Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: <br>
