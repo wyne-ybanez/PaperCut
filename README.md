@@ -20,7 +20,7 @@ The user can also create and post their own book reviews. The live website can b
             * [Colour Scheme](#Colour-Scheme)
             * [Typography](#Typography)
             * [Imagery](#Imagery)
-    * [Differences to Design](#Differences-to-Design)
+    * [Differences to Wireframes](#Differences-to-Wireframes)
 * [Features](#Features)
     * [Existing Features](#Existing-Features)
     * [Future Features](#Features-Left-to-Implement)
