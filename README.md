@@ -325,6 +325,7 @@ Database security is maintained through the "env.py" file which ensures that the
 #### Colour Scheme
 
 The main website color is orange:<br>
+![orange_color](readme_Img/orange.png)
 
 Text colors derive from materialize css white-text, black-text and saddle brown. These colors were used interchangeably depending on the background color used: 
 <br>
