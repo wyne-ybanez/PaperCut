@@ -326,14 +326,13 @@ Database security is maintained through the "env.py" file which ensures that the
 
 The main website color is a linear gradient from yellow to orange to red:<br>
 ![main-color](readme_Img/main-color.png)
-- background-color: #ef5734;
-- background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+- background-color: #8B4513;
 
 Text colors derive from materialize css white-text and black-text. These colors were used interchangeably depending on the background color used: <br>
 ![black_and_white](readme_Img/black&white.png)
 
-The secondary color is materialize css orange color, this color was also used for flash messages:<br>
-![orange_color](readme_Img/orange.png)
+The base color is the 'old lace' white color:<br>
+![brown_color](readme_Img/old-lace.png)
 
 #### Typography
 
