@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 
 * {
   margin: 0;
@@ -7,9 +7,10 @@
 }
 
 body {
-  font-family: "Syne", sans-serif;
+  font-family: "Benne", sans-serif;
   overflow-x: hidden;
-  background: whitesmoke
+  /* Color: https://www.rapidtables.com/web/color/white-color.html */
+  background: #FDF5E6;
 }
 
 /* Code to stop css transitions occuring while page loads: https://css-tricks.com/transitions-only-after-page-load/ */
@@ -84,8 +85,7 @@ nav .brand-logo {
 }
 
 .sidenav.right-aligned {
-  background-color: #ef5734;
-  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+  background-color: #8B4513;
 }
 
 .nav-items .row {
@@ -272,9 +272,9 @@ header.masthead .post-heading .meta a {
   margin-top: 3rem;
 }
 
-.pagination .active {
-  background-color: #ef5734;
-  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+.pagination li.active a {
+  background-color: #8B4513;
+  color: #fff;
 }
 
 /*====== Card Posts ======*/
@@ -310,16 +310,19 @@ header.masthead .post-heading .meta a {
   text-overflow: ellipsis;
 }
 
-/* Color gradient from: https://www.eggradients.com/category/yellow-gradient */
+/* Color from: https://www.rapidtables.com/web/color/brown-color.html */
 .main-color,
 .btn-floating.halfway-fab {
-  background-color: #ef5734;
-  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+  background-color: #8B4513;
 }
 
-.alternate-color {
-  color:orange !important;
-  border: 2px solid orange;
+.brown-text {
+  color:#8B4513;
+}
+
+.list-color {
+  color:#8B4513	 !important;
+  border: 2px solid #8B4513	;
   background: #fff;
 }
 
@@ -407,7 +410,7 @@ header.masthead .post-heading .meta a {
 
 /* Changing select drop down menu color: https://www.javaer101.com/en/article/2794917.html */
 .dropdown-content li>a, .dropdown-content li>span {
-  color: orange;
+  color: #8B4513;
 }
 
 /*====== Textarea ======*/
@@ -490,8 +493,7 @@ button.card:hover {
 }
 
 .row-color .container{
-    background-color: #ef5734;
-    background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+    background-color: #8B4513;
     width: 100%;
     max-width: 2000px;
     margin-top: 6rem;

@@ -8,22 +8,22 @@
       <div class="card-image">
         {% if session.user %}
         <a href="{{ url_for('add_post', post_id=post._id) }}" class="btn-floating plus halfway-fab 
-              waves-effect waves-light orange">
+              waves-effect waves-light main-color">
           <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
         </a>
         {% else %}
         <a href="{{ url_for('login') }}" class="btn-floating plus halfway-fab 
-              waves-effect waves-light orange">
+              waves-effect waves-light main-color">
           <i class="fas fa-plus tooltipped" data-position="bottom" data-tooltip="Add Post"></i>
         </a>
         {% endif %}
         <!-- Creator/Admin actions -->
         {% if session.user|lower == post.created_by|lower %}
         <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn-floating pen halfway-fab 
-                waves-effect waves-light orange">
+                waves-effect waves-light main-color">
           <i class="fas fa-pen tooltipped" data-position="bottom" data-tooltip="Edit Post"></i>
         </a>
-        <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light orange">
+        <a href="#delete_post" class="modal-trigger btn-floating halfway-fab waves-effect waves-light main-color">
           <i class="fas fa-trash-alt tooltipped" data-position="bottom" data-tooltip="Delete Post"></i>
         </a>
         {% endif %}

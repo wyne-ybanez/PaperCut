@@ -52,7 +52,7 @@
         <h2>Search Genres:</h2>
         <form action="{{ url_for('search') }}" method="POST">
           {% for genre in genres %}
-          <button type="submit" value="{{ genre._id }}" name="query" class="card waves-effect alternate-color search center-align 
+          <button type="submit" value="{{ genre._id }}" name="query" class="card waves-effect list-color search center-align 
             white-text waves-light btn col m12 s12">{{ genre.genre_name }}
           </button>
           {% endfor %}

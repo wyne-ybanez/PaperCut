@@ -337,8 +337,7 @@ The secondary color is materialize css orange color, this color was also used fo
 
 #### Typography
 
-The main typography used for the website was the font named "Syne". This font was accessed through Google fonts. 
-The font weight values used are 400,500,600 and 700.
+The main typography used for the website was the font named "Benne". This font was accessed through Google fonts. 
 
 #### Imagery
 
@@ -599,7 +598,8 @@ You can fork the repository through the following steps. Forking the repository 
 - Preserve text area prewrap - [link](https://stackoverflow.com/questions/40417527/how-do-i-preserve-line-breaks-when-getting-text-from-a-textarea/40426477)
 - Text overlapping container solution - [link](https://stackoverflow.com/questions/50819817/materialize-text-overlapping-div)
 - Avatar styling - [link](https://www.w3schools.com/howto/howto_css_image_avatar.asp)
-- "Warm-Ice" Main color theme of the website - [link](https://www.eggradients.com/category/yellow-gradient) 
+- Brown Main color theme of the website - [link](https://www.rapidtables.com/web/color/brown-color.html) 
+- Base background color - [link](https://www.rapidtables.com/web/color/white-color.html)
 - Code Institute's Tutor Johan for accessing ‘genre_name’ from genres collection and attaching appropriate data to 'genre_id' field in the 'posts' collection.
 - Error handlers through flask documentation - [link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 
