@@ -32,7 +32,7 @@ def get_posts():
     """
     # Variables
     header_img = True
-    search_called=False
+    search_called = False
     POSTS_PER_PAGE = 5
     page = request.args.get('page', 1, type=int)
     SKIP_POSTS = (page - 1) * POSTS_PER_PAGE
@@ -50,8 +50,8 @@ def get_posts():
 
     genres = list(mongo.db.genres.find().sort('genre_name', 1))
     return render_template("index.html", posts=posts, posts_data=posts_data,
-                           header_img=header_img, genres=genres, page=page, users=users,
-                           search_called=search_called)
+                           header_img=header_img, genres=genres, page=page, 
+                           users=users, search_called=search_called)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -67,7 +67,7 @@ def search():
     posts = list(mongo.db.posts.find(
         {'$text': {'$search': query}}).sort([('date', -1), ('edit_date', -1)]))
     header_img = True
-    search_called=True
+    search_called = True
 
     # Attach Genre name to Genre ID.
     for post in posts:
@@ -75,8 +75,9 @@ def search():
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         post['genre_name'] = genre_name
 
-    return render_template('index.html', posts=posts, genres=genres,
-                            users=users, header_img=header_img, search_called=search_called)
+    return render_template('index.html', posts=posts, genres=genres, 
+                           users=users, header_img=header_img, 
+                           search_called=search_called)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -145,6 +146,7 @@ def search_profile(user_id):
     their status and posts.
     """
     user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
+    users = list(mongo.db.users.find())
     posts = list(mongo.db.posts.find({'created_by': user['username']}))
 
     # Attach Genre name to Genre ID.
@@ -153,7 +155,8 @@ def search_profile(user_id):
             {"_id": ObjectId(post["genre_id"])})["genre_name"]
         post['genre_name'] = genre_name
 
-    return render_template("profile.html", user=user, posts=posts)
+    return render_template("profile.html", user=user, posts=posts,
+                           users=users)
 
 
 @app.route('/profile/<username>', methods=['GET', 'POST'])
@@ -165,8 +168,10 @@ def profile(username):
     """
     user = mongo.db.users.find_one({'username': session['user']})
     posts = mongo.db.posts.find({'created_by': user['username']})
+    users = list(mongo.db.users.find())
     if session['user']:
-        return render_template("profile.html", user=user, posts=posts)
+        return render_template("profile.html", user=user, 
+                               posts=posts, users=users)
     return redirect(url_for('login'))
 
 
@@ -204,6 +209,8 @@ def delete_profile(user_id):
     for post in posts:
         if post['created_by'] == user:
             mongo.db.posts.remove({'created_by': session['user']})
+            flash('Account Successfully Deleted')
+            return redirect(url_for('logout'))
         elif user == 'admin':
             flash('User Successfully Deleted')
             return redirect(url_for('get_posts'))

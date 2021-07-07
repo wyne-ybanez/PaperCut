@@ -119,7 +119,7 @@ header.masthead {
   background-attachment: scroll;
   position: relative;
   background-size: cover;
-  height: 100vh;
+  height: 80vh;
 }
 
 .overlay {
@@ -238,6 +238,7 @@ header.masthead .post-heading .meta a {
   background-color: white;
   height: 50px;
   width: 50px;
+  border: 0.5px solid #000;
 }
 
 .card-content .container .user {
@@ -533,7 +534,7 @@ button.card:hover {
   }
 
   .sidenav{
-    width: auto;
+    width: 70%;
   }
 
   .page-heading {
