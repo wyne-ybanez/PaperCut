@@ -276,6 +276,23 @@ header.masthead .post-heading .meta a {
   color: #fff;
 }
 
+/*====== About Card ======*/
+
+.about_card {
+  background: #FDF5E6;
+}
+
+.about_card .btn-floating.halfway-fab {
+  position: relative;
+  right:auto;
+  bottom: auto;
+  margin: 5px 0;
+}
+
+.about_card .card-content {
+  font-size: 17px;
+}
+
 /*====== Card Posts ======*/
 
 #post-card {

@@ -1,7 +1,7 @@
 # Papercuts - Book Review Blog Project
 
 "Papercuts" is a place user can view and read book reviews created by other readers. 
-The user can also create and post their own book reviews. The live website can be viewed [here](https://papercuts-project.herokuapp.com/).
+The user can also create and post their own book reviews. The live website can be viewed [here](https://papercuts-main.herokuapp.com/).
 
 ## Table of Contents
 

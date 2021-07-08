@@ -48,7 +48,7 @@
         </div>
 
       <!-- Genre Search List -->
-      <div class="genre-options">
+      <div class="genre-options show-on-large">
         <h2>Search Genres:</h2>
         <form action="{{ url_for('search') }}" method="POST">
           {% for genre in genres %}
@@ -58,7 +58,11 @@
           {% endfor %}
         </form>
       </div>
+  </div>
 
+  <!-- About Card Introduction -->
+  <div id="about-section" class="col s12 l9">
+  {% include "components/about_card.html" %}
   </div>
 
   <!-- Posts -->
