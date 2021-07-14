@@ -79,9 +79,12 @@ be able to edit and delete the reviews I created.
 
 - As an admin I want all of the above options but I want to also be able to access and delete the reviews 
 made by other users.
+- As an admin I want a dashboard to which displays the available functionalities for my website.
 - As an admin I want to be able to create and delete review categories/genres.
 - As an admin I want to be able to view how many users are registered on the website and delete users if 
 necessary.
+
+![Admin](readme_Img/admin.png)
 
 ### **The Scope Plane**
 
@@ -117,6 +120,8 @@ A site logo with the website name will be displayed on the main navigation bar a
 
 A detailed description of the site accompanied by relevant imagery will be displayed on the Home page so that is evident of the websites purpose as soon as the user visits the site.
 
+![Logo](readme_Img/logo.png)
+
 User Story:
 > As a user, I would like if the website were easy to navigate and that I never felt lost no matter where I was 
 when exploring the website
@@ -147,6 +152,8 @@ The following main pages will be implemented:
 - Error 404 - 404.html (error 404 handling)
 - Error 500 - 500.html (error 500 handling)
 
+![Sidenav](readme_Img/sidenav.png)
+
 User Story:
 > As a user, I want the website to me responsive, if I were to view it on mobile, tablet, laptop or desktop. I expect
 it's content to be clear and be position accordingly.
@@ -157,6 +164,8 @@ Criteria:
 Implementation:
 
 Materialize will be used to style the website's containers, grids and column sizes. Suitable sizes will be utlilised to portray content clearly regardless of the user's device. Images will be responsive, positioned and scaled down to ensure it fits the screen size approprately and will not obstruct any content.
+
+![Media_Queries](readme_Img/mobile_screensize.png)
 
 User Story:
 > As a user, I want to be able to return to the main site without having to use the browser buttons so 
