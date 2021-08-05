@@ -65,11 +65,10 @@
         </p>
         <br>
         <p><em>Review:</em></p>
-        <p class="card-review truncate">{{ post.review }}</p>
+        <p class="card-review">{{ post.review }}</p>
         <a href="{{ url_for('show_post', post_id=post._id) }}" class="center-align orange-text link">
             Read more
         </a>
-        <br>
         <br>
         {% for user in users %}
         {% if post.created_by == user.username %}

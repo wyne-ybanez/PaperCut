@@ -32,11 +32,13 @@
       <div class="card-content">
         <div class="container">
           <h3 class="center-align review-title">{{ post.post_title }}</h3>
-          <p style="font-size: 20px;"><em>Book:</em></p>
-          <p class="book">{{ post.book }}</p>
+          <p style="font-size: 20px;"><em>Book:</em> <span class="book"> {{ post.book }}</span></p>
           <br>
-          <p style="font-size: 20px;"><em>Genre:</em></p>
-          <p class="card-genre black-text">{{ post.genre_id }}</p>
+          {% if post.link %}
+          <p style="font-size: 20px;"><em>Link:</em> <a class="link" href="{{ post.link }}" target="_blank"> {{ post.link }}</a></p>
+          <br>
+          {% endif %}
+          <p style="font-size: 20px;"><em>Genre:</em> <span class="card-genre"> {{ post.genre_id }}</span></p>
           <br>
           <p style="font-size: 20px;"><em>Review:</em></p>
           <p class="review break-word"><strong>{{- post.review -}}</strong></p>

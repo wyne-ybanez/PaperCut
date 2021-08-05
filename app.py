@@ -243,6 +243,7 @@ def add_post():
             'genre_id': request.form.get('genre'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
+            'link': request.form.get('link'),
             'review': request.form.get('review'),
             'date': today.strftime('%d %B, %Y'),
             'created_by': session['user']
@@ -283,6 +284,7 @@ def edit_post(post_id):
             'genre_id': request.form.get('genre'),
             'post_title': request.form.get('post_title'),
             'book': request.form.get('book'),
+            'link': request.form.get('link'),
             'review': request.form.get('review'),
             'created_by': session['user'],
             'edit_date': edit_date.strftime('%d %B, %Y')
@@ -401,4 +403,4 @@ def internal_error(error):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)

@@ -381,6 +381,10 @@ header.masthead .post-heading .meta a {
   overflow-wrap: break-word;
 }
 
+.link {
+  color: black;
+}
+
 .card-genre{
   font-size: 25px;
   font-weight: 700;
