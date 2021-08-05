@@ -35,7 +35,7 @@
           <p style="font-size: 20px;"><em>Book:</em> <span class="book"> {{ post.book }}</span></p>
           <br>
           {% if post.link %}
-          <p style="font-size: 20px;"><em>Link:</em> <a class="link" href="{{ post.link }}" target="_blank"> {{ post.link }}</a></p>
+          <p class="truncate" style="font-size: 20px;"><em>Link:</em> <a class="link" href="{{ post.link }}" target="_blank"> {{ post.link }}</a></p>
           <br>
           {% endif %}
           <p style="font-size: 20px;"><em>Genre:</em> <span class="card-genre"> {{ post.genre_id }}</span></p>
