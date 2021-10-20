@@ -236,6 +236,16 @@ header.masthead .post-heading .meta a {
   font-size: 20px;
 }
 
+.index-avatar {
+  vertical-align: middle;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  border: 0.5px solid #000;
+}
+
 .card-status {
   font-size: 20px;
   font-weight: 700;
@@ -255,6 +265,45 @@ header.masthead .post-heading .meta a {
 
 .container .no_post_results {
   text-align: center;
+}
+
+.write-post h2 {
+  font-weight: 600;
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+.write-post .card {
+  margin-top: 0;
+}
+
+.genre-options h2, .genre-search h2 {
+  font-weight: 600;
+  font-size: 25px;
+  margin-bottom: 0;
+}
+
+.genre-options .card, .genre-search .card, .genre-list .card {
+  margin: 10px 10px;
+}
+
+.list-color {
+  color: orangered !important;
+  border: 2px solid orangered;
+  background: #fff;
+}
+
+.about_card .btn-floating.halfway-fab {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  margin: 5px 0;
+}
+
+.list-color-hover:hover {
+  color: #000 !important;
+  border: 2px solid #000;
+  background: #fff;
 }
 
 /*====== Pagination ======*/
@@ -336,8 +385,8 @@ header.masthead .post-heading .meta a {
 }
 
 .card-review {
-  width: 250px;
-  white-space: nowrap;
+  width: auto;
+  height: 4.2em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -575,6 +624,10 @@ header.masthead .post-heading .meta a {
   .margin-bottom {
     margin-bottom: 10.5rem;
   }
+
+  .genre-options {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1366px){
@@ -582,4 +635,3 @@ header.masthead .post-heading .meta a {
     left: 10rem;
   }
 }
-  

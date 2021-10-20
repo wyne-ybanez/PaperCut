@@ -20,6 +20,7 @@ $(document).ready(function () {
             $('.nav-search-bar').addClass('black-text');
             $('.nav-search-icon').removeClass('white-text text-shadow');
             $('.nav-search-icon').css('color','#000');
+            $('.input-field>label').addClass('scrolled')
         }
         else{
             $('.fa-bars').addClass('text-shadow');
@@ -31,6 +32,7 @@ $(document).ready(function () {
             $('.nav-search-bar').removeClass('black-text');
             $('.nav-search-icon').addClass('text-shadow');
             $('.nav-search-icon').css('color','#fff');
+            $('.input-field>label').removeClass('scrolled')
         }
     }
 

@@ -1,0 +1,52 @@
+<!-- Side Navbar - Web -->
+<div class="navbar-fixed">
+    <nav class="nav-extended navbar transparent no-shadows">
+        <div class="nav-wrapper">
+            <div class="nav-items row">
+                <a href="{{ url_for('get_posts') }}" class="brand-logo white-text text-shadow col l1 m3 s0 xs0 phone 
+                            responsive">Papercuts</a>
+
+                <!-- Nav Search Bar -->
+                <form action="{{ url_for('search', page = 1) }}" method="post" class="col center-align 
+                        l8 m9 s0 xs0">
+                    <div class="nav row valign-wrapper center-align">
+                        <div class="search input-field col l8 m6 s0 xs0 responsive">
+                            <i class="fas fa-search prefix nav-search-icon white-text text-shadow"></i>
+                            <input type="text" name="query" id="query" minlength="1"
+                                class="validate nav-search-bar white-text text-shadow" required>
+                            <label for="query">Search Posts</label>
+                        </div>
+                    </div>
+                </form>
+
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right col l3 m0 s0 xs0"><i
+                        class="fas fa-bars fa-2x text-shadow"></i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down navlist">
+                    <li><a href="#" data-target="slide-out" class="sidenav-trigger web"><i
+                                class="fas fa-bars fa-2x text-shadow"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Header Overlay -->
+    {% if header_img %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class="text-shadow site-logo" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                        data-aos-duration="1200">
+                        Papercuts
+                    </h1>
+                    <span class="subheading text-shadow site-logo" data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom" data-aos-delay="1500" data-aos-duration="1500">
+                        Critical Book Reviews
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
