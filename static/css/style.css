@@ -553,6 +553,15 @@ header.masthead .post-heading .meta a {
   .genre-list .card {
     margin: 10px 0px ;
   }
+
+  .review {
+    font-size: 14px;
+  }
+
+  .book, 
+  .card-genre {
+    font-size: 18px;
+  }
 }
 
 /*====== Mobile Phone media queries ======*/
