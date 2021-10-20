@@ -389,6 +389,7 @@ header.masthead .post-heading .meta a {
   height: 4.2em;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: normal!important;
 }
 
 .review {
