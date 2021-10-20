@@ -597,6 +597,10 @@ header.masthead .post-heading .meta a {
   .genre-list .card {
     margin: 10px 0px ;
   }
+
+  .genre-options {
+    display: none;
+  }
 }
 
 /*====== IPad/tablets ======*/
