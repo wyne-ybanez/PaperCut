@@ -522,10 +522,14 @@ header.masthead .post-heading .meta a {
 
 /*====== Extra Small phones ======*/
 @media only screen and (min-width: 320px) and (max-width: 480px){
-  .card {
-    margin: auto;
+  .show-on-large {
+    display: none !important;
   }
   
+  .card-info {
+    margin: auto;
+  }
+
   .card-review{
     width: auto;
   }
@@ -566,6 +570,18 @@ header.masthead .post-heading .meta a {
   .book, 
   .card-genre {
     font-size: 18px;
+  }
+
+  .about_card {
+    margin-top: 1.5rem;
+  }
+
+  .genre-search {
+    margin-top: 7rem;
+  }
+
+  .write-post .card {
+    margin-bottom: 1.5rem;
   }
 }
 
